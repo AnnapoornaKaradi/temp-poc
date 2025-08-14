@@ -1,1 +1,1 @@
-https://dev.azure.com/ServiceLink/SystemAdmin/_build/results?buildId=1445410&view=logs&j=f3e8a3ce-1e62-520c-2917-c889a84bcb95&t=620dc2f1-466b-5853-bdda-3da39ab4adfb
+helm repo add komodorio https://helm-charts.komodor.io ; helm repo update; helm install komodor-agent komodorio/komodor-agent --set apiKey=c55976a7-a90a-4183-9e20-6655edd65e7a --set clusterName=fnfi-lev-aks-dev-01  -n komodor
