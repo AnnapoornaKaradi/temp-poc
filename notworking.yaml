@@ -1,0 +1,103 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dapr-sidecar-check
+  namespace: dev-aks-sinhchatapi
+spec:
+  schedule: "*/2 * * * *"  # Every 5 minutes
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          serviceAccountName: dev-aks-sinhchatapi-sa
+          restartPolicy: Never
+          containers:
+          - name: dapr-check
+            image:  ccopaksacrdevpublicimages.azurecr.io/dapr/sample:0.2  # Includes kubectl, curl, jq
+            securityContext:
+              runAsUser: 1019
+              readOnlyRootFilesystem: false
+              allowPrivilegeEscalation: false
+            command:
+              - /bin/sh
+              - -c
+              - |
+                NAMESPACE="dev-aks-sinhchatapi"
+                ALERT_URL="https://prod-104.westus.logic.azure.com:443/workflows/a1925443f705470f826d225af6561459/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanua
+l%2Frun&sv=1.0&sig=9-10StX_0cXrG46KvTL3lQAwpwBwTfABwXnUN_IuhgU"  #  Replace with your Power Automate HTTP trigger URL
+                MAX_RETRIES=10
+                RETRY_DELAY=15
+                SENT_INITIAL_ALERT=false
+
+                for i in $(seq 1 $MAX_RETRIES); do
+                  echo " Attempt $i/$MAX_RETRIES"
+
+                  MISSING_PODS=$(kubectl get pods -n "$NAMESPACE" -o json | jq -r '
+                    .items[]
+                    | select(.metadata.annotations["dapr.io/enabled"] == "true")
+                    | select(all(.status.containerStatuses[]?.name; . != "daprd"))
+                    | .metadata.name')
+
+                  if [ -z "$MISSING_PODS" ]; then
+                    echo "All pods have daprd sidecars."
+
+                    if [ "$SENT_INITIAL_ALERT" = true ]; then
+                      echo " Sending recovery alert..."
+
+                      jq -n \
+                        --arg alert "Dapr sidecar injected successfully after restart" \
+                        --arg namespace "$NAMESPACE" \
+                        --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                        '{alert: $alert, namespace: $namespace, timestamp: $timestamp}' | \
+                      curl -X POST "$ALERT_URL" -H "Content-Type: application/json" -d @-
+                    fi
+
+                    exit 0
+                  fi
+
+                  echo "Pods missing daprd:"
+                  echo "$MISSING_PODS"
+
+                  if [ "$SENT_INITIAL_ALERT" = false ]; then
+                    PODS_JSON=$(echo "$MISSING_PODS" | jq -R -s -c 'split("\n")[:-1]')
+                    jq -n \
+                      --arg alert " Dapr sidecar missing in some pods" \
+                      --arg namespace "$NAMESPACE" \
+                      --argjson pods "$PODS_JSON" \
+                      --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                      '{alert: $alert, namespace: $namespace, pods: $pods, timestamp: $timestamp}' | \
+                    curl -X POST "$ALERT_URL" -H "Content-Type: application/json" -d @-
+
+                    SENT_INITIAL_ALERT=true
+                  fi
+
+                  for pod in $MISSING_PODS; do
+                    echo "Restarting pod $pod"
+                    kubectl delete pod "$pod" -n "$NAMESPACE"
+                  done
+
+                  echo "Waiting $RETRY_DELAY seconds before next attempt..."
+                  sleep $RETRY_DELAY
+                done
+
+                # Final failure alert
+                echo " Sidecars still missing after $MAX_RETRIES retries"
+
+                PODS_JSON=$(echo "$MISSING_PODS" | jq -R -s -c 'split("\n")[:-1]')
+                jq -n \
+                  --arg alert "Dapr sidecars still missing after $MAX_RETRIES restarts" \
+                  --arg namespace "$NAMESPACE" \
+                  --argjson pods "$PODS_JSON" \
+                  --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                  '{alert: $alert, namespace: $namespace, pods: $pods, timestamp: $timestamp}' | \
+                curl -X POST "$ALERT_URL" -H "Content-Type: application/json" -d @-
+
+                exit 1
+            resources:
+              requests:
+                memory: "64Mi"
+                cpu: "100m"
+              limits:
+                memory: "128Mi"
+                cpu: "200m"
