@@ -1,0 +1,164 @@
+#pool: Common Build Pool
+pool:
+  vmImage: 'ubuntu-latest'
+  
+trigger: none
+
+variables:
+- name: application
+  value: servicelink
+
+parameters:
+- name: Sandbox
+  type: boolean
+  default: false
+  
+- name: Dev2
+  type: boolean
+  default: false
+
+- name: Perf
+  type: boolean
+  default: false
+
+- name: UAT2
+  type: boolean
+  default: false
+
+- name: Stage
+  type: boolean
+  default: false
+
+- name: Prod
+  type: boolean
+  default: false
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: SystemAdmin/PipelineTemplates
+      ref: refs/tags/24.09.26
+
+stages:
+
+- stage: Build
+  displayName: Build
+  jobs:
+    - template: templates/exos_baseinfra_build.yaml@templates
+      parameters:
+        artifactName: BaseInfra_Build
+        
+#--------------------- Environments in the Sandbox management group and using the Sandbox pipeline envrionment
+
+- ${{if eq(parameters.Sandbox, true)}}:
+  - template: templates/exos_baseinfra.yaml@templates
+    parameters:
+      application: ${{ variables.application }}
+      artifactVersion: BaseInfra_Build
+      serviceConnection: EXOS Deployment - SL-EXOS-Sandbox-01
+      releaseServiceConnection: EXOS Deployment - SL-EXOS-ReleaseMGMT-01
+      releaseBuildPool: Core Build Pool - New
+      envPath: /sandbox
+      configurations:
+        eus2:
+          environment: Sandbox
+          buildPool: Sandbox East Build Pool - New
+          id: sandbox_eus2
+          post: false
+
+#--------------------- Environments in the Dev management group and using the Dev pipeline envrionment
+
+- ${{if eq(parameters.Dev2, true)}}:
+  - template: templates/exos_baseinfra.yaml@templates
+    parameters:
+      application: ${{ variables.application }}
+      artifactVersion: BaseInfra_Build
+      serviceConnection: EXOS Deployment - SL-EXOS-Development-02
+      releaseServiceConnection: EXOS Deployment - SL-EXOS-ReleaseMGMT-01
+      releaseBuildPool: Core Build Pool - New
+      envPath: /dev2
+      configurations:
+        eus2:
+          environment: Dev   
+          buildPool: Dev2 Build Pool - New
+          id: dev2_eus2
+          post: false
+
+#--------------------- Environments in the NonProd management group and using the NonProd pipeline envrionment
+
+- ${{if eq(parameters.UAT2, true)}}:
+  - template: templates/exos_baseinfra.yaml@templates
+    parameters:
+      application: ${{ variables.application }}
+      artifactVersion: BaseInfra_Build
+      serviceConnection: EXOS Deployment - SL-EXOS-UAT-02
+      releaseServiceConnection: EXOS Deployment - SL-EXOS-ReleaseMGMT-01
+      releaseBuildPool: Core Build Pool - New
+      envPath: /uat2
+      configurations:
+        eus2:
+          environment: NonProd
+          buildPool: UAT2 East Build Pool - New
+          id: uat2_eus2
+          post: false
+
+- ${{if eq(parameters.Perf, true)}}:
+  - template: templates/exos_baseinfra.yaml@templates
+    parameters:
+      application: ${{ variables.application }}
+      artifactVersion: BaseInfra_Build
+      serviceConnection: EXOS Deployment - SL-EXOS-Performance-01
+      releaseServiceConnection: EXOS Deployment - SL-EXOS-ReleaseMGMT-01
+      releaseBuildPool: Core Build Pool - New
+      envPath: /perf
+      configurations:
+        eus2:
+          environment: NonProd
+          buildPool: Perf East Build Pool - New
+          id: perf_eus2
+          post: false
+        wus2:
+          environment: NonProd
+          buildPool: Perf West2 Build Pool - New
+          id: perf_wus2
+          post: false
+
+#--------------------- Environments in the Prod management group and using the Prod pipeline envrionment
+
+- ${{if eq(parameters.Stage, true)}}:
+  - template: templates/exos_baseinfra.yaml@templates
+    parameters:
+      application: ${{ variables.application }}
+      artifactVersion: BaseInfra_Build
+      serviceConnection: EXOS Deployment - SL-EXOS-Stage-01
+      releaseServiceConnection: EXOS Deployment - SL-EXOS-ReleaseMGMT-01
+      releaseBuildPool: Core Build Pool - New
+      envPath: /stage
+      configurations:
+        eus2:
+          environment: Prod
+          buildPool: Stage East Build Pool - New
+          id: stage_eus2
+          post: false
+          
+- ${{ if eq(parameters.Prod, true) }}:
+  - template: templates/exos_baseinfra.yaml@templates
+    parameters:
+      application: ${{ variables.application }}
+      artifactVersion: BaseInfra_Build
+      serviceConnection: EXOS Deployment - SL-EXOS-Production-01
+      releaseServiceConnection: EXOS Deployment - SL-EXOS-ReleaseMGMT-01
+      releaseBuildPool: Core Build Pool - New
+      envPath: /prod
+      configurations:
+        eus2:
+          environment: Prod
+          buildPool: Prod East Build Pool - New
+          id: prod_eus2
+          post: false
+        wus2:
+          environment: Prod
+          buildPool: Prod West2 Build Pool - New
+          id: prod_wus2
+          post: false
