@@ -1,0 +1,18 @@
+
+    }
+
+  # tls_private_key.build_image_vm_ssh["v42_wus2"] will be created
+  + resource "tls_private_key" "build_image_vm_ssh" {
+      + algorithm                     = "RSA"
+      + ecdsa_curve                   = "P224"
+      + id                            = (known after apply)
+      + private_key_openssh           = (sensitive value)
+      + private_key_pem               = (sensitive value)
+      + public_key_fingerprint_md5    = (known after apply)
+      + public_key_fingerprint_sha256 = (known after apply)
+      + public_key_openssh            = (known after apply)
+      + public_key_pem                = (known after apply)
+      + rsa_bits                      = 4096
+    }
+
+Plan: 30 to add, 16 to change, 0 to destroy.
