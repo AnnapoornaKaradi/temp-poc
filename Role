@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: dapr-sidecar-check
+  namespace: uat-aks-sinhchatapi
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "delete"]
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get", "list"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dapr-sidecar-check
+  namespace: uat-aks-sinhchatapi
+subjects:
+  - kind: ServiceAccount
+    name: uat-aks-sinhchatapi-sa
+    namespace: uat-aks-sinhchatapi
+roleRef:
+  kind: Role
+  name: dapr-sidecar-check
+  apiGroup: rbac.authorization.k8s.io
