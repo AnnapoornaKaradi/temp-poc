@@ -1,0 +1,7 @@
+k logs pod/dapr-sidecar-check-29268940-jktns -n uat-aks-sinhchatapi
+Listing pods with dapr.io/enabled annotation (for visibility):
+Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:uat-aks-sinhchatapi:uat-aks-sinhchatapi-sa" cannot list resource "pods" in API group "" in the namespace "uat-
+aks-sinhchatapi": Azure does not have opinion for this user.
+ Attempt 1/10
+error: Get "https://10.0.0.1:443/api/v1/namespaces/uat-aks-sinhchatapi/pods?limit=500": read tcp 10.151.37.148:33814->10.0.0.1:443: read: connection reset by peer - error from a previous a
+ttempt: read tcp 10.151.37.148:33812->10.0.0.1:443: read: connection reset by peer
