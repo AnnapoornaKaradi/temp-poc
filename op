@@ -28,3 +28,23 @@ curl: (3) URL rejected: Malformed input to a URL function
 curl: (3) URL rejected: No host part in the URL
 curl: (3) URL rejected: Malformed input to a URL function
 curl: (3) URL rejected: Malformed input to a URL function
+
+
+
+# See if a proxy is set
+env | grep -i proxy || true
+
+# Disable any proxy just for this shell
+export HTTPS_PROXY= HTTP_PROXY= 
+export NO_PROXY="127.0.0.1,localhost,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,*.svc,*.svc.cluster.local,kubernetes.default.svc"
+export no_proxy="$NO_PROXY"
+
+# Verify the SA token is there
+ls -l /var/run/secrets/kubernetes.io/serviceaccount/
+head -c 20 /var/run/secrets/kubernetes.io/serviceaccount/token && echo
+
+# Use the service DNS name (not the IP), and use a single line:
+curl -v -m 8 \
+  --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+  -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+  https://kubernetes.default.svc:443/readyz
