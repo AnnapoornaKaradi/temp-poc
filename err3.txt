@@ -1,0 +1,645 @@
+2025-08-25T14:28:22.3134299Z ##[section]Starting: Terraform Apply
+2025-08-25T14:28:22.3141488Z ==============================================================================
+2025-08-25T14:28:22.3141651Z Task         : Azure CLI
+2025-08-25T14:28:22.3141727Z Description  : Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
+2025-08-25T14:28:22.3141966Z Version      : 2.259.1
+2025-08-25T14:28:22.3142058Z Author       : Microsoft Corporation
+2025-08-25T14:28:22.3142141Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli
+2025-08-25T14:28:22.3142265Z ==============================================================================
+2025-08-25T14:28:24.3596206Z [command]/usr/local/bin/az --version
+2025-08-25T14:28:25.2105002Z WARNING: You have 2 update(s) available. Consider updating your CLI installation with 'az upgrade'
+2025-08-25T14:28:25.2105723Z azure-cli                         2.71.0 *
+2025-08-25T14:28:25.2107065Z 
+2025-08-25T14:28:25.2107943Z core                              2.71.0 *
+2025-08-25T14:28:25.2108494Z telemetry                          1.1.0
+2025-08-25T14:28:25.2109014Z 
+2025-08-25T14:28:25.2117032Z Dependencies:
+2025-08-25T14:28:25.2117373Z msal                            1.31.2b1
+2025-08-25T14:28:25.2117727Z azure-mgmt-resource               23.1.1
+2025-08-25T14:28:25.2117861Z 
+2025-08-25T14:28:25.2118125Z Python location '/usr/bin/python3'
+2025-08-25T14:28:25.2118431Z Config directory '/home/AzDevOps/.azure'
+2025-08-25T14:28:25.2118794Z Extensions directory '/home/AzDevOps/.azure/cliextensions'
+2025-08-25T14:28:25.2118957Z 
+2025-08-25T14:28:25.2119382Z Python (Linux) 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0]
+2025-08-25T14:28:25.2119612Z 
+2025-08-25T14:28:25.2119910Z Legal docs and information: aka.ms/AzureCliLegal
+2025-08-25T14:28:25.2120078Z 
+2025-08-25T14:28:25.2120180Z 
+2025-08-25T14:28:25.2135158Z Setting AZURE_CONFIG_DIR env variable to: /agent/_work/_temp/.azclitask
+2025-08-25T14:28:25.2145083Z Setting active cloud to: AzureCloud
+2025-08-25T14:28:25.2149346Z [command]/usr/local/bin/az cloud set -n AzureCloud
+2025-08-25T14:28:28.1425080Z [command]/usr/local/bin/az login --service-principal -u *** --password=*** --tenant 8a807b9b-02da-47f3-a903-791a42a2285c --allow-no-subscriptions
+2025-08-25T14:28:29.5687152Z [
+2025-08-25T14:28:29.5687545Z   {
+2025-08-25T14:28:29.5687861Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5688256Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5688701Z     "id": "63b7d481-6d18-4a56-bbec-0d3411477a0c",
+2025-08-25T14:28:29.5689051Z     "isDefault": true,
+2025-08-25T14:28:29.5689358Z     "managedByTenants": [],
+2025-08-25T14:28:29.5689690Z     "name": "SL-EXOS-Development-02",
+2025-08-25T14:28:29.5690013Z     "state": "Enabled",
+2025-08-25T14:28:29.5690380Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5690717Z     "user": {
+2025-08-25T14:28:29.5691384Z       "name": "***",
+2025-08-25T14:28:29.5691796Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5692085Z     }
+2025-08-25T14:28:29.5692335Z   },
+2025-08-25T14:28:29.5692585Z   {
+2025-08-25T14:28:29.5692886Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5693276Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5694212Z     "id": "a2ca26b7-774e-4207-801a-c45151ff310d",
+2025-08-25T14:28:29.5694576Z     "isDefault": false,
+2025-08-25T14:28:29.5694885Z     "managedByTenants": [],
+2025-08-25T14:28:29.5695226Z     "name": "SL-EXOS-ReleaseMGMT-01",
+2025-08-25T14:28:29.5695747Z     "state": "Enabled",
+2025-08-25T14:28:29.5696111Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5696463Z     "user": {
+2025-08-25T14:28:29.5696930Z       "name": "***",
+2025-08-25T14:28:29.5697268Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5697548Z     }
+2025-08-25T14:28:29.5697804Z   },
+2025-08-25T14:28:29.5698055Z   {
+2025-08-25T14:28:29.5698324Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5699126Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5699542Z     "id": "00d5d0e4-64fb-4d41-b953-241c4d2d8f99",
+2025-08-25T14:28:29.5699897Z     "isDefault": false,
+2025-08-25T14:28:29.5700553Z     "managedByTenants": [],
+2025-08-25T14:28:29.5700908Z     "name": "SL-EXOS-Performance-01",
+2025-08-25T14:28:29.5701267Z     "state": "Enabled",
+2025-08-25T14:28:29.5701645Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5701991Z     "user": {
+2025-08-25T14:28:29.5702408Z       "name": "***",
+2025-08-25T14:28:29.5702725Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5703024Z     }
+2025-08-25T14:28:29.5703283Z   },
+2025-08-25T14:28:29.5703510Z   {
+2025-08-25T14:28:29.5703775Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5704155Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5704559Z     "id": "8f2e2199-66ed-4b86-b236-6148a8425229",
+2025-08-25T14:28:29.5704916Z     "isDefault": false,
+2025-08-25T14:28:29.5705259Z     "managedByTenants": [],
+2025-08-25T14:28:29.5705805Z     "name": "SL-EXOS-UAT-02",
+2025-08-25T14:28:29.5706104Z     "state": "Enabled",
+2025-08-25T14:28:29.5706454Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5706801Z     "user": {
+2025-08-25T14:28:29.5707229Z       "name": "***",
+2025-08-25T14:28:29.5707574Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5707868Z     }
+2025-08-25T14:28:29.5708134Z   },
+2025-08-25T14:28:29.5708403Z   {
+2025-08-25T14:28:29.5708713Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5709114Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5709680Z     "id": "ac348851-c1e6-463a-a202-5041c8912fb8",
+2025-08-25T14:28:29.5710059Z     "isDefault": false,
+2025-08-25T14:28:29.5710401Z     "managedByTenants": [],
+2025-08-25T14:28:29.5710756Z     "name": "SL-EXOS-Production-01",
+2025-08-25T14:28:29.5712863Z     "state": "Enabled",
+2025-08-25T14:28:29.5713442Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5713985Z     "user": {
+2025-08-25T14:28:29.5714460Z       "name": "***",
+2025-08-25T14:28:29.5714798Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5715096Z     }
+2025-08-25T14:28:29.5715489Z   },
+2025-08-25T14:28:29.5715741Z   {
+2025-08-25T14:28:29.5716003Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5716396Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5716784Z     "id": "d57c9855-b4d0-4397-b3de-0fb34d24651e",
+2025-08-25T14:28:29.5717134Z     "isDefault": false,
+2025-08-25T14:28:29.5717455Z     "managedByTenants": [],
+2025-08-25T14:28:29.5717782Z     "name": "SL-EXOS-Stage-01",
+2025-08-25T14:28:29.5718097Z     "state": "Enabled",
+2025-08-25T14:28:29.5718470Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5718816Z     "user": {
+2025-08-25T14:28:29.5719248Z       "name": "***",
+2025-08-25T14:28:29.5719572Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5719858Z     }
+2025-08-25T14:28:29.5720132Z   },
+2025-08-25T14:28:29.5720387Z   {
+2025-08-25T14:28:29.5720688Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5721058Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5721464Z     "id": "ae71418a-ccf8-4445-9dcc-ab602fe53523",
+2025-08-25T14:28:29.5721972Z     "isDefault": false,
+2025-08-25T14:28:29.5722582Z     "managedByTenants": [],
+2025-08-25T14:28:29.5722890Z     "name": "SL-EXOS-Archival-01",
+2025-08-25T14:28:29.5723200Z     "state": "Enabled",
+2025-08-25T14:28:29.5723558Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5723896Z     "user": {
+2025-08-25T14:28:29.5724340Z       "name": "***",
+2025-08-25T14:28:29.5724638Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5725002Z     }
+2025-08-25T14:28:29.5725265Z   },
+2025-08-25T14:28:29.5725676Z   {
+2025-08-25T14:28:29.5725936Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5726274Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5726898Z     "id": "8d1a8329-ea90-46a3-b900-8676c42ed761",
+2025-08-25T14:28:29.5727241Z     "isDefault": false,
+2025-08-25T14:28:29.5727537Z     "managedByTenants": [],
+2025-08-25T14:28:29.5727850Z     "name": "SL-EXOS-Sandbox-01",
+2025-08-25T14:28:29.5728158Z     "state": "Enabled",
+2025-08-25T14:28:29.5728509Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5728840Z     "user": {
+2025-08-25T14:28:29.5729252Z       "name": "***",
+2025-08-25T14:28:29.5729558Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5729833Z     }
+2025-08-25T14:28:29.5730071Z   },
+2025-08-25T14:28:29.5730313Z   {
+2025-08-25T14:28:29.5730602Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:29.5730980Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5731358Z     "id": "f1743aea-3bf1-4feb-9b59-8059836a5999",
+2025-08-25T14:28:29.5731678Z     "isDefault": false,
+2025-08-25T14:28:29.5731978Z     "managedByTenants": [],
+2025-08-25T14:28:29.5732283Z     "name": "SL-InfoSec",
+2025-08-25T14:28:29.5732639Z     "state": "Enabled",
+2025-08-25T14:28:29.5733082Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:29.5733447Z     "user": {
+2025-08-25T14:28:29.5733876Z       "name": "***",
+2025-08-25T14:28:29.5734208Z       "type": "servicePrincipal"
+2025-08-25T14:28:29.5734582Z     }
+2025-08-25T14:28:29.5734847Z   }
+2025-08-25T14:28:29.5735092Z ]
+2025-08-25T14:28:29.5735922Z [command]/usr/local/bin/az account set --subscription a2ca26b7-774e-4207-801a-c45151ff310d
+2025-08-25T14:28:30.1643931Z [command]/usr/bin/bash /agent/_work/1/BaseInfra_Build/PipelineTemplates/scripts/terraform_apply.sh
+2025-08-25T14:28:32.1210857Z [
+2025-08-25T14:28:32.1211265Z   {
+2025-08-25T14:28:32.1212952Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1213430Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1213873Z     "id": "63b7d481-6d18-4a56-bbec-0d3411477a0c",
+2025-08-25T14:28:32.1214236Z     "isDefault": false,
+2025-08-25T14:28:32.1214562Z     "managedByTenants": [],
+2025-08-25T14:28:32.1214940Z     "name": "SL-EXOS-Development-02",
+2025-08-25T14:28:32.1215509Z     "state": "Enabled",
+2025-08-25T14:28:32.1215896Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1216206Z     "user": {
+2025-08-25T14:28:32.1216938Z       "name": "***",
+2025-08-25T14:28:32.1217313Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1217604Z     }
+2025-08-25T14:28:32.1217845Z   },
+2025-08-25T14:28:32.1218082Z   {
+2025-08-25T14:28:32.1218356Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1218739Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1219470Z     "id": "a2ca26b7-774e-4207-801a-c45151ff310d",
+2025-08-25T14:28:32.1219818Z     "isDefault": true,
+2025-08-25T14:28:32.1220066Z     "managedByTenants": [],
+2025-08-25T14:28:32.1221681Z     "name": "SL-EXOS-ReleaseMGMT-01",
+2025-08-25T14:28:32.1221990Z     "state": "Enabled",
+2025-08-25T14:28:32.1222308Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1222621Z     "user": {
+2025-08-25T14:28:32.1223016Z       "name": "***",
+2025-08-25T14:28:32.1223286Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1223542Z     }
+2025-08-25T14:28:32.1223760Z   },
+2025-08-25T14:28:32.1223981Z   {
+2025-08-25T14:28:32.1224229Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1224889Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1225168Z     "id": "00d5d0e4-64fb-4d41-b953-241c4d2d8f99",
+2025-08-25T14:28:32.1225780Z     "isDefault": false,
+2025-08-25T14:28:32.1226046Z     "managedByTenants": [],
+2025-08-25T14:28:32.1226315Z     "name": "SL-EXOS-Performance-01",
+2025-08-25T14:28:32.1226567Z     "state": "Enabled",
+2025-08-25T14:28:32.1226988Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1227321Z     "user": {
+2025-08-25T14:28:32.1227771Z       "name": "***",
+2025-08-25T14:28:32.1228121Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1228398Z     }
+2025-08-25T14:28:32.1228931Z   },
+2025-08-25T14:28:32.1229170Z   {
+2025-08-25T14:28:32.1229401Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1230873Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1231253Z     "id": "8f2e2199-66ed-4b86-b236-6148a8425229",
+2025-08-25T14:28:32.1231518Z     "isDefault": false,
+2025-08-25T14:28:32.1231777Z     "managedByTenants": [],
+2025-08-25T14:28:32.1232019Z     "name": "SL-EXOS-UAT-02",
+2025-08-25T14:28:32.1232255Z     "state": "Enabled",
+2025-08-25T14:28:32.1232526Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1232804Z     "user": {
+2025-08-25T14:28:32.1233224Z       "name": "***",
+2025-08-25T14:28:32.1233471Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1233693Z     }
+2025-08-25T14:28:32.1233889Z   },
+2025-08-25T14:28:32.1234076Z   {
+2025-08-25T14:28:32.1234296Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1234581Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1234894Z     "id": "ac348851-c1e6-463a-a202-5041c8912fb8",
+2025-08-25T14:28:32.1235175Z     "isDefault": false,
+2025-08-25T14:28:32.1243486Z     "managedByTenants": [],
+2025-08-25T14:28:32.1243948Z     "name": "SL-EXOS-Production-01",
+2025-08-25T14:28:32.1244249Z     "state": "Enabled",
+2025-08-25T14:28:32.1244602Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1244946Z     "user": {
+2025-08-25T14:28:32.1245550Z       "name": "***",
+2025-08-25T14:28:32.1245851Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1246106Z     }
+2025-08-25T14:28:32.1246313Z   },
+2025-08-25T14:28:32.1246504Z   {
+2025-08-25T14:28:32.1246751Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1247085Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1247454Z     "id": "d57c9855-b4d0-4397-b3de-0fb34d24651e",
+2025-08-25T14:28:32.1247664Z     "isDefault": false,
+2025-08-25T14:28:32.1247845Z     "managedByTenants": [],
+2025-08-25T14:28:32.1248027Z     "name": "SL-EXOS-Stage-01",
+2025-08-25T14:28:32.1248219Z     "state": "Enabled",
+2025-08-25T14:28:32.1248425Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1248618Z     "user": {
+2025-08-25T14:28:32.1249013Z       "name": "***",
+2025-08-25T14:28:32.1249296Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1249551Z     }
+2025-08-25T14:28:32.1249864Z   },
+2025-08-25T14:28:32.1250147Z   {
+2025-08-25T14:28:32.1250384Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1250719Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1251087Z     "id": "ae71418a-ccf8-4445-9dcc-ab602fe53523",
+2025-08-25T14:28:32.1251440Z     "isDefault": false,
+2025-08-25T14:28:32.1251737Z     "managedByTenants": [],
+2025-08-25T14:28:32.1252046Z     "name": "SL-EXOS-Archival-01",
+2025-08-25T14:28:32.1252344Z     "state": "Enabled",
+2025-08-25T14:28:32.1252704Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1253013Z     "user": {
+2025-08-25T14:28:32.1253380Z       "name": "***",
+2025-08-25T14:28:32.1254796Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1255085Z     }
+2025-08-25T14:28:32.1255468Z   },
+2025-08-25T14:28:32.1255703Z   {
+2025-08-25T14:28:32.1256246Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1256619Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1256994Z     "id": "8d1a8329-ea90-46a3-b900-8676c42ed761",
+2025-08-25T14:28:32.1257661Z     "isDefault": false,
+2025-08-25T14:28:32.1257970Z     "managedByTenants": [],
+2025-08-25T14:28:32.1258271Z     "name": "SL-EXOS-Sandbox-01",
+2025-08-25T14:28:32.1258587Z     "state": "Enabled",
+2025-08-25T14:28:32.1258925Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1259258Z     "user": {
+2025-08-25T14:28:32.1259694Z       "name": "***",
+2025-08-25T14:28:32.1260017Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1260316Z     }
+2025-08-25T14:28:32.1260577Z   },
+2025-08-25T14:28:32.1260827Z   {
+2025-08-25T14:28:32.1261146Z     "cloudName": "AzureCloud",
+2025-08-25T14:28:32.1261865Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1262288Z     "id": "f1743aea-3bf1-4feb-9b59-8059836a5999",
+2025-08-25T14:28:32.1262643Z     "isDefault": false,
+2025-08-25T14:28:32.1262953Z     "managedByTenants": [],
+2025-08-25T14:28:32.1263279Z     "name": "SL-InfoSec",
+2025-08-25T14:28:32.1263589Z     "state": "Enabled",
+2025-08-25T14:28:32.1263967Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T14:28:32.1264293Z     "user": {
+2025-08-25T14:28:32.1264707Z       "name": "***",
+2025-08-25T14:28:32.1265016Z       "type": "servicePrincipal"
+2025-08-25T14:28:32.1265492Z     }
+2025-08-25T14:28:32.1265751Z   }
+2025-08-25T14:28:32.1265997Z ]
+2025-08-25T14:28:32.9346270Z Terraform v0.14.11
+2025-08-25T14:28:32.9348503Z + provider registry.terraform.io/azure/azapi v1.12.1
+2025-08-25T14:28:32.9349498Z + provider registry.terraform.io/chilicat/pkcs12 v0.2.5
+2025-08-25T14:28:32.9352198Z + provider registry.terraform.io/hashicorp/azuread v2.46.0
+2025-08-25T14:28:32.9352798Z + provider registry.terraform.io/hashicorp/azurerm v3.117.1
+2025-08-25T14:28:32.9353194Z + provider registry.terraform.io/hashicorp/dns v3.4.3
+2025-08-25T14:28:32.9353779Z + provider registry.terraform.io/hashicorp/external v2.3.5
+2025-08-25T14:28:32.9354175Z + provider registry.terraform.io/hashicorp/helm v2.16.1
+2025-08-25T14:28:32.9354681Z + provider registry.terraform.io/hashicorp/kubernetes v2.38.0
+2025-08-25T14:28:32.9355091Z + provider registry.terraform.io/hashicorp/local v2.5.3
+2025-08-25T14:28:32.9356856Z + provider registry.terraform.io/hashicorp/null v3.2.4
+2025-08-25T14:28:32.9362161Z + provider registry.terraform.io/hashicorp/random v3.4.3
+2025-08-25T14:28:32.9362636Z + provider registry.terraform.io/hashicorp/time v0.13.1
+2025-08-25T14:28:32.9363060Z + provider registry.terraform.io/hashicorp/tls v3.4.0
+2025-08-25T14:28:32.9363495Z + provider registry.terraform.io/mastercard/restapi v1.20.0
+2025-08-25T14:28:32.9363703Z 
+2025-08-25T14:28:32.9364047Z Your version of Terraform is out of date! The latest version
+2025-08-25T14:28:32.9364538Z is 1.13.0. You can update by downloading from https://www.terraform.io/downloads.html
+2025-08-25T14:28:33.8609963Z cat: /agent/_work/1/BaseInfra_Build/EXOSBaseInfra/terraform/sandbox/../common/common_backend.tfvars: No such file or directory
+2025-08-25T14:28:34.4068310Z 
+2025-08-25T14:28:34.4199465Z [0m[1mInitializing the backend...[0m
+2025-08-25T14:28:37.3901967Z 
+2025-08-25T14:28:37.3906190Z [0m[1mInitializing provider plugins...[0m
+2025-08-25T14:28:37.3908429Z - terraform.io/builtin/terraform is built in to Terraform
+2025-08-25T14:28:37.3909042Z - Reusing previous version of chilicat/pkcs12 from the dependency lock file
+2025-08-25T14:28:37.5239595Z - Reusing previous version of hashicorp/local from the dependency lock file
+2025-08-25T14:28:37.5477692Z - Reusing previous version of mastercard/restapi from the dependency lock file
+2025-08-25T14:28:37.5727179Z - Reusing previous version of hashicorp/random from the dependency lock file
+2025-08-25T14:28:37.5981067Z - Reusing previous version of hashicorp/azurerm from the dependency lock file
+2025-08-25T14:28:37.6242828Z - Reusing previous version of azure/azapi from the dependency lock file
+2025-08-25T14:28:37.6487582Z - Reusing previous version of hashicorp/dns from the dependency lock file
+2025-08-25T14:28:37.6728238Z - Reusing previous version of hashicorp/time from the dependency lock file
+2025-08-25T14:28:37.6989690Z - Reusing previous version of hashicorp/null from the dependency lock file
+2025-08-25T14:28:37.7233780Z - Reusing previous version of hashicorp/external from the dependency lock file
+2025-08-25T14:28:37.7482339Z - Reusing previous version of hashicorp/helm from the dependency lock file
+2025-08-25T14:28:37.7719423Z - Reusing previous version of hashicorp/azuread from the dependency lock file
+2025-08-25T14:28:37.7962847Z - Reusing previous version of hashicorp/tls from the dependency lock file
+2025-08-25T14:28:37.8194659Z - Reusing previous version of hashicorp/kubernetes from the dependency lock file
+2025-08-25T14:28:37.8986921Z - Using previously-installed hashicorp/time v0.13.1
+2025-08-25T14:28:37.9460338Z - Using previously-installed mastercard/restapi v1.20.0
+2025-08-25T14:28:37.9858474Z - Using previously-installed hashicorp/random v3.4.3
+2025-08-25T14:28:38.0500342Z - Using previously-installed hashicorp/dns v3.4.3
+2025-08-25T14:28:38.1001973Z - Using previously-installed hashicorp/null v3.2.4
+2025-08-25T14:28:38.2830688Z - Using previously-installed hashicorp/helm v2.16.1
+2025-08-25T14:28:38.3294413Z - Using previously-installed chilicat/pkcs12 v0.2.5
+2025-08-25T14:28:38.3806848Z - Using previously-installed hashicorp/local v2.5.3
+2025-08-25T14:28:39.1265609Z - Using previously-installed hashicorp/azurerm v3.117.1
+2025-08-25T14:28:39.1889039Z - Using previously-installed hashicorp/azuread v2.46.0
+2025-08-25T14:28:39.2349783Z - Using previously-installed hashicorp/tls v3.4.0
+2025-08-25T14:28:39.4118196Z - Using previously-installed hashicorp/kubernetes v2.38.0
+2025-08-25T14:28:39.7977455Z - Using previously-installed azure/azapi v1.12.1
+2025-08-25T14:28:39.8473770Z - Using previously-installed hashicorp/external v2.3.5
+2025-08-25T14:28:39.8476042Z 
+2025-08-25T14:28:39.8476853Z [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+2025-08-25T14:28:39.8477304Z [0m[32m
+2025-08-25T14:28:39.8477706Z You may now begin working with Terraform. Try running "terraform plan" to see
+2025-08-25T14:28:39.8478226Z any changes that are required for your infrastructure. All Terraform commands
+2025-08-25T14:28:39.8480880Z should now work.
+2025-08-25T14:28:39.8481022Z 
+2025-08-25T14:28:39.8481414Z If you ever set or change modules or backend configuration for Terraform,
+2025-08-25T14:28:39.8481922Z rerun this command to reinitialize your working directory. If you forget, other
+2025-08-25T14:28:39.8482514Z commands will detect it and remind you to do so if necessary.[0m
+2025-08-25T14:28:39.8797814Z gpg: AES256.CFB encrypted data
+2025-08-25T14:28:40.0902123Z gpg: encrypted with 1 passphrase
+2025-08-25T14:28:46.1686537Z [0m[1mtls_private_key.build_image_vm_ssh["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:28:46.1694044Z [0m[1mtls_private_key.build_image_vm_ssh["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:28:47.5127887Z [0m[1mtls_private_key.build_image_vm_ssh["v42_eus2"]: Creation complete after 2s [id=ca670f9b479e3b657bf5ebaaad13d39c781cdf14][0m[0m
+2025-08-25T14:28:49.0656842Z [0m[1mtls_private_key.build_image_vm_ssh["v42_wus2"]: Creation complete after 3s [id=26233f54600843fc01c6c0ab7ebc7abcd4975d88][0m[0m
+2025-08-25T14:28:50.1107029Z [0m[1mazurerm_virtual_network.build_image["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:28:50.1122307Z [0m[1mazurerm_virtual_network.build_image["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:28:54.2295955Z [0m[1mazurerm_virtual_network.build_image["v42_eus2"]: Creation complete after 4s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/virtualNetworks/vnet-build-server-v42-eus2][0m[0m
+2025-08-25T14:28:56.3069571Z [0m[1mazurerm_virtual_network.build_image["v42_wus2"]: Creation complete after 6s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/virtualNetworks/vnet-build-server-v42-wus2][0m[0m
+2025-08-25T14:28:56.3340383Z [0m[1mazurerm_public_ip.build_image_ngw["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:28:56.3433560Z [0m[1mazurerm_public_ip.build_image_ngw["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:28:56.3435895Z [0m[1mazurerm_nat_gateway.build_image_ngw["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:28:56.3438502Z [0m[1mazurerm_subnet.build_image["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:28:56.3449891Z [0m[1mazurerm_nat_gateway.build_image_ngw["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:28:56.3494368Z [0m[1mazurerm_subnet.build_image["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:28:58.5317709Z [0m[1mazurerm_public_ip.build_image_ngw["v42_eus2"]: Creation complete after 3s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/publicIPAddresses/pip-ngw-build-server-v42-eus2][0m[0m
+2025-08-25T14:28:59.7509529Z [0m[1mazurerm_public_ip.build_image_ngw["v42_wus2"]: Creation complete after 4s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/publicIPAddresses/pip-ngw-build-server-v42-wus2][0m[0m
+2025-08-25T14:29:00.3033382Z [0m[1mazurerm_subnet.build_image["v42_eus2"]: Creation complete after 4s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/virtualNetworks/vnet-build-server-v42-eus2/subnets/snet-build-server-v42-eus2][0m[0m
+2025-08-25T14:29:00.6933254Z [0m[1mazurerm_subnet.build_image["v42_wus2"]: Creation complete after 5s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/virtualNetworks/vnet-build-server-v42-wus2/subnets/snet-build-server-v42-wus2][0m[0m
+2025-08-25T14:29:00.7353269Z [0m[1mazurerm_network_interface.build_image_vm["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:29:00.7406563Z [0m[1mazurerm_network_interface.build_image_vm["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:29:00.7984782Z [0m[1mazurerm_storage_account.tools: Modifying... [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201][0m[0m
+2025-08-25T14:29:06.3434607Z [0m[1mazurerm_nat_gateway.build_image_ngw["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:06.3453008Z [0m[1mazurerm_nat_gateway.build_image_ngw["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:07.3964932Z [0m[1mazurerm_nat_gateway.build_image_ngw["v42_eus2"]: Creation complete after 11s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/natGateways/ngw-build-server-v42-eus2][0m[0m
+2025-08-25T14:29:08.3655227Z [0m[1mazurerm_nat_gateway.build_image_ngw["v42_wus2"]: Creation complete after 12s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/natGateways/ngw-build-server-v42-wus2][0m[0m
+2025-08-25T14:29:08.3933784Z [0m[1mazurerm_subnet_nat_gateway_association.build_image_ngw["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:29:08.3959167Z [0m[1mazurerm_subnet_nat_gateway_association.build_image_ngw["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:29:08.3960825Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:29:08.3961494Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:29:10.7351012Z [0m[1mazurerm_network_interface.build_image_vm["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:10.7405718Z [0m[1mazurerm_network_interface.build_image_vm["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:10.7987503Z [0m[1mazurerm_storage_account.tools: Still modifying... [id=/subscriptions/a2ca26b7-774e-4207-801a-...ge/storageAccounts/sttoolscommoneus201, 10s elapsed][0m[0m
+2025-08-25T14:29:11.5728389Z [0m[1mazurerm_network_interface.build_image_vm["v42_eus2"]: Creation complete after 11s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/networkInterfaces/nic-01-build-server-v42-eus2][0m[0m
+2025-08-25T14:29:13.1871794Z [0m[1mazurerm_network_interface.build_image_vm["v42_wus2"]: Creation complete after 12s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/networkInterfaces/nic-01-build-server-v42-wus2][0m[0m
+2025-08-25T14:29:13.2122318Z [0m[1mazurerm_network_interface_security_group_association.build_image_vm["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:29:13.2123491Z [0m[1mazurerm_network_interface_security_group_association.build_image_vm["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:29:13.2453245Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:29:13.2455438Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:29:13.5938277Z [0m[1mazurerm_storage_account.tools: Modifications complete after 13s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201][0m[0m
+2025-08-25T14:29:13.5981692Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["table"]: Reading... [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/tableServices/default][0m[0m
+2025-08-25T14:29:13.5982998Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store: Reading... [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201][0m[0m
+2025-08-25T14:29:13.6659912Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store: Read complete after 0s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201][0m[0m
+2025-08-25T14:29:13.6709948Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["blob"]: Reading... [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/blobServices/default][0m[0m
+2025-08-25T14:29:13.7568397Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["table"]: Read complete after 0s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/tableServices/default][0m[0m
+2025-08-25T14:29:13.7598918Z [0m[1mdata.azurerm_storage_blob.qualys_win_install_exe["default"]: Reading... [id=https://sttoolscommoneus201.blob.core.windows.net/qualys/QualysCloudAgent.exe][0m[0m
+2025-08-25T14:29:13.8185726Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["blob"]: Read complete after 0s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/blobServices/default][0m[0m
+2025-08-25T14:29:13.8235588Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["queue"]: Reading... [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/queueServices/default][0m[0m
+2025-08-25T14:29:13.9002342Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["queue"]: Read complete after 0s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/queueServices/default][0m[0m
+2025-08-25T14:29:13.9072025Z [0m[1mdata.azurerm_storage_account_sas.tools: Reading... [id=9d01e2c7842893915e2d0967b334576453faea3a4bb09475af6c59589f1f7b6d][0m[0m
+2025-08-25T14:29:13.9123139Z [0m[1mdata.azurerm_storage_account_sas.tools: Read complete after 0s [id=d23ace14190e60950df3482f93a794502a1a9e39dc72532e28d682cc8ab3d621][0m[0m
+2025-08-25T14:29:13.9168945Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["file"]: Reading... [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/fileServices/default][0m[0m
+2025-08-25T14:29:14.0298725Z [0m[1mdata.azurerm_monitor_diagnostic_categories.tools_store_sub["file"]: Read complete after 0s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Storage/storageAccounts/sttoolscommoneus201/fileServices/default][0m[0m
+2025-08-25T14:29:14.2749833Z [0m[1mdata.azurerm_storage_blob.qualys_win_install_exe["default"]: Read complete after 0s [id=https://sttoolscommoneus201.blob.core.windows.net/qualys/QualysCloudAgent.exe][0m[0m
+2025-08-25T14:29:17.5135959Z [0m[1mazurerm_subnet_nat_gateway_association.build_image_ngw["v42_wus2"]: Creation complete after 10s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/virtualNetworks/vnet-build-server-v42-wus2/subnets/snet-build-server-v42-wus2][0m[0m
+2025-08-25T14:29:18.3931119Z [0m[1mazurerm_subnet_nat_gateway_association.build_image_ngw["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:18.3961455Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:18.3962616Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:22.7535028Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_eus2"]: Creation complete after 15s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/natGateways/ngw-build-server-v42-eus2|/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/publicIPAddresses/pip-ngw-build-server-v42-eus2][0m[0m
+2025-08-25T14:29:23.2121043Z [0m[1mazurerm_network_interface_security_group_association.build_image_vm["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:23.2127692Z [0m[1mazurerm_network_interface_security_group_association.build_image_vm["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:23.2454720Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:23.2456097Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:29:24.3818930Z [0m[1mazurerm_network_interface_security_group_association.build_image_vm["v42_eus2"]: Creation complete after 11s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/networkInterfaces/nic-01-build-server-v42-eus2|/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-net-common-eus2-01/providers/Microsoft.Network/networkSecurityGroups/nsg-build-common-eus2-01][0m[0m
+2025-08-25T14:29:26.6261619Z [0m[1mazurerm_subnet_nat_gateway_association.build_image_ngw["v42_eus2"]: Creation complete after 19s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Network/virtualNetworks/vnet-build-server-v42-eus2/subnets/snet-build-server-v42-eus2][0m[0m
+2025-08-25T14:29:26.8819473Z [0m[1mazurerm_network_interface_security_group_association.build_image_vm["v42_wus2"]: Creation complete after 14s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/networkInterfaces/nic-01-build-server-v42-wus2|/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-net-common-wus2-01/providers/Microsoft.Network/networkSecurityGroups/nsg-build-common-wus2-01][0m[0m
+2025-08-25T14:29:28.3966214Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_wus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T14:29:32.3013475Z [0m[1mazurerm_nat_gateway_public_ip_association.build_image_ngw["v42_wus2"]: Creation complete after 24s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/natGateways/ngw-build-server-v42-wus2|/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Network/publicIPAddresses/pip-ngw-build-server-v42-wus2][0m[0m
+2025-08-25T14:29:33.2459475Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_wus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T14:29:33.2460162Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_eus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T14:29:43.2460860Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_wus2"]: Still creating... [30s elapsed][0m[0m
+2025-08-25T14:29:43.2461650Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_eus2"]: Still creating... [30s elapsed][0m[0m
+2025-08-25T14:29:53.2462674Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_wus2"]: Still creating... [40s elapsed][0m[0m
+2025-08-25T14:29:53.2463407Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_eus2"]: Still creating... [40s elapsed][0m[0m
+2025-08-25T14:30:01.3987211Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_eus2"]: Creation complete after 48s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Compute/virtualMachines/build-server-v42-eus2][0m[0m
+2025-08-25T14:30:02.7108009Z [0m[1mazurerm_linux_virtual_machine.build_image_vm["v42_wus2"]: Creation complete after 50s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Compute/virtualMachines/build-server-v42-wus2][0m[0m
+2025-08-25T14:30:02.7437372Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:30:02.7546962Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:30:02.7547792Z [0m[1mazapi_update_resource.build_image_vm["v42_eus2"]: Creating...[0m[0m
+2025-08-25T14:30:05.9838858Z [0m[1mazapi_update_resource.build_image_vm["v42_wus2"]: Creating...[0m[0m
+2025-08-25T14:30:05.9840078Z [0m[1mazapi_update_resource.build_image_vm["v42_eus2"]: Creation complete after 3s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-eus2-01/providers/Microsoft.Compute/disks/disk-01-build-server-v42-eus2][0m[0m
+2025-08-25T14:30:07.2241698Z [0m[1mazapi_update_resource.build_image_vm["v42_wus2"]: Creation complete after 4s [id=/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-compute-common-wus2-01/providers/Microsoft.Compute/disks/disk-01-build-server-v42-wus2][0m[0m
+2025-08-25T14:30:12.7431525Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:30:12.7498279Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T14:30:22.7434942Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T14:30:22.7500786Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T14:30:32.7437850Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [30s elapsed][0m[0m
+2025-08-25T14:30:32.7502088Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [30s elapsed][0m[0m
+2025-08-25T14:30:42.7439133Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [40s elapsed][0m[0m
+2025-08-25T14:30:42.7503657Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [40s elapsed][0m[0m
+2025-08-25T14:30:52.7441277Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [50s elapsed][0m[0m
+2025-08-25T14:30:52.7504895Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [50s elapsed][0m[0m
+2025-08-25T14:31:02.7444597Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m0s elapsed][0m[0m
+2025-08-25T14:31:02.7507033Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m0s elapsed][0m[0m
+2025-08-25T14:31:12.7445913Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m10s elapsed][0m[0m
+2025-08-25T14:31:12.7508984Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m10s elapsed][0m[0m
+2025-08-25T14:31:22.7448043Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m20s elapsed][0m[0m
+2025-08-25T14:31:22.7510878Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m20s elapsed][0m[0m
+2025-08-25T14:31:32.7451935Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m30s elapsed][0m[0m
+2025-08-25T14:31:32.7513365Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m30s elapsed][0m[0m
+2025-08-25T14:31:42.7452097Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m40s elapsed][0m[0m
+2025-08-25T14:31:42.7515843Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m40s elapsed][0m[0m
+2025-08-25T14:31:52.7455080Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m50s elapsed][0m[0m
+2025-08-25T14:31:52.7518098Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m50s elapsed][0m[0m
+2025-08-25T14:32:02.7458173Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m0s elapsed][0m[0m
+2025-08-25T14:32:02.7520037Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m0s elapsed][0m[0m
+2025-08-25T14:32:12.7459550Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m10s elapsed][0m[0m
+2025-08-25T14:32:12.7520823Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m10s elapsed][0m[0m
+2025-08-25T14:32:22.7461648Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m20s elapsed][0m[0m
+2025-08-25T14:32:22.7522355Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m20s elapsed][0m[0m
+2025-08-25T14:32:32.7464203Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m30s elapsed][0m[0m
+2025-08-25T14:32:32.7524129Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m30s elapsed][0m[0m
+2025-08-25T14:32:42.7466648Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m40s elapsed][0m[0m
+2025-08-25T14:32:42.7526219Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m40s elapsed][0m[0m
+2025-08-25T14:32:52.7468095Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m50s elapsed][0m[0m
+2025-08-25T14:32:52.7527776Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m50s elapsed][0m[0m
+2025-08-25T14:33:02.7469680Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m0s elapsed][0m[0m
+2025-08-25T14:33:02.7529728Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m0s elapsed][0m[0m
+2025-08-25T14:33:12.7471720Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m10s elapsed][0m[0m
+2025-08-25T14:33:12.7531652Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m10s elapsed][0m[0m
+2025-08-25T14:33:22.7474874Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m20s elapsed][0m[0m
+2025-08-25T14:33:22.7537402Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m20s elapsed][0m[0m
+2025-08-25T14:33:32.7477237Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m30s elapsed][0m[0m
+2025-08-25T14:33:32.7536608Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m30s elapsed][0m[0m
+2025-08-25T14:33:42.7479403Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m40s elapsed][0m[0m
+2025-08-25T14:33:42.7539174Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m40s elapsed][0m[0m
+2025-08-25T14:33:52.7481583Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m50s elapsed][0m[0m
+2025-08-25T14:33:52.7540912Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m50s elapsed][0m[0m
+2025-08-25T14:34:02.7484213Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m0s elapsed][0m[0m
+2025-08-25T14:34:02.7542791Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [4m0s elapsed][0m[0m
+2025-08-25T14:34:12.7486691Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m10s elapsed][0m[0m
+2025-08-25T14:34:12.7544196Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [4m10s elapsed][0m[0m
+2025-08-25T14:34:22.7489047Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m20s elapsed][0m[0m
+2025-08-25T14:34:22.7546073Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [4m20s elapsed][0m[0m
+2025-08-25T14:34:32.7491957Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m30s elapsed][0m[0m
+2025-08-25T14:34:32.7547914Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [4m30s elapsed][0m[0m
+2025-08-25T14:34:42.7494930Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m40s elapsed][0m[0m
+2025-08-25T14:34:42.7550544Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [4m40s elapsed][0m[0m
+2025-08-25T14:34:52.7498041Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m50s elapsed][0m[0m
+2025-08-25T14:34:52.7552919Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [4m50s elapsed][0m[0m
+2025-08-25T14:35:02.7499995Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m0s elapsed][0m[0m
+2025-08-25T14:35:02.7552732Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [5m0s elapsed][0m[0m
+2025-08-25T14:35:12.7502683Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m10s elapsed][0m[0m
+2025-08-25T14:35:12.7555023Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [5m10s elapsed][0m[0m
+2025-08-25T14:35:22.7505616Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m20s elapsed][0m[0m
+2025-08-25T14:35:22.7557056Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [5m20s elapsed][0m[0m
+2025-08-25T14:35:32.7509638Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m30s elapsed][0m[0m
+2025-08-25T14:35:32.7557812Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [5m30s elapsed][0m[0m
+2025-08-25T14:35:42.7511233Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m40s elapsed][0m[0m
+2025-08-25T14:35:42.7560227Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [5m40s elapsed][0m[0m
+2025-08-25T14:35:52.7514550Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m50s elapsed][0m[0m
+2025-08-25T14:35:52.7562625Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [5m50s elapsed][0m[0m
+2025-08-25T14:36:02.7517626Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m0s elapsed][0m[0m
+2025-08-25T14:36:02.7568436Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [6m0s elapsed][0m[0m
+2025-08-25T14:36:12.7520228Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m10s elapsed][0m[0m
+2025-08-25T14:36:12.7568186Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [6m10s elapsed][0m[0m
+2025-08-25T14:36:22.7522975Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m20s elapsed][0m[0m
+2025-08-25T14:36:22.7569630Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [6m20s elapsed][0m[0m
+2025-08-25T14:36:32.7524859Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m30s elapsed][0m[0m
+2025-08-25T14:36:32.7571819Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [6m30s elapsed][0m[0m
+2025-08-25T14:36:42.7528413Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m40s elapsed][0m[0m
+2025-08-25T14:36:42.7573888Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [6m40s elapsed][0m[0m
+2025-08-25T14:36:52.7530725Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m50s elapsed][0m[0m
+2025-08-25T14:36:52.7577507Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [6m50s elapsed][0m[0m
+2025-08-25T14:37:02.7532777Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m0s elapsed][0m[0m
+2025-08-25T14:37:02.7579643Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [7m0s elapsed][0m[0m
+2025-08-25T14:37:12.7535653Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m10s elapsed][0m[0m
+2025-08-25T14:37:12.7581874Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [7m10s elapsed][0m[0m
+2025-08-25T14:37:22.7538602Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m20s elapsed][0m[0m
+2025-08-25T14:37:22.7583080Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [7m20s elapsed][0m[0m
+2025-08-25T14:37:32.7540160Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m30s elapsed][0m[0m
+2025-08-25T14:37:32.7584554Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [7m30s elapsed][0m[0m
+2025-08-25T14:37:42.7541939Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m40s elapsed][0m[0m
+2025-08-25T14:37:42.7587149Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [7m40s elapsed][0m[0m
+2025-08-25T14:37:52.7547072Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m50s elapsed][0m[0m
+2025-08-25T14:37:52.7589183Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [7m50s elapsed][0m[0m
+2025-08-25T14:38:02.7547208Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [8m0s elapsed][0m[0m
+2025-08-25T14:38:02.7590784Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [8m0s elapsed][0m[0m
+2025-08-25T14:38:12.7550935Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [8m10s elapsed][0m[0m
+2025-08-25T14:38:12.7592799Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [8m10s elapsed][0m[0m
+2025-08-25T14:38:22.7552587Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [8m20s elapsed][0m[0m
+2025-08-25T14:38:22.7595656Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [8m20s elapsed][0m[0m
+2025-08-25T14:38:32.7555628Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [8m30s elapsed][0m[0m
+2025-08-25T14:38:32.7597127Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [8m30s elapsed][0m[0m
+2025-08-25T14:38:42.7555519Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [8m40s elapsed][0m[0m
+2025-08-25T14:38:42.7598638Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [8m40s elapsed][0m[0m
+2025-08-25T14:38:52.7559271Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [8m50s elapsed][0m[0m
+2025-08-25T14:38:52.7600716Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [8m50s elapsed][0m[0m
+2025-08-25T14:39:02.7560250Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [9m0s elapsed][0m[0m
+2025-08-25T14:39:02.7602896Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [9m0s elapsed][0m[0m
+2025-08-25T14:39:12.7565882Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [9m10s elapsed][0m[0m
+2025-08-25T14:39:12.7603997Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [9m10s elapsed][0m[0m
+2025-08-25T14:39:22.7566826Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [9m20s elapsed][0m[0m
+2025-08-25T14:39:22.7606793Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [9m20s elapsed][0m[0m
+2025-08-25T14:39:32.7568993Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [9m30s elapsed][0m[0m
+2025-08-25T14:39:32.7609294Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [9m30s elapsed][0m[0m
+2025-08-25T14:39:42.7571188Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [9m40s elapsed][0m[0m
+2025-08-25T14:39:42.7624340Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [9m40s elapsed][0m[0m
+2025-08-25T14:39:52.7573833Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [9m50s elapsed][0m[0m
+2025-08-25T14:39:52.7613124Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [9m50s elapsed][0m[0m
+2025-08-25T14:40:02.7575881Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10m0s elapsed][0m[0m
+2025-08-25T14:40:02.7615129Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10m0s elapsed][0m[0m
+2025-08-25T14:40:12.7579188Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10m10s elapsed][0m[0m
+2025-08-25T14:40:12.7616526Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10m10s elapsed][0m[0m
+2025-08-25T14:40:22.7581264Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10m20s elapsed][0m[0m
+2025-08-25T14:40:22.7618204Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10m20s elapsed][0m[0m
+2025-08-25T14:40:32.7584756Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10m30s elapsed][0m[0m
+2025-08-25T14:40:32.7619665Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10m30s elapsed][0m[0m
+2025-08-25T14:40:42.7587891Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10m40s elapsed][0m[0m
+2025-08-25T14:40:42.7621494Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10m40s elapsed][0m[0m
+2025-08-25T14:40:52.7589296Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10m50s elapsed][0m[0m
+2025-08-25T14:40:52.7624111Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10m50s elapsed][0m[0m
+2025-08-25T14:41:02.7593091Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [11m0s elapsed][0m[0m
+2025-08-25T14:41:02.7624673Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [11m0s elapsed][0m[0m
+2025-08-25T14:41:12.7594912Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [11m10s elapsed][0m[0m
+2025-08-25T14:41:12.7625454Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [11m10s elapsed][0m[0m
+2025-08-25T14:41:22.7596457Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [11m20s elapsed][0m[0m
+2025-08-25T14:41:22.7627667Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [11m20s elapsed][0m[0m
+2025-08-25T14:41:32.7598856Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [11m30s elapsed][0m[0m
+2025-08-25T14:41:42.7602109Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [11m40s elapsed][0m[0m
+2025-08-25T14:41:52.7604578Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [11m50s elapsed][0m[0m
+2025-08-25T14:42:02.7606871Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [12m0s elapsed][0m[0m
+2025-08-25T14:42:11.9178272Z [31m
+2025-08-25T14:42:11.9180120Z [1m[31mError: [0m[0m[1mcreating/updating Extension (Subscription: "a2ca26b7-774e-4207-801a-c45151ff310d"
+2025-08-25T14:42:11.9180930Z Resource Group Name: "rg-compute-common-wus2-01"
+2025-08-25T14:42:11.9190138Z Virtual Machine Name: "build-server-v42-wus2"
+2025-08-25T14:42:11.9191495Z Extension Name: "bootstrap"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+2025-08-25T14:42:11.9192228Z 
+2025-08-25T14:42:11.9193484Z Status: "VMExtensionProvisioningError"
+2025-08-25T14:42:11.9198335Z Code: ""
+2025-08-25T14:42:11.9301820Z Message: "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\nuild3) ...\r\nSetting up humanity-icon-theme (0.6.16) ...\r\nSetting up ubuntu-mono (20.10-0ubuntu2) ...\r\nProcessing triggers for man-db (2.10.2-1) ...\r\nProcessing triggers for mailcap (3.70+nmu1ubuntu1) ...\r\nProcessing triggers for libglib2.0-0:amd64 (2.72.4-0ubuntu2.6) ...\r\nSetting up libgtk-3-0:amd64 (3.24.33-1ubuntu2.2) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\nSetting up libgtk-3-bin (3.24.33-1ubuntu2.2) ...\r\nSetting up libvte-2.91-0:amd64 (0.68.0-1ubuntu0.1) ...\r\nSetting up libvted-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up at-spi2-core (2.44.0-3) ...\r\nSetting up libgtkd-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up tilix (1.9.4-2build1) ...\r\nupdate-alternatives: using /usr/bin/tilix.wrapper to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode\r\nSetting up google-chrome-stable (139.0.7258.138-1) ...\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/x-www-browser (x-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode\r\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.8+dfsg-1ubuntu0.4) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\n\nRunning kernel seems to be up-to-date.\n\nServices to be restarted:\n systemctl restart irqbalance.service\n systemctl restart multipathd.service\n systemctl restart packagekit.service\n systemctl restart polkit.service\n systemctl restart walinuxagent.service\n\nService restarts being deferred:\n systemctl restart networkd-dispatcher.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\nInstalling Grype\nInstalling Cortex\n{\n  \"container\": \"cortex\",\n  \"content\": \"\",\n  \"contentMd5\": null,\n  \"deleted\": false,\n  \"encryptedMetadata\": null,\n  \"encryptionKeySha256\": null,\n  \"encryptionScope\": null,\n  \"hasLegalHold\": null,\n  \"hasVersionsOnly\": null,\n  \"immutabilityPolicy\": {\n    \"expiryTime\": null,\n    \"policyMode\": null\n  },\n  \"isAppendBlobSealed\": null,\n  \"isCurrentVersion\": null,\n  \"lastAccessedOn\": null,\n  \"metadata\": {},\n  \"name\": \"EXOS_SH_Non-Persistent_8-9.tar.gz\",\n  \"objectReplicationDestinationPolicy\": null,\n  \"objectReplicationSourceProperties\": [],\n  \"properties\": {\n    \"appendBlobCommittedBlockCount\": null,\n    \"blobTier\": null,\n    \"blobTierChangeTime\": null,\n    \"blobTierInferred\": null,\n    \"blobType\": \"BlockBlob\",\n    \"contentLength\": 77882253,\n    \"contentRange\": \"bytes None-None/77882253\",\n    \"contentSettings\": {\n      \"cacheControl\": null,\n      \"contentDisposition\": null,\n      \"contentEncoding\": null,\n      \"contentLanguage\": null,\n      \"contentMd5\": null,\n      \"contentType\": \"application/x-gzip\"\n    },\n    \"copy\": {\n      \"completionTime\": null,\n      \"destinationSnapshot\": null,\n      \"id\": null,\n      \"incrementalCopy\": null,\n      \"progress\": null,\n      \"source\": null,\n      \"status\": null,\n      \"statusDescription\": null\n    },\n    \"creationTime\": \"2025-08-25T13:55:03+00:00\",\n    \"deletedTime\": null,\n    \"etag\": \"\\\"0x8DDE3DEFDD845FF\\\"\",\n    \"lastModified\": \"2025-08-25T13:55:03+00:00\",\n    \"lease\": {\n      \"duration\": null,\n      \"state\": \"available\",\n      \"status\": \"unlocked\"\n    },\n    \"pageBlobSequenceNumber\": null,\n    \"pageRanges\": null,\n    \"rehydrationStatus\": null,\n    \"remainingRetentionDays\": null,\n    \"serverEncrypted\": true\n  },\n  \"rehydratePriority\": null,\n  \"requestServerEncrypted\": true,\n  \"snapshot\": null,\n  \"tagCount\": null,\n  \"tags\": null,\n  \"versionId\": null\n}\ncortex-8.9.0.136780.sh\ncortex.conf\nVerifying archive integrity... All good.\nUncompressing Cortex XDR 8.9.0.136780 installer\nActive kernel LSM: lockdown,capability,landlock,yama,apparmor\n\x1b[1;31m  Unknown option/s: \x1b[1;31mIgnoring /etc/panw/cortex.conf since world-writable (-rw-rw-rw-)\x1b[0m\x1b[0m\n\x1b[1;31mFailed to parse installer arguments\x1b[0m\n\n[stderr]\n...... 99%  122M 0s\n115300K .......... .......... .......... .......... .......... 99%  118M 0s\n115350K .......... .......... .......... .......... .......... 99%  112M 0s\n115400K .......... .......... .......... .......... .......... 99% 72.6M 0s\n115450K .......... .......... .......... .......... .......... 99%  150M 0s\n115500K .......... .......... .......... .......... .......... 99%  163M 0s\n115550K .......... .......... .......... .......... .......... 99% 55.3M 0s\n115600K .......... .......... .......... .......... .......... 99%  353M 0s\n115650K .......... .......... .......... .......... .......... 99% 86.6M 0s\n115700K .......... .......... .......... .......... .......... 99%  144M 0s\n115750K .......... .......... .......... .......... .......... 99%  147M 0s\n115800K .......... .......... .......... .......... .......... 99% 68.3M 0s\n115850K .......... .......... .......... .......... .......... 99%  143M 0s\n115900K .......... ....                                       100%  354M=1.0s\n\n2025-08-25 14:39:29 (113 MB/s) - ‘/tmp/google-chrome-stable_current_amd64.deb’ saved [118696276/118696276]\n\n+ sudo apt-get install -y /tmp/google-chrome-stable_current_amd64.deb\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Installing Grype'\n+ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh\n+ sh -s -- -b /usr/local/bin\n[info] checking github for the current release tag \n[info] fetching release script for tag='v0.98.0' \n[info] checking github for the current release tag \n[info] using release tag='v0.98.0' version='0.98.0' os='linux' arch='amd64' \n[info] installed /usr/local/bin/grype \n+ echo 'Installing Cortex'\n+ sudo az storage blob download --container-name cortex --file /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz --name EXOS_SH_Non-Persistent_8-9.tar.gz --account-name sttoolscommoneus201 --sas-token '?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2025-08-25T15:29:13Z&st=2025-08-25T14:29:13Z&spr=https&sig=a4pSjrW%2F4SAPfIwZx32Q8I4KW%2FDprvYrYHW8qw9EOg8%3D'\n\rAlive[###########################                                     ]  43.0835%\rAlive[###############################                                 ]  48.4690%\rAlive[##################################                              ]  53.8544%\rAlive[#####################################                           ]  59.2399%\rAlive[#########################################                       ]  64.6253%\rAlive[############################################                    ]  70.0108%\rAlive[################################################                ]  75.3962%\rAlive[###################################################             ]  80.7816%\rAlive[#######################################################         ]  86.1671%\rAlive[##########################################################      ]  91.5525%\rAlive[##############################################################  ]  96.9380%\rAlive[################################################################]  100.0000%\rFinished[#############################################################]  100.0000%\n+ sudo mkdir -p /tmp/cortex\n+ sudo tar -zvxf /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz -C /tmp/cortex\n+ sudo mkdir -p /etc/panw\n+ sudo mv /tmp/cortex/cortex.conf /etc/panw/\n+ sudo chmod +x /tmp/cortex/cortex-8.9.0.136780.sh\n+ sudo /usr/bin/bash /tmp/cortex/cortex-8.9.0.136780.sh\n     0% \b\b\b\b\b\b\b    5% \b\b\b\b\b\b\b   10% \b\b\b\b\b\b\b   15% \b\b\b\b\b\b\b   21% \b\b\b\b\b\b\b   26% \b\b\b\b\b\b\b   31% \b\b\b\b\b\b\b   37% \b\b\b\b\b\b\b   42% \b\b\b\b\b\b\b   47% \b\b\b\b\b\b\b   53% \b\b\b\b\b\b\b   58% \b\b\b\b\b\b\b   63% \b\b\b\b\b\b\b   69% \b\b\b\b\b\b\b   74% \b\b\b\b\b\b\b   79% \b\b\b\b\b\b\b   85% \b\b\b\b\b\b\b   90% \b\b\b\b\b\b\b   95% \b\b\b\b\b\b\b 100%  + error 'Error installing Cortex'\n+ echo 'ERROR: Error installing Cortex'\nERROR: Error installing Cortex\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T14:42:11.9311503Z Activity Id: ""
+2025-08-25T14:42:11.9311632Z 
+2025-08-25T14:42:11.9311859Z ---
+2025-08-25T14:42:11.9311967Z 
+2025-08-25T14:42:11.9312234Z API Response:
+2025-08-25T14:42:11.9312393Z 
+2025-08-25T14:42:11.9312694Z ----[start]----
+2025-08-25T14:42:11.9312966Z {
+2025-08-25T14:42:11.9313304Z   "startTime": "2025-08-25T14:30:04.2255394+00:00",
+2025-08-25T14:42:11.9313780Z   "endTime": "2025-08-25T14:41:15.8983013+00:00",
+2025-08-25T14:42:11.9314173Z   "status": "Failed",
+2025-08-25T14:42:11.9314479Z   "error": {
+2025-08-25T14:42:11.9314832Z     "code": "VMExtensionProvisioningError",
+2025-08-25T14:42:11.9423516Z     "message": "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\nuild3) ...\r\nSetting up humanity-icon-theme (0.6.16) ...\r\nSetting up ubuntu-mono (20.10-0ubuntu2) ...\r\nProcessing triggers for man-db (2.10.2-1) ...\r\nProcessing triggers for mailcap (3.70+nmu1ubuntu1) ...\r\nProcessing triggers for libglib2.0-0:amd64 (2.72.4-0ubuntu2.6) ...\r\nSetting up libgtk-3-0:amd64 (3.24.33-1ubuntu2.2) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\nSetting up libgtk-3-bin (3.24.33-1ubuntu2.2) ...\r\nSetting up libvte-2.91-0:amd64 (0.68.0-1ubuntu0.1) ...\r\nSetting up libvted-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up at-spi2-core (2.44.0-3) ...\r\nSetting up libgtkd-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up tilix (1.9.4-2build1) ...\r\nupdate-alternatives: using /usr/bin/tilix.wrapper to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode\r\nSetting up google-chrome-stable (139.0.7258.138-1) ...\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/x-www-browser (x-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode\r\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.8+dfsg-1ubuntu0.4) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\n\nRunning kernel seems to be up-to-date.\n\nServices to be restarted:\n systemctl restart irqbalance.service\n systemctl restart multipathd.service\n systemctl restart packagekit.service\n systemctl restart polkit.service\n systemctl restart walinuxagent.service\n\nService restarts being deferred:\n systemctl restart networkd-dispatcher.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\nInstalling Grype\nInstalling Cortex\n{\n  \"container\": \"cortex\",\n  \"content\": \"\",\n  \"contentMd5\": null,\n  \"deleted\": false,\n  \"encryptedMetadata\": null,\n  \"encryptionKeySha256\": null,\n  \"encryptionScope\": null,\n  \"hasLegalHold\": null,\n  \"hasVersionsOnly\": null,\n  \"immutabilityPolicy\": {\n    \"expiryTime\": null,\n    \"policyMode\": null\n  },\n  \"isAppendBlobSealed\": null,\n  \"isCurrentVersion\": null,\n  \"lastAccessedOn\": null,\n  \"metadata\": {},\n  \"name\": \"EXOS_SH_Non-Persistent_8-9.tar.gz\",\n  \"objectReplicationDestinationPolicy\": null,\n  \"objectReplicationSourceProperties\": [],\n  \"properties\": {\n    \"appendBlobCommittedBlockCount\": null,\n    \"blobTier\": null,\n    \"blobTierChangeTime\": null,\n    \"blobTierInferred\": null,\n    \"blobType\": \"BlockBlob\",\n    \"contentLength\": 77882253,\n    \"contentRange\": \"bytes None-None/77882253\",\n    \"contentSettings\": {\n      \"cacheControl\": null,\n      \"contentDisposition\": null,\n      \"contentEncoding\": null,\n      \"contentLanguage\": null,\n      \"contentMd5\": null,\n      \"contentType\": \"application/x-gzip\"\n    },\n    \"copy\": {\n      \"completionTime\": null,\n      \"destinationSnapshot\": null,\n      \"id\": null,\n      \"incrementalCopy\": null,\n      \"progress\": null,\n      \"source\": null,\n      \"status\": null,\n      \"statusDescription\": null\n    },\n    \"creationTime\": \"2025-08-25T13:55:03+00:00\",\n    \"deletedTime\": null,\n    \"etag\": \"\\\"0x8DDE3DEFDD845FF\\\"\",\n    \"lastModified\": \"2025-08-25T13:55:03+00:00\",\n    \"lease\": {\n      \"duration\": null,\n      \"state\": \"available\",\n      \"status\": \"unlocked\"\n    },\n    \"pageBlobSequenceNumber\": null,\n    \"pageRanges\": null,\n    \"rehydrationStatus\": null,\n    \"remainingRetentionDays\": null,\n    \"serverEncrypted\": true\n  },\n  \"rehydratePriority\": null,\n  \"requestServerEncrypted\": true,\n  \"snapshot\": null,\n  \"tagCount\": null,\n  \"tags\": null,\n  \"versionId\": null\n}\ncortex-8.9.0.136780.sh\ncortex.conf\nVerifying archive integrity... All good.\nUncompressing Cortex XDR 8.9.0.136780 installer\nActive kernel LSM: lockdown,capability,landlock,yama,apparmor\n\u001b[1;31m  Unknown option/s: \u001b[1;31mIgnoring /etc/panw/cortex.conf since world-writable (-rw-rw-rw-)\u001b[0m\u001b[0m\n\u001b[1;31mFailed to parse installer arguments\u001b[0m\n\n[stderr]\n...... 99%  122M 0s\n115300K .......... .......... .......... .......... .......... 99%  118M 0s\n115350K .......... .......... .......... .......... .......... 99%  112M 0s\n115400K .......... .......... .......... .......... .......... 99% 72.6M 0s\n115450K .......... .......... .......... .......... .......... 99%  150M 0s\n115500K .......... .......... .......... .......... .......... 99%  163M 0s\n115550K .......... .......... .......... .......... .......... 99% 55.3M 0s\n115600K .......... .......... .......... .......... .......... 99%  353M 0s\n115650K .......... .......... .......... .......... .......... 99% 86.6M 0s\n115700K .......... .......... .......... .......... .......... 99%  144M 0s\n115750K .......... .......... .......... .......... .......... 99%  147M 0s\n115800K .......... .......... .......... .......... .......... 99% 68.3M 0s\n115850K .......... .......... .......... .......... .......... 99%  143M 0s\n115900K .......... ....                                       100%  354M=1.0s\n\n2025-08-25 14:39:29 (113 MB/s) - ‘/tmp/google-chrome-stable_current_amd64.deb’ saved [118696276/118696276]\n\n+ sudo apt-get install -y /tmp/google-chrome-stable_current_amd64.deb\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Installing Grype'\n+ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh\n+ sh -s -- -b /usr/local/bin\n[info] checking github for the current release tag \n[info] fetching release script for tag='v0.98.0' \n[info] checking github for the current release tag \n[info] using release tag='v0.98.0' version='0.98.0' os='linux' arch='amd64' \n[info] installed /usr/local/bin/grype \n+ echo 'Installing Cortex'\n+ sudo az storage blob download --container-name cortex --file /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz --name EXOS_SH_Non-Persistent_8-9.tar.gz --account-name sttoolscommoneus201 --sas-token '?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2025-08-25T15:29:13Z&st=2025-08-25T14:29:13Z&spr=https&sig=a4pSjrW%2F4SAPfIwZx32Q8I4KW%2FDprvYrYHW8qw9EOg8%3D'\n\rAlive[###########################                                     ]  43.0835%\rAlive[###############################                                 ]  48.4690%\rAlive[##################################                              ]  53.8544%\rAlive[#####################################                           ]  59.2399%\rAlive[#########################################                       ]  64.6253%\rAlive[############################################                    ]  70.0108%\rAlive[################################################                ]  75.3962%\rAlive[###################################################             ]  80.7816%\rAlive[#######################################################         ]  86.1671%\rAlive[##########################################################      ]  91.5525%\rAlive[##############################################################  ]  96.9380%\rAlive[################################################################]  100.0000%\rFinished[#############################################################]  100.0000%\n+ sudo mkdir -p /tmp/cortex\n+ sudo tar -zvxf /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz -C /tmp/cortex\n+ sudo mkdir -p /etc/panw\n+ sudo mv /tmp/cortex/cortex.conf /etc/panw/\n+ sudo chmod +x /tmp/cortex/cortex-8.9.0.136780.sh\n+ sudo /usr/bin/bash /tmp/cortex/cortex-8.9.0.136780.sh\n     0% \b\b\b\b\b\b\b    5% \b\b\b\b\b\b\b   10% \b\b\b\b\b\b\b   15% \b\b\b\b\b\b\b   21% \b\b\b\b\b\b\b   26% \b\b\b\b\b\b\b   31% \b\b\b\b\b\b\b   37% \b\b\b\b\b\b\b   42% \b\b\b\b\b\b\b   47% \b\b\b\b\b\b\b   53% \b\b\b\b\b\b\b   58% \b\b\b\b\b\b\b   63% \b\b\b\b\b\b\b   69% \b\b\b\b\b\b\b   74% \b\b\b\b\b\b\b   79% \b\b\b\b\b\b\b   85% \b\b\b\b\b\b\b   90% \b\b\b\b\b\b\b   95% \b\b\b\b\b\b\b 100%  + error 'Error installing Cortex'\n+ echo 'ERROR: Error installing Cortex'\nERROR: Error installing Cortex\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T14:42:11.9452430Z   },
+2025-08-25T14:42:11.9452950Z   "name": "64e07c25-2a04-4a8e-962d-9257c5553a34"
+2025-08-25T14:42:11.9453279Z }
+2025-08-25T14:42:11.9453557Z -----[end]-----
+2025-08-25T14:42:11.9454019Z [0m
+2025-08-25T14:42:11.9454120Z 
+2025-08-25T14:42:11.9454719Z [0m  on build_images.tf line 235, in resource "azurerm_virtual_machine_extension" "build_image_bootstrap":
+2025-08-25T14:42:11.9455829Z  235: resource "azurerm_virtual_machine_extension" "build_image_bootstrap" [4m{[0m
+2025-08-25T14:42:11.9456255Z [0m
+2025-08-25T14:42:11.9456559Z [0m[0m
+2025-08-25T14:42:11.9456862Z [31m
+2025-08-25T14:42:11.9457478Z [1m[31mError: [0m[0m[1mcreating/updating Extension (Subscription: "a2ca26b7-774e-4207-801a-c45151ff310d"
+2025-08-25T14:42:11.9457977Z Resource Group Name: "rg-compute-common-eus2-01"
+2025-08-25T14:42:11.9458370Z Virtual Machine Name: "build-server-v42-eus2"
+2025-08-25T14:42:11.9458872Z Extension Name: "bootstrap"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+2025-08-25T14:42:11.9459139Z 
+2025-08-25T14:42:11.9459451Z Status: "VMExtensionProvisioningError"
+2025-08-25T14:42:11.9459741Z Code: ""
+2025-08-25T14:42:11.9572525Z Message: "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\ncore-targeting-pack-6.0 (6.0.36-1) ...\r\nSetting up dotnet-hostfxr-6.0 (6.0.36-1) ...\r\nSetting up dotnet-runtime-6.0 (6.0.36-1) ...\r\nSetting up aspnetcore-runtime-6.0 (6.0.36-1) ...\r\nSetting up dotnet-sdk-6.0 (6.0.428-1) ...\r\nThis software may collect information about you and your use of the software, and send that to Microsoft.\r\nPlease visit http://aka.ms/dotnet-cli-eula for more information.\r\nWelcome to .NET!\r\n---------------------\r\nLearn more about .NET: https://aka.ms/dotnet-docs\r\nUse 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli-docs\r\n\r\nTelemetry\r\n---------\r\nThe .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.\r\n\r\nRead more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry\r\n\r\nConfiguring...\r\n--------------\r\nA command is running to populate your local package cache to improve restore speed and enable offline access. This command takes up to one minute to complete and only runs once.\r\n\nRunning kernel seems to be up-to-date.\n\nServices to be restarted:\n systemctl restart irqbalance.service\n systemctl restart multipathd.service\n systemctl restart packagekit.service\n systemctl restart polkit.service\n systemctl restart walinuxagent.service\n\nService restarts being deferred:\n systemctl restart networkd-dispatcher.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\nReading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  aspnetcore-runtime-8.0 aspnetcore-targeting-pack-8.0 dotnet-apphost-pack-8.0\n  dotnet-hostfxr-8.0 dotnet-runtime-8.0 dotnet-runtime-deps-8.0\n  dotnet-targeting-pack-8.0\nThe following NEW packages will be installed:\n  aspnetcore-runtime-8.0 aspnetcore-targeting-pack-8.0 dotnet-apphost-pack-8.0\n  dotnet-hostfxr-8.0 dotnet-runtime-8.0 dotnet-runtime-deps-8.0 dotnet-sdk-8.0\n  dotnet-targeting-pack-8.0\n0 upgraded, 8 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 141 MB of archives.\nAfter this operation, 569 MB of additional disk space will be used.\nGet:1 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-hostfxr-8.0 amd64 8.0.19-1 [108 kB]\nGet:2 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-runtime-deps-8.0 amd64 8.0.19-1 [2894 B]\nGet:3 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-runtime-8.0 amd64 8.0.19-1 [23.1 MB]\nGet:4 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 aspnetcore-runtime-8.0 amd64 8.0.19-1 [7719 kB]\nGet:5 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-targeting-pack-8.0 amd64 8.0.19-1 [2800 kB]\nGet:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 aspnetcore-targeting-pack-8.0 amd64 8.0.19-1 [1944 kB]\nGet:7 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-apphost-pack-8.0 amd64 8.0.19-1 [3519 kB]\nGet:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1 [102 MB]\nIgn:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\nGet:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1 [102 MB]\nIgn:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\nIgn:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\nGet:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1 [102 MB]\nErr:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\n  Connection timed out [IP: 13.107.253.41 443]\nFetched 39.1 MB in 6min 53s (94.7 kB/s)\n\n[stderr]\n.. 97% 13.9M 0s\n 16550K .......... .......... .......... .......... .......... 98% 6.82M 0s\n 16600K .......... .......... .......... .......... .......... 98%  106M 0s\n 16650K .......... .......... .......... .......... .......... 98%  127M 0s\n 16700K .......... .......... .......... .......... .......... 98%  196M 0s\n 16750K .......... .......... .......... .......... .......... 99%  144M 0s\n 16800K .......... .......... .......... .......... .......... 99%  195M 0s\n 16850K .......... .......... .......... .......... .......... 99% 22.6M 0s\n 16900K .......... .......... .......... .......              100% 68.7M=0.5s\n\n2025-08-25 14:32:23 (33.0 MB/s) - ‘helm-v3.16.3-linux-amd64.tar.gz’ saved [17344280/17344280]\n\n+ sudo tar -zxvf helm-v3.16.3-linux-amd64.tar.gz -C /tmp/helm\n+ sudo mv /tmp/helm/linux-amd64/helm /usr/local/bin/helm\n+ sudo rm -R /tmp/helm\n+ echo 'Installing Kubectl'\n+ sudo apt-get update\n+ sudo apt-get install -y gnupg2\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ sudo mkdir -p /etc/apt/keyrings\n+ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key\n+ sudo gpg --dearmor --yes -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg\n+ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /'\n+ sudo tee /etc/apt/sources.list.d/kubernetes.list\n+ sudo apt-get update\n+ sudo apt-get install -y kubectl\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Installing docker'\n+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg\n+ sudo tee /etc/apt/trusted.gpg.d/docker.asc\n+ echo\n++ lsb_release -cs\n+ sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable'\n+ sudo apt-get update\n+ sudo apt-get install -y docker-ce docker-ce-cli containerd.io\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Creating an encryption key'\n+ sudo head /dev/urandom\n+ tr -dc A-Za-z0-9\n+ head -c 128\n+ sudo tee -a /root/enc_key\n+ echo 'Installing DotNet SDKs'\n+ sudo apt-get -y remove 'dotnet*' 'aspnetcore*' 'netstandard*'\n+ sudo rm -fr /etc/apt/sources.list.d/microsoft-prod.list\n+ sudo apt-get update\n+ sudo apt-get install -y dotnet-sdk-6.0\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ sudo apt-get install -y dotnet-sdk-8.0\nE: Failed to fetch https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/d/dotnet-sdk-8.0/dotnet-sdk-8.0_8.0.413-1_amd64.deb  Connection timed out [IP: 13.107.253.41 443]\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n+ error 'Installation of dotnet sdk 8.0 failed'\n+ echo 'ERROR: Installation of dotnet sdk 8.0 failed'\nERROR: Installation of dotnet sdk 8.0 failed\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T14:42:11.9588963Z Activity Id: ""
+2025-08-25T14:42:11.9589061Z 
+2025-08-25T14:42:11.9589214Z ---
+2025-08-25T14:42:11.9589272Z 
+2025-08-25T14:42:11.9589423Z API Response:
+2025-08-25T14:42:11.9589504Z 
+2025-08-25T14:42:11.9589659Z ----[start]----
+2025-08-25T14:42:11.9589816Z {
+2025-08-25T14:42:11.9590018Z   "startTime": "2025-08-25T14:30:03.7804078+00:00",
+2025-08-25T14:42:11.9590267Z   "endTime": "2025-08-25T14:42:07.341103+00:00",
+2025-08-25T14:42:11.9590473Z   "status": "Failed",
+2025-08-25T14:42:11.9590639Z   "error": {
+2025-08-25T14:42:11.9590825Z     "code": "VMExtensionProvisioningError",
+2025-08-25T14:42:11.9673132Z     "message": "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\ncore-targeting-pack-6.0 (6.0.36-1) ...\r\nSetting up dotnet-hostfxr-6.0 (6.0.36-1) ...\r\nSetting up dotnet-runtime-6.0 (6.0.36-1) ...\r\nSetting up aspnetcore-runtime-6.0 (6.0.36-1) ...\r\nSetting up dotnet-sdk-6.0 (6.0.428-1) ...\r\nThis software may collect information about you and your use of the software, and send that to Microsoft.\r\nPlease visit http://aka.ms/dotnet-cli-eula for more information.\r\nWelcome to .NET!\r\n---------------------\r\nLearn more about .NET: https://aka.ms/dotnet-docs\r\nUse 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli-docs\r\n\r\nTelemetry\r\n---------\r\nThe .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.\r\n\r\nRead more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry\r\n\r\nConfiguring...\r\n--------------\r\nA command is running to populate your local package cache to improve restore speed and enable offline access. This command takes up to one minute to complete and only runs once.\r\n\nRunning kernel seems to be up-to-date.\n\nServices to be restarted:\n systemctl restart irqbalance.service\n systemctl restart multipathd.service\n systemctl restart packagekit.service\n systemctl restart polkit.service\n systemctl restart walinuxagent.service\n\nService restarts being deferred:\n systemctl restart networkd-dispatcher.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\nReading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  aspnetcore-runtime-8.0 aspnetcore-targeting-pack-8.0 dotnet-apphost-pack-8.0\n  dotnet-hostfxr-8.0 dotnet-runtime-8.0 dotnet-runtime-deps-8.0\n  dotnet-targeting-pack-8.0\nThe following NEW packages will be installed:\n  aspnetcore-runtime-8.0 aspnetcore-targeting-pack-8.0 dotnet-apphost-pack-8.0\n  dotnet-hostfxr-8.0 dotnet-runtime-8.0 dotnet-runtime-deps-8.0 dotnet-sdk-8.0\n  dotnet-targeting-pack-8.0\n0 upgraded, 8 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 141 MB of archives.\nAfter this operation, 569 MB of additional disk space will be used.\nGet:1 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-hostfxr-8.0 amd64 8.0.19-1 [108 kB]\nGet:2 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-runtime-deps-8.0 amd64 8.0.19-1 [2894 B]\nGet:3 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-runtime-8.0 amd64 8.0.19-1 [23.1 MB]\nGet:4 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 aspnetcore-runtime-8.0 amd64 8.0.19-1 [7719 kB]\nGet:5 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-targeting-pack-8.0 amd64 8.0.19-1 [2800 kB]\nGet:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 aspnetcore-targeting-pack-8.0 amd64 8.0.19-1 [1944 kB]\nGet:7 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-apphost-pack-8.0 amd64 8.0.19-1 [3519 kB]\nGet:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1 [102 MB]\nIgn:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\nGet:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1 [102 MB]\nIgn:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\nIgn:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\nGet:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1 [102 MB]\nErr:8 https://packages.microsoft.com/ubuntu/22.04/prod jammy/main amd64 dotnet-sdk-8.0 amd64 8.0.413-1\n  Connection timed out [IP: 13.107.253.41 443]\nFetched 39.1 MB in 6min 53s (94.7 kB/s)\n\n[stderr]\n.. 97% 13.9M 0s\n 16550K .......... .......... .......... .......... .......... 98% 6.82M 0s\n 16600K .......... .......... .......... .......... .......... 98%  106M 0s\n 16650K .......... .......... .......... .......... .......... 98%  127M 0s\n 16700K .......... .......... .......... .......... .......... 98%  196M 0s\n 16750K .......... .......... .......... .......... .......... 99%  144M 0s\n 16800K .......... .......... .......... .......... .......... 99%  195M 0s\n 16850K .......... .......... .......... .......... .......... 99% 22.6M 0s\n 16900K .......... .......... .......... .......              100% 68.7M=0.5s\n\n2025-08-25 14:32:23 (33.0 MB/s) - ‘helm-v3.16.3-linux-amd64.tar.gz’ saved [17344280/17344280]\n\n+ sudo tar -zxvf helm-v3.16.3-linux-amd64.tar.gz -C /tmp/helm\n+ sudo mv /tmp/helm/linux-amd64/helm /usr/local/bin/helm\n+ sudo rm -R /tmp/helm\n+ echo 'Installing Kubectl'\n+ sudo apt-get update\n+ sudo apt-get install -y gnupg2\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ sudo mkdir -p /etc/apt/keyrings\n+ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key\n+ sudo gpg --dearmor --yes -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg\n+ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /'\n+ sudo tee /etc/apt/sources.list.d/kubernetes.list\n+ sudo apt-get update\n+ sudo apt-get install -y kubectl\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Installing docker'\n+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg\n+ sudo tee /etc/apt/trusted.gpg.d/docker.asc\n+ echo\n++ lsb_release -cs\n+ sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable'\n+ sudo apt-get update\n+ sudo apt-get install -y docker-ce docker-ce-cli containerd.io\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Creating an encryption key'\n+ sudo head /dev/urandom\n+ tr -dc A-Za-z0-9\n+ head -c 128\n+ sudo tee -a /root/enc_key\n+ echo 'Installing DotNet SDKs'\n+ sudo apt-get -y remove 'dotnet*' 'aspnetcore*' 'netstandard*'\n+ sudo rm -fr /etc/apt/sources.list.d/microsoft-prod.list\n+ sudo apt-get update\n+ sudo apt-get install -y dotnet-sdk-6.0\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ sudo apt-get install -y dotnet-sdk-8.0\nE: Failed to fetch https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/d/dotnet-sdk-8.0/dotnet-sdk-8.0_8.0.413-1_amd64.deb  Connection timed out [IP: 13.107.253.41 443]\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n+ error 'Installation of dotnet sdk 8.0 failed'\n+ echo 'ERROR: Installation of dotnet sdk 8.0 failed'\nERROR: Installation of dotnet sdk 8.0 failed\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T14:42:11.9686381Z   },
+2025-08-25T14:42:11.9686805Z   "name": "ff84457a-6723-472f-922f-fc1177caf77e"
+2025-08-25T14:42:11.9687100Z }
+2025-08-25T14:42:11.9687377Z -----[end]-----
+2025-08-25T14:42:11.9687765Z [0m
+2025-08-25T14:42:11.9687872Z 
+2025-08-25T14:42:11.9688340Z [0m  on build_images.tf line 235, in resource "azurerm_virtual_machine_extension" "build_image_bootstrap":
+2025-08-25T14:42:11.9688744Z  235: resource "azurerm_virtual_machine_extension" "build_image_bootstrap" [4m{[0m
+2025-08-25T14:42:11.9689001Z [0m
+2025-08-25T14:42:11.9689177Z [0m[0m
+2025-08-25T14:42:11.9717951Z 
+2025-08-25T14:42:11.9764373Z ##[error]Script failed with exit code: 1
+2025-08-25T14:42:11.9784720Z [command]/usr/local/bin/az account clear
+2025-08-25T14:42:12.9536138Z ##[section]Finishing: Terraform Apply
