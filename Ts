@@ -1,0 +1,10 @@
+# See which pods are annotated and what containers they declare
+kubectl get pods -n dev-aks-sinhchatapi -o json \
+| jq -r '.items[] | [.metadata.name, (.metadata.annotations["dapr.io/enabled"] // ""), ([.spec.containers[]?.name] | join(","))] | @tsv'
+
+# See pods that SHOULD have dapr but don't (using the same filter)
+kubectl get pods -n dev-aks-sinhchatapi -o json \
+| jq -r '.items[]
+  | select(((.metadata.annotations["dapr.io/enabled"] // "") | tostring | ascii_downcase) == "true")
+  | select([.spec.containers[]?.name] | index("daprd") | not)
+  | .metadata.name'
