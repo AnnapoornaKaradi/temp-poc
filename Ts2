@@ -1,0 +1,81 @@
+command:
+  - /bin/sh
+  - -c
+  - |
+    set -euo pipefail
+
+    NAMESPACE="dev-aks-sinhchatapi"
+    ALERT_URL="https://prod-104.westus.logic.azure.com:443/workflows/a1925443f705470f826d225af6561459/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9-10StX_0cXrG46KvTL3lQAwpwBwTfABwXnUN_IuhgU"
+    MAX_RETRIES=10
+    RETRY_DELAY=30
+    SENT_INITIAL_ALERT=false
+
+    echo "Listing pods with dapr.io/enabled annotation (for visibility):"
+    kubectl get pods -n "$NAMESPACE" -o json | jq -r '
+      .items[] |
+      {
+        name: .metadata.name,
+        enabled: (.metadata.annotations["dapr.io/enabled"] // ""),
+        containers: (.spec.containers[]?.name)
+      }' || true
+
+    for i in $(seq 1 $MAX_RETRIES); do
+      echo "🔍 Attempt $i/$MAX_RETRIES"
+
+      # Find pods that SHOULD have Dapr (annotation true) but DON'T have a 'daprd' container in the spec.
+      MISSING_PODS=$(kubectl get pods -n "$NAMESPACE" -o json | jq -r '
+        .items[]
+        | select(((.metadata.annotations["dapr.io/enabled"] // "") | tostring | ascii_downcase) == "true")
+        | select([.spec.containers[]?.name] | index("daprd") | not)
+        | .metadata.name
+      ')
+
+      if [ -z "$MISSING_PODS" ]; then
+        echo "✅ All annotated pods include the daprd container (spec-level check)."
+
+        if [ "$SENT_INITIAL_ALERT" = true ]; then
+          echo "📬 Sending recovery alert..."
+          jq -n \
+            --arg alert "Dapr sidecar injected successfully after restart" \
+            --arg namespace "$NAMESPACE" \
+            --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{alert: $alert, namespace: $namespace, timestamp: $timestamp}' | \
+          curl -s -X POST "$ALERT_URL" -H "Content-Type: application/json" -d @-
+        fi
+        exit 0
+      fi
+
+      echo "⚠️ Pods annotated for Dapr but missing the 'daprd' container in spec:"
+      echo "$MISSING_PODS"
+
+      if [ "$SENT_INITIAL_ALERT" = false ]; then
+        PODS_JSON=$(echo "$MISSING_PODS" | jq -R -s -c 'split("\n")[:-1]')
+        jq -n \
+          --arg alert "⚠️ Dapr sidecar missing in some pods (spec check)" \
+          --arg namespace "$NAMESPACE" \
+          --argjson pods "$PODS_JSON" \
+          --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+          '{alert: $alert, namespace: $namespace, pods: $pods, timestamp: $timestamp}' | \
+        curl -s -X POST "$ALERT_URL" -H "Content-Type: application/json" -d @-
+        SENT_INITIAL_ALERT=true
+      fi
+
+      for pod in $MISSING_PODS; do
+        echo "🔄 Deleting pod $pod to trigger re-creation with sidecar"
+        kubectl delete pod "$pod" -n "$NAMESPACE" || echo "❌ Failed to delete pod $pod"
+      done
+
+      echo "⏳ Waiting $RETRY_DELAY seconds before next attempt..."
+      sleep $RETRY_DELAY
+    done
+
+    echo "❌ Sidecars still missing after $MAX_RETRIES retries"
+    PODS_JSON=$(echo "$MISSING_PODS" | jq -R -s -c 'split("\n")[:-1]')
+    jq -n \
+      --arg alert "❌ Dapr sidecars still missing after $MAX_RETRIES restarts" \
+      --arg namespace "$NAMESPACE" \
+      --argjson pods "$PODS_JSON" \
+      --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+      '{alert: $alert, namespace: $namespace, pods: $pods, timestamp: $timestamp}' | \
+    curl -s -X POST "$ALERT_URL" -H "Content-Type: application/json" -d @-
+    exit 1
