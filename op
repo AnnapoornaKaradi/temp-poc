@@ -1,0 +1,30 @@
+/home/curl_user $ echo "$KUBERNETES_SERVICE_HOST" "$KUBERNETES_SERVICE_PORT"
+10.0.0.1 443
+/home/curl_user $ nslookup kubernetes.default.svc.cluster.local || getent hosts kubernetes.default.svc.cluster.local
+Server:         10.0.0.10
+Address:        10.0.0.10:53
+
+
+Name:   kubernetes.default.svc.cluster.local
+Address: 10.0.0.1
+
+/home/curl_user $ nc -vz $KUBERNETES_SERVICE_HOST $KUBERNETES_SERVICE_PORT
+10.0.0.1 (10.0.0.1:443) open
+/home/curl_user $ curl -sS -m 5 https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/healthz \
+>   --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \env:
+curl: (35) Recv failure: Connection reset by peer
+curl: (3) URL rejected: Port number was not a decimal number between 0 and 65535
+/home/curl_user $
+/home/curl_user $
+/home/curl_user $
+/home/curl_user $
+/home/curl_user $   -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"^C
+
+/home/curl_user $
+/home/curl_user $ curl -sS -m 5 https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/healthz \ --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \ -H "Authorization: Beare
+r $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"
+curl: (35) Recv failure: Connection reset by peer
+curl: (3) URL rejected: Malformed input to a URL function
+curl: (3) URL rejected: No host part in the URL
+curl: (3) URL rejected: Malformed input to a URL function
+curl: (3) URL rejected: Malformed input to a URL function
