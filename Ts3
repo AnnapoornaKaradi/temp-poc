@@ -1,0 +1,25 @@
+kubectl get svc kubernetes -n default -o wide
+kubectl run -n uat-aks-sinhchatapi -it tmp --image=ccopaksacrdevpublicimages.azurecr.io/dapr/sample:0.2 --rm --restart=Never -- /bin/sh
+# inside the pod:
+echo "$KUBERNETES_SERVICE_HOST" "$KUBERNETES_SERVICE_PORT"
+nslookup kubernetes.default.svc.cluster.local || getent hosts kubernetes.default.svc.cluster.local
+
+
+# inside that tmp pod:
+nc -vz $KUBERNETES_SERVICE_HOST $KUBERNETES_SERVICE_PORT
+curl -sS -m 5 https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/healthz \
+  --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \env:
+  - name: NO_PROXY
+    value: "127.0.0.1,localhost,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,*.svc,*.svc.cluster.local,kubernetes.default.svc"
+  - name: no_proxy
+    value: "127.0.0.1,localhost,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,*.svc,*.svc.cluster.local,kubernetes.default.svc"
+  - name: HTTP_PROXY
+    value: ""
+  - name: HTTPS_PROXY
+    value: ""
+
+
+
+  -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"
+
+
