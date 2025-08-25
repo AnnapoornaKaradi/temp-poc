@@ -48,3 +48,26 @@ curl -v -m 8 \
   --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
   -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
   https://kubernetes.default.svc:443/readyz
+
+
+
+
+/home/curl_user $ curl -v -m 8 \
+>   --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+>   -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+>   https://kubernetes.default.svc:443/readyz
+* Host kubernetes.default.svc:443 was resolved.
+* IPv6: (none)
+* IPv4: 10.0.0.1
+*   Trying 10.0.0.1:443...
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+*  CAfile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+*  CApath: none
+* Recv failure: Connection reset by peer
+* TLS connect error: error:00000000:lib(0)::reason(0)
+* OpenSSL SSL_connect: Connection reset by peer in connection to kubernetes.default.svc:443
+* closing connection #0
+curl: (35) Recv failure: Connection reset by peer
+/home/curl_user $ exit
+command terminated with exit code 35
