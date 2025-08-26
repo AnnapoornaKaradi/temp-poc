@@ -1,0 +1,492 @@
+2025-08-25T15:25:17.6267966Z ##[section]Starting: Terraform Apply
+2025-08-25T15:25:17.6278005Z ==============================================================================
+2025-08-25T15:25:17.6278309Z Task         : Azure CLI
+2025-08-25T15:25:17.6278453Z Description  : Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
+2025-08-25T15:25:17.6278905Z Version      : 2.259.1
+2025-08-25T15:25:17.6279087Z Author       : Microsoft Corporation
+2025-08-25T15:25:17.6279273Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli
+2025-08-25T15:25:17.6279542Z ==============================================================================
+2025-08-25T15:25:19.5544328Z [command]/usr/local/bin/az --version
+2025-08-25T15:25:20.3786803Z WARNING: You have 2 update(s) available. Consider updating your CLI installation with 'az upgrade'
+2025-08-25T15:25:20.3787613Z azure-cli                         2.71.0 *
+2025-08-25T15:25:20.3788147Z 
+2025-08-25T15:25:20.3788473Z core                              2.71.0 *
+2025-08-25T15:25:20.3788764Z telemetry                          1.1.0
+2025-08-25T15:25:20.3788909Z 
+2025-08-25T15:25:20.3789217Z Dependencies:
+2025-08-25T15:25:20.3790043Z msal                            1.31.2b1
+2025-08-25T15:25:20.3790417Z azure-mgmt-resource               23.1.1
+2025-08-25T15:25:20.3790589Z 
+2025-08-25T15:25:20.3790894Z Python location '/usr/bin/python3'
+2025-08-25T15:25:20.3791246Z Config directory '/home/AzDevOps/.azure'
+2025-08-25T15:25:20.3791669Z Extensions directory '/home/AzDevOps/.azure/cliextensions'
+2025-08-25T15:25:20.3791921Z 
+2025-08-25T15:25:20.3792340Z Python (Linux) 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0]
+2025-08-25T15:25:20.3792567Z 
+2025-08-25T15:25:20.3793923Z Legal docs and information: aka.ms/AzureCliLegal
+2025-08-25T15:25:20.3794153Z 
+2025-08-25T15:25:20.3794255Z 
+2025-08-25T15:25:20.3819210Z Setting AZURE_CONFIG_DIR env variable to: /agent/_work/_temp/.azclitask
+2025-08-25T15:25:20.3829638Z Setting active cloud to: AzureCloud
+2025-08-25T15:25:20.3834106Z [command]/usr/local/bin/az cloud set -n AzureCloud
+2025-08-25T15:25:23.2741896Z [command]/usr/local/bin/az login --service-principal -u *** --password=*** --tenant 8a807b9b-02da-47f3-a903-791a42a2285c --allow-no-subscriptions
+2025-08-25T15:25:24.6400761Z [
+2025-08-25T15:25:24.6401318Z   {
+2025-08-25T15:25:24.6401641Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6401959Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6402370Z     "id": "63b7d481-6d18-4a56-bbec-0d3411477a0c",
+2025-08-25T15:25:24.6402686Z     "isDefault": true,
+2025-08-25T15:25:24.6402968Z     "managedByTenants": [],
+2025-08-25T15:25:24.6403281Z     "name": "SL-EXOS-Development-02",
+2025-08-25T15:25:24.6403599Z     "state": "Enabled",
+2025-08-25T15:25:24.6403926Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6404231Z     "user": {
+2025-08-25T15:25:24.6404863Z       "name": "***",
+2025-08-25T15:25:24.6405227Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6407104Z     }
+2025-08-25T15:25:24.6407433Z   },
+2025-08-25T15:25:24.6407722Z   {
+2025-08-25T15:25:24.6408305Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6410382Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6412251Z     "id": "a2ca26b7-774e-4207-801a-c45151ff310d",
+2025-08-25T15:25:24.6416476Z     "isDefault": false,
+2025-08-25T15:25:24.6416846Z     "managedByTenants": [],
+2025-08-25T15:25:24.6417186Z     "name": "SL-EXOS-ReleaseMGMT-01",
+2025-08-25T15:25:24.6417482Z     "state": "Enabled",
+2025-08-25T15:25:24.6417809Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6418100Z     "user": {
+2025-08-25T15:25:24.6418516Z       "name": "***",
+2025-08-25T15:25:24.6418864Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6419161Z     }
+2025-08-25T15:25:24.6419420Z   },
+2025-08-25T15:25:24.6419682Z   {
+2025-08-25T15:25:24.6419990Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6420708Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6424280Z     "id": "00d5d0e4-64fb-4d41-b953-241c4d2d8f99",
+2025-08-25T15:25:24.6425158Z     "isDefault": false,
+2025-08-25T15:25:24.6425606Z     "managedByTenants": [],
+2025-08-25T15:25:24.6425889Z     "name": "SL-EXOS-Performance-01",
+2025-08-25T15:25:24.6426186Z     "state": "Enabled",
+2025-08-25T15:25:24.6426898Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6427230Z     "user": {
+2025-08-25T15:25:24.6428216Z       "name": "***",
+2025-08-25T15:25:24.6428544Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6428865Z     }
+2025-08-25T15:25:24.6429116Z   },
+2025-08-25T15:25:24.6429335Z   {
+2025-08-25T15:25:24.6429597Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6429968Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6430349Z     "id": "8f2e2199-66ed-4b86-b236-6148a8425229",
+2025-08-25T15:25:24.6430671Z     "isDefault": false,
+2025-08-25T15:25:24.6431462Z     "managedByTenants": [],
+2025-08-25T15:25:24.6431759Z     "name": "SL-EXOS-UAT-02",
+2025-08-25T15:25:24.6432030Z     "state": "Enabled",
+2025-08-25T15:25:24.6432318Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6432626Z     "user": {
+2025-08-25T15:25:24.6433015Z       "name": "***",
+2025-08-25T15:25:24.6433372Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6433627Z     }
+2025-08-25T15:25:24.6433822Z   },
+2025-08-25T15:25:24.6434031Z   {
+2025-08-25T15:25:24.6434272Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6434619Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6434983Z     "id": "ac348851-c1e6-463a-a202-5041c8912fb8",
+2025-08-25T15:25:24.6435427Z     "isDefault": false,
+2025-08-25T15:25:24.6435731Z     "managedByTenants": [],
+2025-08-25T15:25:24.6436013Z     "name": "SL-EXOS-Production-01",
+2025-08-25T15:25:24.6436285Z     "state": "Enabled",
+2025-08-25T15:25:24.6436604Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6436920Z     "user": {
+2025-08-25T15:25:24.6437271Z       "name": "***",
+2025-08-25T15:25:24.6437558Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6437816Z     }
+2025-08-25T15:25:24.6438446Z   },
+2025-08-25T15:25:24.6438661Z   {
+2025-08-25T15:25:24.6438928Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6439288Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6439665Z     "id": "d57c9855-b4d0-4397-b3de-0fb34d24651e",
+2025-08-25T15:25:24.6441190Z     "isDefault": false,
+2025-08-25T15:25:24.6441390Z     "managedByTenants": [],
+2025-08-25T15:25:24.6441573Z     "name": "SL-EXOS-Stage-01",
+2025-08-25T15:25:24.6441757Z     "state": "Enabled",
+2025-08-25T15:25:24.6441956Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6442143Z     "user": {
+2025-08-25T15:25:24.6442403Z       "name": "***",
+2025-08-25T15:25:24.6442647Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6442904Z     }
+2025-08-25T15:25:24.6443151Z   },
+2025-08-25T15:25:24.6443394Z   {
+2025-08-25T15:25:24.6443644Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6443995Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6444396Z     "id": "ae71418a-ccf8-4445-9dcc-ab602fe53523",
+2025-08-25T15:25:24.6444749Z     "isDefault": false,
+2025-08-25T15:25:24.6445098Z     "managedByTenants": [],
+2025-08-25T15:25:24.6445916Z     "name": "SL-EXOS-Archival-01",
+2025-08-25T15:25:24.6446276Z     "state": "Enabled",
+2025-08-25T15:25:24.6446673Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6447049Z     "user": {
+2025-08-25T15:25:24.6447504Z       "name": "***",
+2025-08-25T15:25:24.6447853Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6448328Z     }
+2025-08-25T15:25:24.6448613Z   },
+2025-08-25T15:25:24.6448886Z   {
+2025-08-25T15:25:24.6449205Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6449624Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6450247Z     "id": "8d1a8329-ea90-46a3-b900-8676c42ed761",
+2025-08-25T15:25:24.6450636Z     "isDefault": false,
+2025-08-25T15:25:24.6450980Z     "managedByTenants": [],
+2025-08-25T15:25:24.6451338Z     "name": "SL-EXOS-Sandbox-01",
+2025-08-25T15:25:24.6451691Z     "state": "Enabled",
+2025-08-25T15:25:24.6452090Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6452449Z     "user": {
+2025-08-25T15:25:24.6452892Z       "name": "***",
+2025-08-25T15:25:24.6453267Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6453545Z     }
+2025-08-25T15:25:24.6453755Z   },
+2025-08-25T15:25:24.6453989Z   {
+2025-08-25T15:25:24.6454274Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:24.6454575Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6454883Z     "id": "f1743aea-3bf1-4feb-9b59-8059836a5999",
+2025-08-25T15:25:24.6455163Z     "isDefault": false,
+2025-08-25T15:25:24.6455598Z     "managedByTenants": [],
+2025-08-25T15:25:24.6455871Z     "name": "SL-InfoSec",
+2025-08-25T15:25:24.6456063Z     "state": "Enabled",
+2025-08-25T15:25:24.6456266Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:24.6456455Z     "user": {
+2025-08-25T15:25:24.6456690Z       "name": "***",
+2025-08-25T15:25:24.6456867Z       "type": "servicePrincipal"
+2025-08-25T15:25:24.6457034Z     }
+2025-08-25T15:25:24.6457179Z   }
+2025-08-25T15:25:24.6457324Z ]
+2025-08-25T15:25:24.6457546Z [command]/usr/local/bin/az account set --subscription a2ca26b7-774e-4207-801a-c45151ff310d
+2025-08-25T15:25:25.2162988Z [command]/usr/bin/bash /agent/_work/1/BaseInfra_Build/PipelineTemplates/scripts/terraform_apply.sh
+2025-08-25T15:25:27.1323834Z [
+2025-08-25T15:25:27.1331342Z   {
+2025-08-25T15:25:27.1347546Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1347955Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1348382Z     "id": "63b7d481-6d18-4a56-bbec-0d3411477a0c",
+2025-08-25T15:25:27.1348722Z     "isDefault": false,
+2025-08-25T15:25:27.1349029Z     "managedByTenants": [],
+2025-08-25T15:25:27.1349389Z     "name": "SL-EXOS-Development-02",
+2025-08-25T15:25:27.1349688Z     "state": "Enabled",
+2025-08-25T15:25:27.1350023Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1350341Z     "user": {
+2025-08-25T15:25:27.1350853Z       "name": "***",
+2025-08-25T15:25:27.1351230Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1351598Z     }
+2025-08-25T15:25:27.1351880Z   },
+2025-08-25T15:25:27.1352107Z   {
+2025-08-25T15:25:27.1352346Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1352670Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1353045Z     "id": "a2ca26b7-774e-4207-801a-c45151ff310d",
+2025-08-25T15:25:27.1353362Z     "isDefault": true,
+2025-08-25T15:25:27.1353650Z     "managedByTenants": [],
+2025-08-25T15:25:27.1353952Z     "name": "SL-EXOS-ReleaseMGMT-01",
+2025-08-25T15:25:27.1354236Z     "state": "Enabled",
+2025-08-25T15:25:27.1354572Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1354923Z     "user": {
+2025-08-25T15:25:27.1355603Z       "name": "***",
+2025-08-25T15:25:27.1356011Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1356356Z     }
+2025-08-25T15:25:27.1356750Z   },
+2025-08-25T15:25:27.1356993Z   {
+2025-08-25T15:25:27.1357256Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1357608Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1358348Z     "id": "00d5d0e4-64fb-4d41-b953-241c4d2d8f99",
+2025-08-25T15:25:27.1358670Z     "isDefault": false,
+2025-08-25T15:25:27.1358945Z     "managedByTenants": [],
+2025-08-25T15:25:27.1359257Z     "name": "SL-EXOS-Performance-01",
+2025-08-25T15:25:27.1359578Z     "state": "Enabled",
+2025-08-25T15:25:27.1359913Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1360264Z     "user": {
+2025-08-25T15:25:27.1360720Z       "name": "***",
+2025-08-25T15:25:27.1361034Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1361316Z     }
+2025-08-25T15:25:27.1361872Z   },
+2025-08-25T15:25:27.1362125Z   {
+2025-08-25T15:25:27.1362407Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1362791Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1363186Z     "id": "8f2e2199-66ed-4b86-b236-6148a8425229",
+2025-08-25T15:25:27.1363511Z     "isDefault": false,
+2025-08-25T15:25:27.1363902Z     "managedByTenants": [],
+2025-08-25T15:25:27.1364194Z     "name": "SL-EXOS-UAT-02",
+2025-08-25T15:25:27.1364505Z     "state": "Enabled",
+2025-08-25T15:25:27.1364812Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1365108Z     "user": {
+2025-08-25T15:25:27.1365772Z       "name": "***",
+2025-08-25T15:25:27.1366095Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1366387Z     }
+2025-08-25T15:25:27.1366630Z   },
+2025-08-25T15:25:27.1366877Z   {
+2025-08-25T15:25:27.1367164Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1367546Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1367952Z     "id": "ac348851-c1e6-463a-a202-5041c8912fb8",
+2025-08-25T15:25:27.1368306Z     "isDefault": false,
+2025-08-25T15:25:27.1368582Z     "managedByTenants": [],
+2025-08-25T15:25:27.1368776Z     "name": "SL-EXOS-Production-01",
+2025-08-25T15:25:27.1368958Z     "state": "Enabled",
+2025-08-25T15:25:27.1369157Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1369348Z     "user": {
+2025-08-25T15:25:27.1369597Z       "name": "***",
+2025-08-25T15:25:27.1369773Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1369939Z     }
+2025-08-25T15:25:27.1370080Z   },
+2025-08-25T15:25:27.1370222Z   {
+2025-08-25T15:25:27.1370384Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1370593Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1370821Z     "id": "d57c9855-b4d0-4397-b3de-0fb34d24651e",
+2025-08-25T15:25:27.1371020Z     "isDefault": false,
+2025-08-25T15:25:27.1371197Z     "managedByTenants": [],
+2025-08-25T15:25:27.1371378Z     "name": "SL-EXOS-Stage-01",
+2025-08-25T15:25:27.1371562Z     "state": "Enabled",
+2025-08-25T15:25:27.1371760Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1371947Z     "user": {
+2025-08-25T15:25:27.1372280Z       "name": "***",
+2025-08-25T15:25:27.1372562Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1372845Z     }
+2025-08-25T15:25:27.1373094Z   },
+2025-08-25T15:25:27.1373312Z   {
+2025-08-25T15:25:27.1373569Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1373921Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1374336Z     "id": "ae71418a-ccf8-4445-9dcc-ab602fe53523",
+2025-08-25T15:25:27.1374670Z     "isDefault": false,
+2025-08-25T15:25:27.1374972Z     "managedByTenants": [],
+2025-08-25T15:25:27.1375444Z     "name": "SL-EXOS-Archival-01",
+2025-08-25T15:25:27.1375771Z     "state": "Enabled",
+2025-08-25T15:25:27.1376104Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1376414Z     "user": {
+2025-08-25T15:25:27.1376792Z       "name": "***",
+2025-08-25T15:25:27.1377116Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1377395Z     }
+2025-08-25T15:25:27.1377637Z   },
+2025-08-25T15:25:27.1377873Z   {
+2025-08-25T15:25:27.1378151Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1378519Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1378932Z     "id": "8d1a8329-ea90-46a3-b900-8676c42ed761",
+2025-08-25T15:25:27.1379274Z     "isDefault": false,
+2025-08-25T15:25:27.1379919Z     "managedByTenants": [],
+2025-08-25T15:25:27.1380254Z     "name": "SL-EXOS-Sandbox-01",
+2025-08-25T15:25:27.1380584Z     "state": "Enabled",
+2025-08-25T15:25:27.1380946Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1381265Z     "user": {
+2025-08-25T15:25:27.1381714Z       "name": "***",
+2025-08-25T15:25:27.1382042Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1382340Z     }
+2025-08-25T15:25:27.1382596Z   },
+2025-08-25T15:25:27.1382844Z   {
+2025-08-25T15:25:27.1383136Z     "cloudName": "AzureCloud",
+2025-08-25T15:25:27.1383753Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1384166Z     "id": "f1743aea-3bf1-4feb-9b59-8059836a5999",
+2025-08-25T15:25:27.1384529Z     "isDefault": false,
+2025-08-25T15:25:27.1384842Z     "managedByTenants": [],
+2025-08-25T15:25:27.1385158Z     "name": "SL-InfoSec",
+2025-08-25T15:25:27.1385646Z     "state": "Enabled",
+2025-08-25T15:25:27.1385995Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-08-25T15:25:27.1386337Z     "user": {
+2025-08-25T15:25:27.1386761Z       "name": "***",
+2025-08-25T15:25:27.1387084Z       "type": "servicePrincipal"
+2025-08-25T15:25:27.1387363Z     }
+2025-08-25T15:25:27.1387622Z   }
+2025-08-25T15:25:27.1387857Z ]
+2025-08-25T15:25:27.9213775Z Terraform v0.14.11
+2025-08-25T15:25:27.9214897Z + provider registry.terraform.io/azure/azapi v1.12.1
+2025-08-25T15:25:27.9219482Z + provider registry.terraform.io/chilicat/pkcs12 v0.2.5
+2025-08-25T15:25:27.9219958Z + provider registry.terraform.io/hashicorp/azuread v2.46.0
+2025-08-25T15:25:27.9220442Z + provider registry.terraform.io/hashicorp/azurerm v3.117.1
+2025-08-25T15:25:27.9220878Z + provider registry.terraform.io/hashicorp/dns v3.4.3
+2025-08-25T15:25:27.9221308Z + provider registry.terraform.io/hashicorp/external v2.3.5
+2025-08-25T15:25:27.9221738Z + provider registry.terraform.io/hashicorp/helm v2.16.1
+2025-08-25T15:25:27.9222185Z + provider registry.terraform.io/hashicorp/kubernetes v2.38.0
+2025-08-25T15:25:27.9222635Z + provider registry.terraform.io/hashicorp/local v2.5.3
+2025-08-25T15:25:27.9223059Z + provider registry.terraform.io/hashicorp/null v3.2.4
+2025-08-25T15:25:27.9223482Z + provider registry.terraform.io/hashicorp/random v3.4.3
+2025-08-25T15:25:27.9223900Z + provider registry.terraform.io/hashicorp/time v0.13.1
+2025-08-25T15:25:27.9224253Z + provider registry.terraform.io/hashicorp/tls v3.4.0
+2025-08-25T15:25:27.9224590Z + provider registry.terraform.io/mastercard/restapi v1.20.0
+2025-08-25T15:25:27.9224758Z 
+2025-08-25T15:25:27.9225173Z Your version of Terraform is out of date! The latest version
+2025-08-25T15:25:27.9225802Z is 1.13.0. You can update by downloading from https://www.terraform.io/downloads.html
+2025-08-25T15:25:28.8110658Z cat: /agent/_work/1/BaseInfra_Build/EXOSBaseInfra/terraform/sandbox/../common/common_backend.tfvars: No such file or directory
+2025-08-25T15:25:29.2967601Z 
+2025-08-25T15:25:29.3097317Z [0m[1mInitializing the backend...[0m
+2025-08-25T15:25:32.3752604Z 
+2025-08-25T15:25:32.3761102Z [0m[1mInitializing provider plugins...[0m
+2025-08-25T15:25:32.3761857Z - terraform.io/builtin/terraform is built in to Terraform
+2025-08-25T15:25:32.3762259Z - Reusing previous version of hashicorp/azuread from the dependency lock file
+2025-08-25T15:25:32.4955586Z - Reusing previous version of hashicorp/local from the dependency lock file
+2025-08-25T15:25:32.5204201Z - Reusing previous version of hashicorp/tls from the dependency lock file
+2025-08-25T15:25:32.5456284Z - Reusing previous version of hashicorp/external from the dependency lock file
+2025-08-25T15:25:32.5717561Z - Reusing previous version of mastercard/restapi from the dependency lock file
+2025-08-25T15:25:32.5970331Z - Reusing previous version of hashicorp/dns from the dependency lock file
+2025-08-25T15:25:32.6234581Z - Reusing previous version of hashicorp/time from the dependency lock file
+2025-08-25T15:25:32.6493093Z - Reusing previous version of hashicorp/azurerm from the dependency lock file
+2025-08-25T15:25:32.6759761Z - Reusing previous version of hashicorp/helm from the dependency lock file
+2025-08-25T15:25:32.7005456Z - Reusing previous version of azure/azapi from the dependency lock file
+2025-08-25T15:25:32.7245843Z - Reusing previous version of hashicorp/kubernetes from the dependency lock file
+2025-08-25T15:25:32.7497315Z - Reusing previous version of hashicorp/random from the dependency lock file
+2025-08-25T15:25:32.7776035Z - Reusing previous version of hashicorp/null from the dependency lock file
+2025-08-25T15:25:32.8003192Z - Reusing previous version of chilicat/pkcs12 from the dependency lock file
+2025-08-25T15:25:32.8761524Z - Using previously-installed mastercard/restapi v1.20.0
+2025-08-25T15:25:32.9390293Z - Using previously-installed hashicorp/dns v3.4.3
+2025-08-25T15:25:32.9878502Z - Using previously-installed hashicorp/time v0.13.1
+2025-08-25T15:25:33.3752874Z - Using previously-installed azure/azapi v1.12.1
+2025-08-25T15:25:33.4238205Z - Using previously-installed hashicorp/null v3.2.4
+2025-08-25T15:25:33.4726477Z - Using previously-installed hashicorp/local v2.5.3
+2025-08-25T15:25:33.5176236Z - Using previously-installed hashicorp/tls v3.4.0
+2025-08-25T15:25:33.6911468Z - Using previously-installed hashicorp/kubernetes v2.38.0
+2025-08-25T15:25:33.7306085Z - Using previously-installed hashicorp/random v3.4.3
+2025-08-25T15:25:33.7793312Z - Using previously-installed hashicorp/external v2.3.5
+2025-08-25T15:25:34.5544845Z - Using previously-installed hashicorp/azurerm v3.117.1
+2025-08-25T15:25:34.6153161Z - Using previously-installed hashicorp/azuread v2.46.0
+2025-08-25T15:25:34.7904136Z - Using previously-installed hashicorp/helm v2.16.1
+2025-08-25T15:25:34.8362372Z - Using previously-installed chilicat/pkcs12 v0.2.5
+2025-08-25T15:25:34.8363278Z 
+2025-08-25T15:25:34.8367581Z [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+2025-08-25T15:25:34.8369854Z [0m[32m
+2025-08-25T15:25:34.8370225Z You may now begin working with Terraform. Try running "terraform plan" to see
+2025-08-25T15:25:34.8370709Z any changes that are required for your infrastructure. All Terraform commands
+2025-08-25T15:25:34.8371091Z should now work.
+2025-08-25T15:25:34.8371222Z 
+2025-08-25T15:25:34.8371523Z If you ever set or change modules or backend configuration for Terraform,
+2025-08-25T15:25:34.8374464Z rerun this command to reinitialize your working directory. If you forget, other
+2025-08-25T15:25:34.8374953Z commands will detect it and remind you to do so if necessary.[0m
+2025-08-25T15:25:34.8641974Z gpg: AES256.CFB encrypted data
+2025-08-25T15:25:35.0747094Z gpg: encrypted with 1 passphrase
+2025-08-25T15:25:48.9312741Z [0m[1mdata.azurerm_storage_account_sas.tools: Reading... [id=d23ace14190e60950df3482f93a794502a1a9e39dc72532e28d682cc8ab3d621][0m[0m
+2025-08-25T15:25:48.9379017Z [0m[1mdata.azurerm_storage_account_sas.tools: Read complete after 0s [id=d75127fd4e2a6abdc9e9d3ea2ffb2ba48b2b66be9ada62cd5cc97008732b64f2][0m[0m
+2025-08-25T15:25:48.9604373Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Creating...[0m[0m
+2025-08-25T15:25:48.9605581Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Creating...[0m[0m
+2025-08-25T15:25:58.9609556Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T15:25:58.9610753Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [10s elapsed][0m[0m
+2025-08-25T15:26:08.9611985Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T15:26:08.9612703Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [20s elapsed][0m[0m
+2025-08-25T15:26:18.9620107Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [30s elapsed][0m[0m
+2025-08-25T15:26:18.9620783Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [30s elapsed][0m[0m
+2025-08-25T15:26:28.9622864Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [40s elapsed][0m[0m
+2025-08-25T15:26:28.9623623Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [40s elapsed][0m[0m
+2025-08-25T15:26:38.9622553Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [50s elapsed][0m[0m
+2025-08-25T15:26:38.9623231Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [50s elapsed][0m[0m
+2025-08-25T15:26:48.9623815Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m0s elapsed][0m[0m
+2025-08-25T15:26:48.9626147Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m0s elapsed][0m[0m
+2025-08-25T15:26:58.9627466Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m10s elapsed][0m[0m
+2025-08-25T15:26:58.9628513Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m10s elapsed][0m[0m
+2025-08-25T15:27:08.9629962Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m20s elapsed][0m[0m
+2025-08-25T15:27:08.9630733Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m20s elapsed][0m[0m
+2025-08-25T15:27:18.9632555Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m30s elapsed][0m[0m
+2025-08-25T15:27:18.9636224Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m30s elapsed][0m[0m
+2025-08-25T15:27:28.9634725Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m40s elapsed][0m[0m
+2025-08-25T15:27:28.9636181Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m40s elapsed][0m[0m
+2025-08-25T15:27:38.9639633Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [1m50s elapsed][0m[0m
+2025-08-25T15:27:38.9641412Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [1m50s elapsed][0m[0m
+2025-08-25T15:27:48.9641165Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m0s elapsed][0m[0m
+2025-08-25T15:27:48.9642178Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m0s elapsed][0m[0m
+2025-08-25T15:27:58.9643463Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m10s elapsed][0m[0m
+2025-08-25T15:27:58.9644744Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m10s elapsed][0m[0m
+2025-08-25T15:28:08.9647966Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m20s elapsed][0m[0m
+2025-08-25T15:28:08.9648704Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m20s elapsed][0m[0m
+2025-08-25T15:28:18.9646769Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m30s elapsed][0m[0m
+2025-08-25T15:28:18.9647454Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m30s elapsed][0m[0m
+2025-08-25T15:28:28.9650312Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m40s elapsed][0m[0m
+2025-08-25T15:28:28.9651364Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m40s elapsed][0m[0m
+2025-08-25T15:28:38.9651070Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [2m50s elapsed][0m[0m
+2025-08-25T15:28:38.9651749Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [2m50s elapsed][0m[0m
+2025-08-25T15:28:48.9653278Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m0s elapsed][0m[0m
+2025-08-25T15:28:48.9653978Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m0s elapsed][0m[0m
+2025-08-25T15:28:58.9654967Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m10s elapsed][0m[0m
+2025-08-25T15:28:58.9655998Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m10s elapsed][0m[0m
+2025-08-25T15:29:08.9657892Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m20s elapsed][0m[0m
+2025-08-25T15:29:08.9658673Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_wus2"]: Still creating... [3m20s elapsed][0m[0m
+2025-08-25T15:29:18.9658555Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m30s elapsed][0m[0m
+2025-08-25T15:29:28.9661629Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m40s elapsed][0m[0m
+2025-08-25T15:29:38.9663757Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [3m50s elapsed][0m[0m
+2025-08-25T15:29:48.9666409Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m0s elapsed][0m[0m
+2025-08-25T15:29:58.9670327Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m10s elapsed][0m[0m
+2025-08-25T15:30:08.9672553Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m20s elapsed][0m[0m
+2025-08-25T15:30:18.9674696Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m30s elapsed][0m[0m
+2025-08-25T15:30:28.9676361Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m40s elapsed][0m[0m
+2025-08-25T15:30:38.9679174Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [4m50s elapsed][0m[0m
+2025-08-25T15:30:48.9680046Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m0s elapsed][0m[0m
+2025-08-25T15:30:58.9681804Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m10s elapsed][0m[0m
+2025-08-25T15:31:08.9684731Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m20s elapsed][0m[0m
+2025-08-25T15:31:18.9686969Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m30s elapsed][0m[0m
+2025-08-25T15:31:28.9688613Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m40s elapsed][0m[0m
+2025-08-25T15:31:38.9690100Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [5m50s elapsed][0m[0m
+2025-08-25T15:31:48.9692057Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m0s elapsed][0m[0m
+2025-08-25T15:31:58.9694564Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m10s elapsed][0m[0m
+2025-08-25T15:32:08.9697011Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m20s elapsed][0m[0m
+2025-08-25T15:32:18.9699939Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m30s elapsed][0m[0m
+2025-08-25T15:32:28.9702163Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m40s elapsed][0m[0m
+2025-08-25T15:32:38.9705887Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [6m50s elapsed][0m[0m
+2025-08-25T15:32:48.9707461Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m0s elapsed][0m[0m
+2025-08-25T15:32:58.9709465Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m10s elapsed][0m[0m
+2025-08-25T15:33:08.9712157Z [0m[1mazurerm_virtual_machine_extension.build_image_bootstrap["v42_eus2"]: Still creating... [7m20s elapsed][0m[0m
+2025-08-25T15:33:15.6115652Z [31m
+2025-08-25T15:33:15.6116656Z [1m[31mError: [0m[0m[1mcreating/updating Extension (Subscription: "a2ca26b7-774e-4207-801a-c45151ff310d"
+2025-08-25T15:33:15.6117804Z Resource Group Name: "rg-compute-common-eus2-01"
+2025-08-25T15:33:15.6118294Z Virtual Machine Name: "build-server-v42-eus2"
+2025-08-25T15:33:15.6118893Z Extension Name: "bootstrap"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+2025-08-25T15:33:15.6119180Z 
+2025-08-25T15:33:15.6120355Z Status: "VMExtensionProvisioningError"
+2025-08-25T15:33:15.6121581Z Code: ""
+2025-08-25T15:33:15.6238346Z Message: "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\nuild3) ...\r\nSetting up humanity-icon-theme (0.6.16) ...\r\nSetting up ubuntu-mono (20.10-0ubuntu2) ...\r\nProcessing triggers for man-db (2.10.2-1) ...\r\nProcessing triggers for mailcap (3.70+nmu1ubuntu1) ...\r\nProcessing triggers for libglib2.0-0:amd64 (2.72.4-0ubuntu2.6) ...\r\nSetting up libgtk-3-0:amd64 (3.24.33-1ubuntu2.2) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\nSetting up libgtk-3-bin (3.24.33-1ubuntu2.2) ...\r\nSetting up libvte-2.91-0:amd64 (0.68.0-1ubuntu0.1) ...\r\nSetting up libvted-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up at-spi2-core (2.44.0-3) ...\r\nSetting up libgtkd-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up tilix (1.9.4-2build1) ...\r\nupdate-alternatives: using /usr/bin/tilix.wrapper to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode\r\nSetting up google-chrome-stable (139.0.7258.138-1) ...\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/x-www-browser (x-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode\r\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.8+dfsg-1ubuntu0.4) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\n\nRunning kernel seems to be up-to-date.\n\nServices to be restarted:\n systemctl restart irqbalance.service\n systemctl restart multipathd.service\n systemctl restart packagekit.service\n systemctl restart polkit.service\n systemctl restart walinuxagent.service\n\nService restarts being deferred:\n systemctl restart networkd-dispatcher.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\nInstalling Grype\nInstalling Cortex\n{\n  \"container\": \"cortex\",\n  \"content\": \"\",\n  \"contentMd5\": null,\n  \"deleted\": false,\n  \"encryptedMetadata\": null,\n  \"encryptionKeySha256\": null,\n  \"encryptionScope\": null,\n  \"hasLegalHold\": null,\n  \"hasVersionsOnly\": null,\n  \"immutabilityPolicy\": {\n    \"expiryTime\": null,\n    \"policyMode\": null\n  },\n  \"isAppendBlobSealed\": null,\n  \"isCurrentVersion\": null,\n  \"lastAccessedOn\": null,\n  \"metadata\": {},\n  \"name\": \"EXOS_SH_Non-Persistent_8-9.tar.gz\",\n  \"objectReplicationDestinationPolicy\": null,\n  \"objectReplicationSourceProperties\": [],\n  \"properties\": {\n    \"appendBlobCommittedBlockCount\": null,\n    \"blobTier\": null,\n    \"blobTierChangeTime\": null,\n    \"blobTierInferred\": null,\n    \"blobType\": \"BlockBlob\",\n    \"contentLength\": 77882253,\n    \"contentRange\": \"bytes None-None/77882253\",\n    \"contentSettings\": {\n      \"cacheControl\": null,\n      \"contentDisposition\": null,\n      \"contentEncoding\": null,\n      \"contentLanguage\": null,\n      \"contentMd5\": null,\n      \"contentType\": \"application/x-gzip\"\n    },\n    \"copy\": {\n      \"completionTime\": null,\n      \"destinationSnapshot\": null,\n      \"id\": null,\n      \"incrementalCopy\": null,\n      \"progress\": null,\n      \"source\": null,\n      \"status\": null,\n      \"statusDescription\": null\n    },\n    \"creationTime\": \"2025-08-25T13:55:03+00:00\",\n    \"deletedTime\": null,\n    \"etag\": \"\\\"0x8DDE3DEFDD845FF\\\"\",\n    \"lastModified\": \"2025-08-25T13:55:03+00:00\",\n    \"lease\": {\n      \"duration\": null,\n      \"state\": \"available\",\n      \"status\": \"unlocked\"\n    },\n    \"pageBlobSequenceNumber\": null,\n    \"pageRanges\": null,\n    \"rehydrationStatus\": null,\n    \"remainingRetentionDays\": null,\n    \"serverEncrypted\": true\n  },\n  \"rehydratePriority\": null,\n  \"requestServerEncrypted\": true,\n  \"snapshot\": null,\n  \"tagCount\": null,\n  \"tags\": null,\n  \"versionId\": null\n}\ncortex-8.9.0.136780.sh\ncortex.conf\nVerifying archive integrity... All good.\nUncompressing Cortex XDR 8.9.0.136780 installer\nActive kernel LSM: lockdown,capability,landlock,yama,apparmor\n\x1b[1;31m  Unknown option/s: \x1b[1;31mIgnoring /etc/panw/cortex.conf since world-writable (-rw-rw-rw-)\x1b[0m\x1b[0m\n\x1b[1;31mFailed to parse installer arguments\x1b[0m\n\n[stderr]\n...... 99%  561M 0s\n115300K .......... .......... .......... .......... .......... 99%  603M 0s\n115350K .......... .......... .......... .......... .......... 99%  544M 0s\n115400K .......... .......... .......... .......... .......... 99%  553M 0s\n115450K .......... .......... .......... .......... .......... 99%  560M 0s\n115500K .......... .......... .......... .......... .......... 99%  586M 0s\n115550K .......... .......... .......... .......... .......... 99%  495M 0s\n115600K .......... .......... .......... .......... .......... 99%  501M 0s\n115650K .......... .......... .......... .......... .......... 99%  596M 0s\n115700K .......... .......... .......... .......... .......... 99%  549M 0s\n115750K .......... .......... .......... .......... .......... 99%  439M 0s\n115800K .......... .......... .......... .......... .......... 99%  590M 0s\n115850K .......... .......... .......... .......... .......... 99%  593M 0s\n115900K .......... ....                                       100%  503M=0.5s\n\n2025-08-25 15:31:45 (249 MB/s) - ‘/tmp/google-chrome-stable_current_amd64.deb’ saved [118696276/118696276]\n\n+ sudo apt-get install -y /tmp/google-chrome-stable_current_amd64.deb\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Installing Grype'\n+ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh\n+ sh -s -- -b /usr/local/bin\n[info] checking github for the current release tag \n[info] fetching release script for tag='v0.98.0' \n[info] checking github for the current release tag \n[info] using release tag='v0.98.0' version='0.98.0' os='linux' arch='amd64' \n[info] installed /usr/local/bin/grype \n+ echo 'Installing Cortex'\n+ sudo az storage blob download --container-name cortex --file /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz --name EXOS_SH_Non-Persistent_8-9.tar.gz --account-name sttoolscommoneus201 --sas-token '?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2025-08-25T16:25:48Z&st=2025-08-25T15:25:48Z&spr=https&sig=MMslL1O8YGBKadVI7b67GQn%2F9D59bJ04UYGIaj%2FfwWE%3D'\n\rAlive[###########################                                     ]  43.0835%\rAlive[###############################                                 ]  48.4690%\rAlive[##################################                              ]  53.8544%\rAlive[#####################################                           ]  59.2399%\rAlive[#########################################                       ]  64.6253%\rAlive[############################################                    ]  70.0108%\rAlive[################################################                ]  75.3962%\rAlive[###################################################             ]  80.7816%\rAlive[#######################################################         ]  86.1671%\rAlive[##########################################################      ]  91.5525%\rAlive[##############################################################  ]  96.9380%\rAlive[################################################################]  100.0000%\rFinished[#############################################################]  100.0000%\n+ sudo mkdir -p /tmp/cortex\n+ sudo tar -zvxf /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz -C /tmp/cortex\n+ sudo mkdir -p /etc/panw\n+ sudo mv /tmp/cortex/cortex.conf /etc/panw/\n+ sudo chmod +x /tmp/cortex/cortex-8.9.0.136780.sh\n+ sudo /usr/bin/bash /tmp/cortex/cortex-8.9.0.136780.sh\n     0% \b\b\b\b\b\b\b    5% \b\b\b\b\b\b\b   10% \b\b\b\b\b\b\b   15% \b\b\b\b\b\b\b   21% \b\b\b\b\b\b\b   26% \b\b\b\b\b\b\b   31% \b\b\b\b\b\b\b   37% \b\b\b\b\b\b\b   42% \b\b\b\b\b\b\b   47% \b\b\b\b\b\b\b   53% \b\b\b\b\b\b\b   58% \b\b\b\b\b\b\b   63% \b\b\b\b\b\b\b   69% \b\b\b\b\b\b\b   74% \b\b\b\b\b\b\b   79% \b\b\b\b\b\b\b   85% \b\b\b\b\b\b\b   90% \b\b\b\b\b\b\b   95% \b\b\b\b\b\b\b 100%  + error 'Error installing Cortex'\n+ echo 'ERROR: Error installing Cortex'\nERROR: Error installing Cortex\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T15:33:15.6251301Z Activity Id: ""
+2025-08-25T15:33:15.6251444Z 
+2025-08-25T15:33:15.6251676Z ---
+2025-08-25T15:33:15.6251780Z 
+2025-08-25T15:33:15.6252044Z API Response:
+2025-08-25T15:33:15.6252181Z 
+2025-08-25T15:33:15.6252451Z ----[start]----
+2025-08-25T15:33:15.6252732Z {
+2025-08-25T15:33:15.6253096Z   "startTime": "2025-08-25T15:25:50.3172027+00:00",
+2025-08-25T15:33:15.6253556Z   "endTime": "2025-08-25T15:33:11.5092987+00:00",
+2025-08-25T15:33:15.6253948Z   "status": "Failed",
+2025-08-25T15:33:15.6254249Z   "error": {
+2025-08-25T15:33:15.6254583Z     "code": "VMExtensionProvisioningError",
+2025-08-25T15:33:15.6389966Z     "message": "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\nuild3) ...\r\nSetting up humanity-icon-theme (0.6.16) ...\r\nSetting up ubuntu-mono (20.10-0ubuntu2) ...\r\nProcessing triggers for man-db (2.10.2-1) ...\r\nProcessing triggers for mailcap (3.70+nmu1ubuntu1) ...\r\nProcessing triggers for libglib2.0-0:amd64 (2.72.4-0ubuntu2.6) ...\r\nSetting up libgtk-3-0:amd64 (3.24.33-1ubuntu2.2) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\nSetting up libgtk-3-bin (3.24.33-1ubuntu2.2) ...\r\nSetting up libvte-2.91-0:amd64 (0.68.0-1ubuntu0.1) ...\r\nSetting up libvted-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up at-spi2-core (2.44.0-3) ...\r\nSetting up libgtkd-3-0:amd64 (3.10.0-1ubuntu1) ...\r\nSetting up tilix (1.9.4-2build1) ...\r\nupdate-alternatives: using /usr/bin/tilix.wrapper to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode\r\nSetting up google-chrome-stable (139.0.7258.138-1) ...\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/x-www-browser (x-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode\r\nupdate-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode\r\nProcessing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.8+dfsg-1ubuntu0.4) ...\r\nProcessing triggers for libc-bin (2.35-0ubuntu3.10) ...\r\n\nRunning kernel seems to be up-to-date.\n\nServices to be restarted:\n systemctl restart irqbalance.service\n systemctl restart multipathd.service\n systemctl restart packagekit.service\n systemctl restart polkit.service\n systemctl restart walinuxagent.service\n\nService restarts being deferred:\n systemctl restart networkd-dispatcher.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\nInstalling Grype\nInstalling Cortex\n{\n  \"container\": \"cortex\",\n  \"content\": \"\",\n  \"contentMd5\": null,\n  \"deleted\": false,\n  \"encryptedMetadata\": null,\n  \"encryptionKeySha256\": null,\n  \"encryptionScope\": null,\n  \"hasLegalHold\": null,\n  \"hasVersionsOnly\": null,\n  \"immutabilityPolicy\": {\n    \"expiryTime\": null,\n    \"policyMode\": null\n  },\n  \"isAppendBlobSealed\": null,\n  \"isCurrentVersion\": null,\n  \"lastAccessedOn\": null,\n  \"metadata\": {},\n  \"name\": \"EXOS_SH_Non-Persistent_8-9.tar.gz\",\n  \"objectReplicationDestinationPolicy\": null,\n  \"objectReplicationSourceProperties\": [],\n  \"properties\": {\n    \"appendBlobCommittedBlockCount\": null,\n    \"blobTier\": null,\n    \"blobTierChangeTime\": null,\n    \"blobTierInferred\": null,\n    \"blobType\": \"BlockBlob\",\n    \"contentLength\": 77882253,\n    \"contentRange\": \"bytes None-None/77882253\",\n    \"contentSettings\": {\n      \"cacheControl\": null,\n      \"contentDisposition\": null,\n      \"contentEncoding\": null,\n      \"contentLanguage\": null,\n      \"contentMd5\": null,\n      \"contentType\": \"application/x-gzip\"\n    },\n    \"copy\": {\n      \"completionTime\": null,\n      \"destinationSnapshot\": null,\n      \"id\": null,\n      \"incrementalCopy\": null,\n      \"progress\": null,\n      \"source\": null,\n      \"status\": null,\n      \"statusDescription\": null\n    },\n    \"creationTime\": \"2025-08-25T13:55:03+00:00\",\n    \"deletedTime\": null,\n    \"etag\": \"\\\"0x8DDE3DEFDD845FF\\\"\",\n    \"lastModified\": \"2025-08-25T13:55:03+00:00\",\n    \"lease\": {\n      \"duration\": null,\n      \"state\": \"available\",\n      \"status\": \"unlocked\"\n    },\n    \"pageBlobSequenceNumber\": null,\n    \"pageRanges\": null,\n    \"rehydrationStatus\": null,\n    \"remainingRetentionDays\": null,\n    \"serverEncrypted\": true\n  },\n  \"rehydratePriority\": null,\n  \"requestServerEncrypted\": true,\n  \"snapshot\": null,\n  \"tagCount\": null,\n  \"tags\": null,\n  \"versionId\": null\n}\ncortex-8.9.0.136780.sh\ncortex.conf\nVerifying archive integrity... All good.\nUncompressing Cortex XDR 8.9.0.136780 installer\nActive kernel LSM: lockdown,capability,landlock,yama,apparmor\n\u001b[1;31m  Unknown option/s: \u001b[1;31mIgnoring /etc/panw/cortex.conf since world-writable (-rw-rw-rw-)\u001b[0m\u001b[0m\n\u001b[1;31mFailed to parse installer arguments\u001b[0m\n\n[stderr]\n...... 99%  561M 0s\n115300K .......... .......... .......... .......... .......... 99%  603M 0s\n115350K .......... .......... .......... .......... .......... 99%  544M 0s\n115400K .......... .......... .......... .......... .......... 99%  553M 0s\n115450K .......... .......... .......... .......... .......... 99%  560M 0s\n115500K .......... .......... .......... .......... .......... 99%  586M 0s\n115550K .......... .......... .......... .......... .......... 99%  495M 0s\n115600K .......... .......... .......... .......... .......... 99%  501M 0s\n115650K .......... .......... .......... .......... .......... 99%  596M 0s\n115700K .......... .......... .......... .......... .......... 99%  549M 0s\n115750K .......... .......... .......... .......... .......... 99%  439M 0s\n115800K .......... .......... .......... .......... .......... 99%  590M 0s\n115850K .......... .......... .......... .......... .......... 99%  593M 0s\n115900K .......... ....                                       100%  503M=0.5s\n\n2025-08-25 15:31:45 (249 MB/s) - ‘/tmp/google-chrome-stable_current_amd64.deb’ saved [118696276/118696276]\n\n+ sudo apt-get install -y /tmp/google-chrome-stable_current_amd64.deb\ndebconf: unable to initialize frontend: Dialog\ndebconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)\ndebconf: falling back to frontend: Readline\ndebconf: unable to initialize frontend: Readline\ndebconf: (This frontend requires a controlling tty.)\ndebconf: falling back to frontend: Teletype\ndpkg-preconfigure: unable to re-open stdin: \n+ echo 'Installing Grype'\n+ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh\n+ sh -s -- -b /usr/local/bin\n[info] checking github for the current release tag \n[info] fetching release script for tag='v0.98.0' \n[info] checking github for the current release tag \n[info] using release tag='v0.98.0' version='0.98.0' os='linux' arch='amd64' \n[info] installed /usr/local/bin/grype \n+ echo 'Installing Cortex'\n+ sudo az storage blob download --container-name cortex --file /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz --name EXOS_SH_Non-Persistent_8-9.tar.gz --account-name sttoolscommoneus201 --sas-token '?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2025-08-25T16:25:48Z&st=2025-08-25T15:25:48Z&spr=https&sig=MMslL1O8YGBKadVI7b67GQn%2F9D59bJ04UYGIaj%2FfwWE%3D'\n\rAlive[###########################                                     ]  43.0835%\rAlive[###############################                                 ]  48.4690%\rAlive[##################################                              ]  53.8544%\rAlive[#####################################                           ]  59.2399%\rAlive[#########################################                       ]  64.6253%\rAlive[############################################                    ]  70.0108%\rAlive[################################################                ]  75.3962%\rAlive[###################################################             ]  80.7816%\rAlive[#######################################################         ]  86.1671%\rAlive[##########################################################      ]  91.5525%\rAlive[##############################################################  ]  96.9380%\rAlive[################################################################]  100.0000%\rFinished[#############################################################]  100.0000%\n+ sudo mkdir -p /tmp/cortex\n+ sudo tar -zvxf /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz -C /tmp/cortex\n+ sudo mkdir -p /etc/panw\n+ sudo mv /tmp/cortex/cortex.conf /etc/panw/\n+ sudo chmod +x /tmp/cortex/cortex-8.9.0.136780.sh\n+ sudo /usr/bin/bash /tmp/cortex/cortex-8.9.0.136780.sh\n     0% \b\b\b\b\b\b\b    5% \b\b\b\b\b\b\b   10% \b\b\b\b\b\b\b   15% \b\b\b\b\b\b\b   21% \b\b\b\b\b\b\b   26% \b\b\b\b\b\b\b   31% \b\b\b\b\b\b\b   37% \b\b\b\b\b\b\b   42% \b\b\b\b\b\b\b   47% \b\b\b\b\b\b\b   53% \b\b\b\b\b\b\b   58% \b\b\b\b\b\b\b   63% \b\b\b\b\b\b\b   69% \b\b\b\b\b\b\b   74% \b\b\b\b\b\b\b   79% \b\b\b\b\b\b\b   85% \b\b\b\b\b\b\b   90% \b\b\b\b\b\b\b   95% \b\b\b\b\b\b\b 100%  + error 'Error installing Cortex'\n+ echo 'ERROR: Error installing Cortex'\nERROR: Error installing Cortex\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T15:33:15.6404790Z   },
+2025-08-25T15:33:15.6405203Z   "name": "2a186925-9f6b-43f8-a249-095cee71b08a"
+2025-08-25T15:33:15.6405777Z }
+2025-08-25T15:33:15.6406052Z -----[end]-----
+2025-08-25T15:33:15.6406781Z [0m
+2025-08-25T15:33:15.6406922Z 
+2025-08-25T15:33:15.6407543Z [0m  on build_images.tf line 235, in resource "azurerm_virtual_machine_extension" "build_image_bootstrap":
+2025-08-25T15:33:15.6408242Z  235: resource "azurerm_virtual_machine_extension" "build_image_bootstrap" [4m{[0m
+2025-08-25T15:33:15.6408650Z [0m
+2025-08-25T15:33:15.6408955Z [0m[0m
+2025-08-25T15:33:15.6409247Z [31m
+2025-08-25T15:33:15.6412980Z [1m[31mError: [0m[0m[1mcreating/updating Extension (Subscription: "a2ca26b7-774e-4207-801a-c45151ff310d"
+2025-08-25T15:33:15.6413748Z Resource Group Name: "rg-compute-common-wus2-01"
+2025-08-25T15:33:15.6414145Z Virtual Machine Name: "build-server-v42-wus2"
+2025-08-25T15:33:15.6414638Z Extension Name: "bootstrap"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+2025-08-25T15:33:15.6414921Z 
+2025-08-25T15:33:15.6415238Z Status: "VMExtensionProvisioningError"
+2025-08-25T15:33:15.6416813Z Code: ""
+2025-08-25T15:33:15.6487665Z Message: "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\n: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from msrest>=0.6.21->azure-data-tables==12.4.0->azure-cli) (2020.6.20)\nRequirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests[socks]->azure-cli-core==2.76.0->azure-cli) (3.4.3)\nRequirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests[socks]->azure-cli-core==2.76.0->azure-cli) (3.3)\nRequirement already satisfied: PySocks!=1.5.7,>=1.5.6 in /usr/local/lib/python3.10/dist-packages (from requests[socks]->azure-cli-core==2.76.0->azure-cli) (1.7.1)\nRequirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.5.0->msrest>=0.6.21->azure-data-tables==12.4.0->azure-cli) (3.2.0)\nRequirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (2.32.5)\nRequirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests) (3.3)\nRequirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests) (3.4.3)\nRequirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests) (2020.6.20)\nRequirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3/dist-packages (from requests) (1.26.5)\nRequirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (5.4.1)\nInstalling MS SQL linux tools\nReading package lists...\nBuilding dependency tree...\nReading state information...\nmssql-tools18 is already the newest version (18.4.1.1-1).\nunixodbc-dev is already the newest version (2.3.7).\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nInstalling Chrome\nReading package lists...\nBuilding dependency tree...\nReading state information...\ngoogle-chrome-stable is already the newest version (139.0.7258.138-1).\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nInstalling Grype\nInstalling Cortex\n{\n  \"container\": \"cortex\",\n  \"content\": \"\",\n  \"contentMd5\": null,\n  \"deleted\": false,\n  \"encryptedMetadata\": null,\n  \"encryptionKeySha256\": null,\n  \"encryptionScope\": null,\n  \"hasLegalHold\": null,\n  \"hasVersionsOnly\": null,\n  \"immutabilityPolicy\": {\n    \"expiryTime\": null,\n    \"policyMode\": null\n  },\n  \"isAppendBlobSealed\": null,\n  \"isCurrentVersion\": null,\n  \"lastAccessedOn\": null,\n  \"metadata\": {},\n  \"name\": \"EXOS_SH_Non-Persistent_8-9.tar.gz\",\n  \"objectReplicationDestinationPolicy\": null,\n  \"objectReplicationSourceProperties\": [],\n  \"properties\": {\n    \"appendBlobCommittedBlockCount\": null,\n    \"blobTier\": null,\n    \"blobTierChangeTime\": null,\n    \"blobTierInferred\": null,\n    \"blobType\": \"BlockBlob\",\n    \"contentLength\": 77882253,\n    \"contentRange\": \"bytes None-None/77882253\",\n    \"contentSettings\": {\n      \"cacheControl\": null,\n      \"contentDisposition\": null,\n      \"contentEncoding\": null,\n      \"contentLanguage\": null,\n      \"contentMd5\": null,\n      \"contentType\": \"application/x-gzip\"\n    },\n    \"copy\": {\n      \"completionTime\": null,\n      \"destinationSnapshot\": null,\n      \"id\": null,\n      \"incrementalCopy\": null,\n      \"progress\": null,\n      \"source\": null,\n      \"status\": null,\n      \"statusDescription\": null\n    },\n    \"creationTime\": \"2025-08-25T13:55:03+00:00\",\n    \"deletedTime\": null,\n    \"etag\": \"\\\"0x8DDE3DEFDD845FF\\\"\",\n    \"lastModified\": \"2025-08-25T13:55:03+00:00\",\n    \"lease\": {\n      \"duration\": null,\n      \"state\": \"available\",\n      \"status\": \"unlocked\"\n    },\n    \"pageBlobSequenceNumber\": null,\n    \"pageRanges\": null,\n    \"rehydrationStatus\": null,\n    \"remainingRetentionDays\": null,\n    \"serverEncrypted\": true\n  },\n  \"rehydratePriority\": null,\n  \"requestServerEncrypted\": true,\n  \"snapshot\": null,\n  \"tagCount\": null,\n  \"tags\": null,\n  \"versionId\": null\n}\ncortex-8.9.0.136780.sh\ncortex.conf\nVerifying archive integrity... All good.\nUncompressing Cortex XDR 8.9.0.136780 installer\nActive kernel LSM: lockdown,capability,landlock,yama,apparmor\n\x1b[1;31m  Unknown option/s: \x1b[1;31mIgnoring /etc/panw/cortex.conf since world-writable (-rw-rw-rw-)\x1b[0m\x1b[0m\n\x1b[1;31mFailed to parse installer arguments\x1b[0m\n\n[stderr]\n.. .......... .......... 99%  452M 0s\n115050K .......... .......... .......... .......... .......... 99%  477M 0s\n115100K .......... .......... .......... .......... .......... 99%  469M 0s\n115150K .......... .......... .......... .......... .......... 99% 57.6M 0s\n115200K .......... .......... .......... .......... .......... 99%  465M 0s\n115250K .......... .......... .......... .......... .......... 99%  463M 0s\n115300K .......... .......... .......... .......... .......... 99% 55.4M 0s\n115350K .......... .......... .......... .......... .......... 99%  396M 0s\n115400K .......... .......... .......... .......... .......... 99%  430M 0s\n115450K .......... .......... .......... .......... .......... 99%  470M 0s\n115500K .......... .......... .......... .......... .......... 99% 50.2M 0s\n115550K .......... .......... .......... .......... .......... 99%  343M 0s\n115600K .......... .......... .......... .......... .......... 99%  458M 0s\n115650K .......... .......... .......... .......... .......... 99% 49.3M 0s\n115700K .......... .......... .......... .......... .......... 99%  362M 0s\n115750K .......... .......... .......... .......... .......... 99%  414M 0s\n115800K .......... .......... .......... .......... .......... 99%  457M 0s\n115850K .......... .......... .......... .......... .......... 99%  462M 0s\n115900K .......... ....                                       100%  396M=1.5s\n\n2025-08-25 15:28:50 (77.3 MB/s) - ‘/tmp/google-chrome-stable_current_amd64.deb.1’ saved [118696276/118696276]\n\n+ sudo apt-get install -y /tmp/google-chrome-stable_current_amd64.deb\n+ echo 'Installing Grype'\n+ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh\n+ sh -s -- -b /usr/local/bin\n[info] checking github for the current release tag \n[info] fetching release script for tag='v0.98.0' \n[info] checking github for the current release tag \n[info] using release tag='v0.98.0' version='0.98.0' os='linux' arch='amd64' \n[info] installed /usr/local/bin/grype \n+ echo 'Installing Cortex'\n+ sudo az storage blob download --container-name cortex --file /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz --name EXOS_SH_Non-Persistent_8-9.tar.gz --account-name sttoolscommoneus201 --sas-token '?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2025-08-25T16:25:48Z&st=2025-08-25T15:25:48Z&spr=https&sig=MMslL1O8YGBKadVI7b67GQn%2F9D59bJ04UYGIaj%2FfwWE%3D'\n\rAlive[###########################                                     ]  43.0835%\rAlive[###############################                                 ]  48.4690%\rAlive[##################################                              ]  53.8544%\rAlive[#####################################                           ]  59.2399%\rAlive[#########################################                       ]  64.6253%\rAlive[############################################                    ]  70.0108%\rAlive[################################################                ]  75.3962%\rAlive[###################################################             ]  80.7816%\rAlive[#######################################################         ]  86.1671%\rAlive[##########################################################      ]  91.5525%\rAlive[##############################################################  ]  96.9380%\rAlive[################################################################]  100.0000%\rFinished[#############################################################]  100.0000%\n+ sudo mkdir -p /tmp/cortex\n+ sudo tar -zvxf /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz -C /tmp/cortex\n+ sudo mkdir -p /etc/panw\n+ sudo mv /tmp/cortex/cortex.conf /etc/panw/\n+ sudo chmod +x /tmp/cortex/cortex-8.9.0.136780.sh\n+ sudo /usr/bin/bash /tmp/cortex/cortex-8.9.0.136780.sh\n     0% \b\b\b\b\b\b\b    5% \b\b\b\b\b\b\b   10% \b\b\b\b\b\b\b   15% \b\b\b\b\b\b\b   21% \b\b\b\b\b\b\b   26% \b\b\b\b\b\b\b   31% \b\b\b\b\b\b\b   37% \b\b\b\b\b\b\b   42% \b\b\b\b\b\b\b   47% \b\b\b\b\b\b\b   53% \b\b\b\b\b\b\b   58% \b\b\b\b\b\b\b   63% \b\b\b\b\b\b\b   69% \b\b\b\b\b\b\b   74% \b\b\b\b\b\b\b   79% \b\b\b\b\b\b\b   85% \b\b\b\b\b\b\b   90% \b\b\b\b\b\b\b   95% \b\b\b\b\b\b\b 100%  + error 'Error installing Cortex'\n+ echo 'ERROR: Error installing Cortex'\nERROR: Error installing Cortex\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T15:33:15.6502099Z Activity Id: ""
+2025-08-25T15:33:15.6502237Z 
+2025-08-25T15:33:15.6502491Z ---
+2025-08-25T15:33:15.6502588Z 
+2025-08-25T15:33:15.6502809Z API Response:
+2025-08-25T15:33:15.6502922Z 
+2025-08-25T15:33:15.6503137Z ----[start]----
+2025-08-25T15:33:15.6503404Z {
+2025-08-25T15:33:15.6503775Z   "startTime": "2025-08-25T15:25:50.8859851+00:00",
+2025-08-25T15:33:15.6504248Z   "endTime": "2025-08-25T15:29:11.7459102+00:00",
+2025-08-25T15:33:15.6504636Z   "status": "Failed",
+2025-08-25T15:33:15.6504944Z   "error": {
+2025-08-25T15:33:15.6505415Z     "code": "VMExtensionProvisioningError",
+2025-08-25T15:33:15.6590920Z     "message": "VM has reported a failure when processing extension 'bootstrap' (publisher 'Microsoft.Azure.Extensions' and type 'CustomScript'). Error message: 'Enable failed: failed to execute command: command terminated with exit status=1\n[stdout]\n: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from msrest>=0.6.21->azure-data-tables==12.4.0->azure-cli) (2020.6.20)\nRequirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests[socks]->azure-cli-core==2.76.0->azure-cli) (3.4.3)\nRequirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests[socks]->azure-cli-core==2.76.0->azure-cli) (3.3)\nRequirement already satisfied: PySocks!=1.5.7,>=1.5.6 in /usr/local/lib/python3.10/dist-packages (from requests[socks]->azure-cli-core==2.76.0->azure-cli) (1.7.1)\nRequirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.5.0->msrest>=0.6.21->azure-data-tables==12.4.0->azure-cli) (3.2.0)\nRequirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (2.32.5)\nRequirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests) (3.3)\nRequirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests) (3.4.3)\nRequirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests) (2020.6.20)\nRequirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3/dist-packages (from requests) (1.26.5)\nRequirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (5.4.1)\nInstalling MS SQL linux tools\nReading package lists...\nBuilding dependency tree...\nReading state information...\nmssql-tools18 is already the newest version (18.4.1.1-1).\nunixodbc-dev is already the newest version (2.3.7).\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nInstalling Chrome\nReading package lists...\nBuilding dependency tree...\nReading state information...\ngoogle-chrome-stable is already the newest version (139.0.7258.138-1).\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nInstalling Grype\nInstalling Cortex\n{\n  \"container\": \"cortex\",\n  \"content\": \"\",\n  \"contentMd5\": null,\n  \"deleted\": false,\n  \"encryptedMetadata\": null,\n  \"encryptionKeySha256\": null,\n  \"encryptionScope\": null,\n  \"hasLegalHold\": null,\n  \"hasVersionsOnly\": null,\n  \"immutabilityPolicy\": {\n    \"expiryTime\": null,\n    \"policyMode\": null\n  },\n  \"isAppendBlobSealed\": null,\n  \"isCurrentVersion\": null,\n  \"lastAccessedOn\": null,\n  \"metadata\": {},\n  \"name\": \"EXOS_SH_Non-Persistent_8-9.tar.gz\",\n  \"objectReplicationDestinationPolicy\": null,\n  \"objectReplicationSourceProperties\": [],\n  \"properties\": {\n    \"appendBlobCommittedBlockCount\": null,\n    \"blobTier\": null,\n    \"blobTierChangeTime\": null,\n    \"blobTierInferred\": null,\n    \"blobType\": \"BlockBlob\",\n    \"contentLength\": 77882253,\n    \"contentRange\": \"bytes None-None/77882253\",\n    \"contentSettings\": {\n      \"cacheControl\": null,\n      \"contentDisposition\": null,\n      \"contentEncoding\": null,\n      \"contentLanguage\": null,\n      \"contentMd5\": null,\n      \"contentType\": \"application/x-gzip\"\n    },\n    \"copy\": {\n      \"completionTime\": null,\n      \"destinationSnapshot\": null,\n      \"id\": null,\n      \"incrementalCopy\": null,\n      \"progress\": null,\n      \"source\": null,\n      \"status\": null,\n      \"statusDescription\": null\n    },\n    \"creationTime\": \"2025-08-25T13:55:03+00:00\",\n    \"deletedTime\": null,\n    \"etag\": \"\\\"0x8DDE3DEFDD845FF\\\"\",\n    \"lastModified\": \"2025-08-25T13:55:03+00:00\",\n    \"lease\": {\n      \"duration\": null,\n      \"state\": \"available\",\n      \"status\": \"unlocked\"\n    },\n    \"pageBlobSequenceNumber\": null,\n    \"pageRanges\": null,\n    \"rehydrationStatus\": null,\n    \"remainingRetentionDays\": null,\n    \"serverEncrypted\": true\n  },\n  \"rehydratePriority\": null,\n  \"requestServerEncrypted\": true,\n  \"snapshot\": null,\n  \"tagCount\": null,\n  \"tags\": null,\n  \"versionId\": null\n}\ncortex-8.9.0.136780.sh\ncortex.conf\nVerifying archive integrity... All good.\nUncompressing Cortex XDR 8.9.0.136780 installer\nActive kernel LSM: lockdown,capability,landlock,yama,apparmor\n\u001b[1;31m  Unknown option/s: \u001b[1;31mIgnoring /etc/panw/cortex.conf since world-writable (-rw-rw-rw-)\u001b[0m\u001b[0m\n\u001b[1;31mFailed to parse installer arguments\u001b[0m\n\n[stderr]\n.. .......... .......... 99%  452M 0s\n115050K .......... .......... .......... .......... .......... 99%  477M 0s\n115100K .......... .......... .......... .......... .......... 99%  469M 0s\n115150K .......... .......... .......... .......... .......... 99% 57.6M 0s\n115200K .......... .......... .......... .......... .......... 99%  465M 0s\n115250K .......... .......... .......... .......... .......... 99%  463M 0s\n115300K .......... .......... .......... .......... .......... 99% 55.4M 0s\n115350K .......... .......... .......... .......... .......... 99%  396M 0s\n115400K .......... .......... .......... .......... .......... 99%  430M 0s\n115450K .......... .......... .......... .......... .......... 99%  470M 0s\n115500K .......... .......... .......... .......... .......... 99% 50.2M 0s\n115550K .......... .......... .......... .......... .......... 99%  343M 0s\n115600K .......... .......... .......... .......... .......... 99%  458M 0s\n115650K .......... .......... .......... .......... .......... 99% 49.3M 0s\n115700K .......... .......... .......... .......... .......... 99%  362M 0s\n115750K .......... .......... .......... .......... .......... 99%  414M 0s\n115800K .......... .......... .......... .......... .......... 99%  457M 0s\n115850K .......... .......... .......... .......... .......... 99%  462M 0s\n115900K .......... ....                                       100%  396M=1.5s\n\n2025-08-25 15:28:50 (77.3 MB/s) - ‘/tmp/google-chrome-stable_current_amd64.deb.1’ saved [118696276/118696276]\n\n+ sudo apt-get install -y /tmp/google-chrome-stable_current_amd64.deb\n+ echo 'Installing Grype'\n+ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh\n+ sh -s -- -b /usr/local/bin\n[info] checking github for the current release tag \n[info] fetching release script for tag='v0.98.0' \n[info] checking github for the current release tag \n[info] using release tag='v0.98.0' version='0.98.0' os='linux' arch='amd64' \n[info] installed /usr/local/bin/grype \n+ echo 'Installing Cortex'\n+ sudo az storage blob download --container-name cortex --file /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz --name EXOS_SH_Non-Persistent_8-9.tar.gz --account-name sttoolscommoneus201 --sas-token '?sv=2017-07-29&ss=b&srt=sco&sp=rl&se=2025-08-25T16:25:48Z&st=2025-08-25T15:25:48Z&spr=https&sig=MMslL1O8YGBKadVI7b67GQn%2F9D59bJ04UYGIaj%2FfwWE%3D'\n\rAlive[###########################                                     ]  43.0835%\rAlive[###############################                                 ]  48.4690%\rAlive[##################################                              ]  53.8544%\rAlive[#####################################                           ]  59.2399%\rAlive[#########################################                       ]  64.6253%\rAlive[############################################                    ]  70.0108%\rAlive[################################################                ]  75.3962%\rAlive[###################################################             ]  80.7816%\rAlive[#######################################################         ]  86.1671%\rAlive[##########################################################      ]  91.5525%\rAlive[##############################################################  ]  96.9380%\rAlive[################################################################]  100.0000%\rFinished[#############################################################]  100.0000%\n+ sudo mkdir -p /tmp/cortex\n+ sudo tar -zvxf /tmp/EXOS_SH_Non-Persistent_8-9.tar.gz -C /tmp/cortex\n+ sudo mkdir -p /etc/panw\n+ sudo mv /tmp/cortex/cortex.conf /etc/panw/\n+ sudo chmod +x /tmp/cortex/cortex-8.9.0.136780.sh\n+ sudo /usr/bin/bash /tmp/cortex/cortex-8.9.0.136780.sh\n     0% \b\b\b\b\b\b\b    5% \b\b\b\b\b\b\b   10% \b\b\b\b\b\b\b   15% \b\b\b\b\b\b\b   21% \b\b\b\b\b\b\b   26% \b\b\b\b\b\b\b   31% \b\b\b\b\b\b\b   37% \b\b\b\b\b\b\b   42% \b\b\b\b\b\b\b   47% \b\b\b\b\b\b\b   53% \b\b\b\b\b\b\b   58% \b\b\b\b\b\b\b   63% \b\b\b\b\b\b\b   69% \b\b\b\b\b\b\b   74% \b\b\b\b\b\b\b   79% \b\b\b\b\b\b\b   85% \b\b\b\b\b\b\b   90% \b\b\b\b\b\b\b   95% \b\b\b\b\b\b\b 100%  + error 'Error installing Cortex'\n+ echo 'ERROR: Error installing Cortex'\nERROR: Error installing Cortex\n+ exit 1\n'. More information on troubleshooting is available at https://aka.ms/VMExtensionCSELinuxTroubleshoot. "
+2025-08-25T15:33:15.6626895Z   },
+2025-08-25T15:33:15.6627105Z   "name": "b71f3972-8e57-4b45-b0e1-7fba056db15e"
+2025-08-25T15:33:15.6627304Z }
+2025-08-25T15:33:15.6627445Z -----[end]-----
+2025-08-25T15:33:15.6627704Z [0m
+2025-08-25T15:33:15.6627790Z 
+2025-08-25T15:33:15.6628124Z [0m  on build_images.tf line 235, in resource "azurerm_virtual_machine_extension" "build_image_bootstrap":
+2025-08-25T15:33:15.6628511Z  235: resource "azurerm_virtual_machine_extension" "build_image_bootstrap" [4m{[0m
+2025-08-25T15:33:15.6628738Z [0m
+2025-08-25T15:33:15.6628909Z [0m[0m
+2025-08-25T15:33:15.6661421Z 
+2025-08-25T15:33:15.6705219Z ##[error]Script failed with exit code: 1
+2025-08-25T15:33:15.6724991Z [command]/usr/local/bin/az account clear
+2025-08-25T15:33:16.4135043Z ##[section]Finishing: Terraform Apply
