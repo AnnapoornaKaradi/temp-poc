@@ -1,0 +1,507 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubectl.kubernetes.io/restartedAt: 2025-06-02T19:20:18Z
+    linkerd.io/created-by: linkerd/proxy-injector enterprise-2.17.0-2
+    linkerd.io/inject: enabled
+    linkerd.io/proxy-version: enterprise-2.17.0-2
+    linkerd.io/trust-root-sha256: b9dd8d00a135626ea147438dc1189e7242cb4543443ae9f77a0bbea5205957a0
+    prometheus.io/port: "9113"
+    prometheus.io/scheme: http
+    prometheus.io/scrape: "true"
+  creationTimestamp: 2025-06-02T19:20:18Z
+  generateName: nginx-ingress-controller-84549bfc6f-
+  labels:
+    app: nginx-ingress-nginx-ingress
+    app.kubernetes.io/version: 3.4.3
+    app.nginx.org/version: 1.25.3-nginx-plus-r31-p1
+    linkerd.io/control-plane-ns: linkerd
+    linkerd.io/proxy-deployment: nginx-ingress-controller
+    linkerd.io/workload-ns: nginx-ingress
+    pod-template-hash: 84549bfc6f
+  name: nginx-ingress-controller-84549bfc6f-dlxxj
+  namespace: nginx-ingress
+  ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: nginx-ingress-controller-84549bfc6f
+      uid: 1085cc72-92f7-40d6-bdcc-6545e560d66c
+  resourceVersion: "808594143"
+  uid: 859d072a-4875-45e0-a4c5-313921c6f039
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: app
+                operator: In
+                values:
+                  - nginx-ingress-nginx-ingress
+          topologyKey: kubernetes.io/hostname
+  automountServiceAccountToken: true
+  containers:
+    - env:
+        - name: _pod_name
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: _pod_ns
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: _pod_nodeName
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: LINKERD2_PROXY_SHUTDOWN_ENDPOINT_ENABLED
+          value: "false"
+        - name: LINKERD2_PROXY_LOG
+          value: warn,linkerd=info,hickory=error,[{headers}]=off,[{request}]=off
+        - name: LINKERD2_PROXY_LOG_FORMAT
+          value: plain
+        - name: LINKERD2_PROXY_DESTINATION_SVC_ADDR
+          value: linkerd-dst-headless.linkerd.svc.cluster.local.:8086
+        - name: LINKERD2_PROXY_DESTINATION_PROFILE_NETWORKS
+          value: 10.0.0.0/8,100.64.0.0/10,172.16.0.0/12,192.168.0.0/16
+        - name: LINKERD2_PROXY_POLICY_SVC_ADDR
+          value: linkerd-policy.linkerd.svc.cluster.local.:8090
+        - name: LINKERD2_PROXY_POLICY_WORKLOAD
+          value: |
+            {"ns":"$(_pod_ns)", "pod":"$(_pod_name)"}
+        - name: LINKERD2_PROXY_INBOUND_DEFAULT_POLICY
+          value: all-unauthenticated
+        - name: LINKERD2_PROXY_POLICY_CLUSTER_NETWORKS
+          value: 10.0.0.0/8,100.64.0.0/10,172.16.0.0/12,192.168.0.0/16
+        - name: LINKERD2_PROXY_CONTROL_STREAM_INITIAL_TIMEOUT
+          value: 3s
+        - name: LINKERD2_PROXY_CONTROL_STREAM_IDLE_TIMEOUT
+          value: 5m
+        - name: LINKERD2_PROXY_CONTROL_STREAM_LIFETIME
+          value: 1h
+        - name: LINKERD2_PROXY_INBOUND_CONNECT_TIMEOUT
+          value: 100ms
+        - name: LINKERD2_PROXY_OUTBOUND_CONNECT_TIMEOUT
+          value: 1000ms
+        - name: LINKERD2_PROXY_OUTBOUND_DISCOVERY_IDLE_TIMEOUT
+          value: 5s
+        - name: LINKERD2_PROXY_INBOUND_DISCOVERY_IDLE_TIMEOUT
+          value: 90s
+        - name: LINKERD2_PROXY_CONTROL_LISTEN_ADDR
+          value: 0.0.0.0:4190
+        - name: LINKERD2_PROXY_ADMIN_LISTEN_ADDR
+          value: 0.0.0.0:4191
+        - name: LINKERD2_PROXY_OUTBOUND_LISTEN_ADDR
+          value: 127.0.0.1:4140
+        - name: LINKERD2_PROXY_OUTBOUND_LISTEN_ADDRS
+          value: 127.0.0.1:4140
+        - name: LINKERD2_PROXY_INBOUND_LISTEN_ADDR
+          value: 0.0.0.0:4143
+        - name: LINKERD2_PROXY_INBOUND_IPS
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIPs
+        - name: LINKERD2_PROXY_INBOUND_PORTS
+          value: 443,80,8081,9113
+        - name: LINKERD2_PROXY_DESTINATION_PROFILE_SUFFIXES
+          value: svc.cluster.local.
+        - name: LINKERD2_PROXY_INBOUND_ACCEPT_KEEPALIVE
+          value: 10000ms
+        - name: LINKERD2_PROXY_OUTBOUND_CONNECT_KEEPALIVE
+          value: 10000ms
+        - name: LINKERD2_PROXY_INBOUND_ACCEPT_USER_TIMEOUT
+          value: 30s
+        - name: LINKERD2_PROXY_OUTBOUND_CONNECT_USER_TIMEOUT
+          value: 30s
+        - name: LINKERD2_PROXY_INBOUND_SERVER_HTTP2_KEEP_ALIVE_INTERVAL
+          value: 10s
+        - name: LINKERD2_PROXY_INBOUND_SERVER_HTTP2_KEEP_ALIVE_TIMEOUT
+          value: 3s
+        - name: LINKERD2_PROXY_OUTBOUND_SERVER_HTTP2_KEEP_ALIVE_INTERVAL
+          value: 10s
+        - name: LINKERD2_PROXY_OUTBOUND_SERVER_HTTP2_KEEP_ALIVE_TIMEOUT
+          value: 3s
+        - name: LINKERD2_PROXY_INBOUND_PORTS_DISABLE_PROTOCOL_DETECTION
+          value: 25,587,3306,4444,5432,6379,9300,11211
+        - name: LINKERD2_PROXY_DESTINATION_CONTEXT
+          value: >
+            {"ns":"$(_pod_ns)", "nodeName":"$(_pod_nodeName)",
+            "pod":"$(_pod_name)"}
+        - name: _pod_sa
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.serviceAccountName
+        - name: _l5d_ns
+          value: linkerd
+        - name: _l5d_trustdomain
+          value: cluster.local
+        - name: LINKERD2_PROXY_IDENTITY_DIR
+          value: /var/run/linkerd/identity/end-entity
+        - name: LINKERD2_PROXY_IDENTITY_TRUST_ANCHORS
+          value: |
+            -----BEGIN CERTIFICATE-----
+            MIIBkjCCATigAwIBAgIQaD0Xax8wfRDccdfCF98P/DAKBggqhkjOPQQDAjApMScw
+            JQYDVQQDEx5pZGVudGl0eS5saW5rZXJkLmNsdXN0ZXIubG9jYWwwHhcNMjEwNzA2
+            MjA0MzM3WhcNMzEwNzA0MjA0MzM3WjApMScwJQYDVQQDEx5pZGVudGl0eS5saW5r
+            ZXJkLmNsdXN0ZXIubG9jYWwwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASXDeW0
+            h+IzvLmLPzIolq2q9kZgsHCHp2/gWPAIMy7QTjE44BxYe1JKX7f8QbtazbktqY6A
+            8XkBfH78p8pl/+m6o0IwQDAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB
+            /zAdBgNVHQ4EFgQUiMDruDveGNo1VL91C2lSz7jOgJAwCgYIKoZIzj0EAwIDSAAw
+            RQIgSX02ftEN+BD1OAj4cDI/bSVF6jUpBcCNkQcq+zQP9rQCIQCAr4Mw0w2i3lvO
+            stPIDVLbK73BkKgH25lG37gcmSKuiA==
+            -----END CERTIFICATE-----
+        - name: LINKERD2_PROXY_IDENTITY_TOKEN_FILE
+          value: /var/run/secrets/tokens/linkerd-identity-token
+        - name: LINKERD2_PROXY_IDENTITY_SVC_ADDR
+          value: linkerd-identity-headless.linkerd.svc.cluster.local.:8080
+        - name: LINKERD2_PROXY_IDENTITY_LOCAL_NAME
+          value: $(_pod_sa).$(_pod_ns).serviceaccount.identity.linkerd.cluster.local
+        - name: LINKERD2_PROXY_IDENTITY_SVC_NAME
+          value: linkerd-identity.linkerd.serviceaccount.identity.linkerd.cluster.local
+        - name: LINKERD2_PROXY_DESTINATION_SVC_NAME
+          value: linkerd-destination.linkerd.serviceaccount.identity.linkerd.cluster.local
+        - name: LINKERD2_PROXY_POLICY_SVC_NAME
+          value: linkerd-destination.linkerd.serviceaccount.identity.linkerd.cluster.local
+      image: ghcr.io/buoyantio/proxy:enterprise-2.17.0-2
+      imagePullPolicy: IfNotPresent
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - /usr/lib/linkerd/linkerd-await
+              - --timeout=2m
+              - --port=4191
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /live
+          port: 4191
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: linkerd-proxy
+      ports:
+        - containerPort: 4143
+          name: linkerd-proxy
+          protocol: TCP
+        - containerPort: 4191
+          name: linkerd-admin
+          protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /ready
+          port: 4191
+          scheme: HTTP
+        initialDelaySeconds: 2
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: "2"
+          memory: 2000Mi
+        requests:
+          cpu: 100m
+          memory: 20Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          add:
+            - NET_BIND_SERVICE
+          drop:
+            - ALL
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 2102
+        seccompProfile:
+          type: RuntimeDefault
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      volumeMounts:
+        - mountPath: /var/run/linkerd/identity/end-entity
+          name: linkerd-identity-end-entity
+        - mountPath: /var/run/secrets/tokens
+          name: linkerd-identity-token
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-lt555
+          readOnly: true
+    - args:
+        - -nginx-plus=true
+        - -nginx-reload-timeout=60000
+        - -enable-app-protect=false
+        - -enable-app-protect-dos=false
+        - -nginx-configmaps=$(POD_NAMESPACE)/nginx-ingress
+        - -default-server-tls-secret=$(POD_NAMESPACE)/nginx-ingress-default-server-tls
+        - -ingress-class=nginx
+        - -health-status=false
+        - -health-status-uri=/nginx-health
+        - -nginx-debug=false
+        - -v=1
+        - -nginx-status=true
+        - -nginx-status-port=8080
+        - -nginx-status-allow-cidrs=127.0.0.1
+        - -report-ingress-status
+        - -external-service=nginx-ingress-controller
+        - -enable-leader-election=true
+        - -leader-election-lock-name=nginx-ingress-leader
+        - -enable-prometheus-metrics=true
+        - -prometheus-metrics-listen-port=9113
+        - -prometheus-tls-secret=
+        - -enable-service-insight=false
+        - -service-insight-listen-port=9114
+        - -service-insight-tls-secret=
+        - -enable-custom-resources=true
+        - -enable-snippets=true
+        - -include-year=false
+        - -disable-ipv6=false
+        - -enable-tls-passthrough=false
+        - -enable-cert-manager=false
+        - -enable-oidc=false
+        - -enable-external-dns=false
+        - -default-http-listener-port=80
+        - -default-https-listener-port=443
+        - -ready-status=true
+        - -ready-status-port=8081
+        - -enable-latency-metrics=true
+        - -ssl-dynamic-reload=true
+      env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+      image: acrappcommoneus201.azurecr.io/nginx-plus-ingress:3.4.3
+      imagePullPolicy: IfNotPresent
+      name: nginx-ingress
+      ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        - containerPort: 9113
+          name: prometheus
+          protocol: TCP
+        - containerPort: 8081
+          name: readiness-port
+          protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /nginx-ready
+          port: readiness-port
+          scheme: HTTP
+        periodSeconds: 1
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          add:
+            - NET_BIND_SERVICE
+          drop:
+            - ALL
+        readOnlyRootFilesystem: false
+        runAsNonRoot: true
+        runAsUser: 101
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-lt555
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  initContainers:
+    - args:
+        - --ipv6=false
+        - --incoming-proxy-port
+        - "4143"
+        - --outgoing-proxy-port
+        - "4140"
+        - --proxy-uid
+        - "2102"
+        - --inbound-ports-to-ignore
+        - 4190,4191,4567,4568
+        - --outbound-ports-to-ignore
+        - 4567,4568
+      image: ghcr.io/buoyantio/proxy-init:enterprise-2.17.0-2
+      imagePullPolicy: IfNotPresent
+      name: linkerd-init
+      resources:
+        limits:
+          cpu: "2"
+          memory: 2000Mi
+        requests:
+          cpu: 100m
+          memory: 20Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          add:
+            - NET_ADMIN
+            - NET_RAW
+            - NET_BIND_SERVICE
+          drop:
+            - ALL
+        privileged: false
+        readOnlyRootFilesystem: true
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
+        seccompProfile:
+          type: RuntimeDefault
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: FallbackToLogsOnError
+      volumeMounts:
+        - mountPath: /run
+          name: linkerd-proxy-init-xtables-lock
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-lt555
+          readOnly: true
+  nodeName: aks-default-31319557-vmss000002
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+  serviceAccount: nginx-ingress
+  serviceAccountName: nginx-ingress
+  terminationGracePeriodSeconds: 30
+  tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+  volumes:
+    - name: kube-api-access-lt555
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace
+    - emptyDir: {}
+      name: linkerd-proxy-init-xtables-lock
+    - emptyDir:
+        medium: Memory
+      name: linkerd-identity-end-entity
+    - name: linkerd-identity-token
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              audience: identity.l5d.io
+              expirationSeconds: 86400
+              path: linkerd-identity-token
+status:
+  conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2025-06-02T19:20:19Z
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: 2025-06-02T19:20:20Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2025-06-02T19:20:31Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2025-06-02T19:20:31Z
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: 2025-06-02T19:20:18Z
+      status: "True"
+      type: PodScheduled
+  containerStatuses:
+    - containerID: containerd://930757bb538ab263d06bdae18162d38c1dccccd52f8a3c042ff3e7b8891158af
+      image: ghcr.io/buoyantio/proxy:enterprise-2.17.0-2
+      imageID: ghcr.io/buoyantio/proxy@sha256:835e83a294a8205c2300255e5103dcc78ea45699262486075173abf4663ddaf6
+      lastState: {}
+      name: linkerd-proxy
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: 2025-06-02T19:20:20Z
+    - containerID: containerd://535d0c42da2a2e8a53919612a6e4594079c68610ca8dd211a07df2175b2b20f4
+      image: acrappcommoneus201.azurecr.io/nginx-plus-ingress:3.4.3
+      imageID: acrappcommoneus201.azurecr.io/nginx-plus-ingress@sha256:af1831ef4a3b99a4eee89d9a948e86b78108ffc3fc256600ee2872b02c8e5d0f
+      lastState: {}
+      name: nginx-ingress
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: 2025-06-02T19:20:25Z
+  hostIP: 172.18.1.207
+  hostIPs:
+    - ip: 172.18.1.207
+  initContainerStatuses:
+    - containerID: containerd://95f325c01ea02935eb298486ca580f755b339bf8fa646b76410e9a2393c3f144
+      image: ghcr.io/buoyantio/proxy-init:enterprise-2.17.0-2
+      imageID: ghcr.io/buoyantio/proxy-init@sha256:52144985eed512a96868a6d3fead855e6393b12b5521253f750b817944974f56
+      lastState: {}
+      name: linkerd-init
+      ready: true
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: containerd://95f325c01ea02935eb298486ca580f755b339bf8fa646b76410e9a2393c3f144
+          exitCode: 0
+          finishedAt: 2025-06-02T19:20:19Z
+          reason: Completed
+          startedAt: 2025-06-02T19:20:19Z
+  phase: Running
+  podIP: 172.18.1.235
+  podIPs:
+    - ip: 172.18.1.235
+  qosClass: Burstable
+  startTime: 2025-06-02T19:20:18Z
