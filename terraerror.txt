@@ -1,0 +1,13 @@
+ Warning: Argument is deprecated
+│
+│   with azurerm_kubernetes_cluster.env["app"],
+│   on aks.tf line 155, in resource "azurerm_kubernetes_cluster" "env":
+│  155: managed = true
+│
+│ Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated
+│ and clusters can no longer be created with the Azure AD integration
+│ (legacy) enabled. This field must be supplied with the value `true` for
+│ AKS-managed Entra Integration, but will be removed and defaulted to `true`
+│ for the user in v4.0 of the AzureRM Provider.
+│
+│ (and 22 more similar warnings elsewhere)
