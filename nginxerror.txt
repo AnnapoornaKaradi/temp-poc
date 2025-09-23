@@ -1,0 +1,10 @@
+We are looking to soon retire the old "01" container registry, and so we will need to make sure nothing is referencing it. The nginx-ingress deployment is one thing we found that is not pulling from "02" ACR.
+
+root@SLKPIT01M3886:~# kubectl --context aks-dev2-eus2-01 get deployments --all-namespaces -o json | jq -r '.items[] | [.metadata.namespace, .metadata.name, (.spec.template.spec.containers[]?.image)] | @tsv' | grep 'acrappcommoneus201.azurecr.io' | awk -F '/' '{print $1}' | sort | uniq -c
+      1 adopipelinetestsvc      adopipelinetestsvc      acrappcommoneus201.azurecr.io
+      1 nginx-ingress   nginx-ingress-controller        acrappcommoneus201.azurecr.io
+      1 referencesvc    referencesvc    acrappcommoneus201.azurecr.io
+      1 spylog  spylog  acrappcommoneus201.azurecr.io
+
+
+Change nginx-ingress to pull image from acrappcommoneus202 instead of acrappcommoneus201
