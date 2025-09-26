@@ -1,0 +1,24 @@
+"C:\Program Files\KubeLogin\bin\windows_amd64\kubelogin.exe" convert-kubeconfig -l workloadidentity --v 20
+
+F:\azdevops_release\fnf\1\_work\_tool\helm\4.0.0-alpha.1\x64\windows-amd64\helm.exe upgrade --namespace dev-aks-genaimktg --install --force --set namespace=dev-aks-genaimktg --set image.tag=384772 --set appVersion=384772 --set fullnameOverride=genaimktgweb --force-replace genaimktgweb F:\azdevops_release\fnf\1\_work\413\Dev\genaimktg-0.1.0.tgz
+Flag --force has been deprecated, use --force-replace instead
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal 0xc0000005 code=0x0 addr=0x0 pc=0x2e84fd2]
+
+goroutine 1298 [running]:
+helm.sh/helm/v4/pkg/action.(*Upgrade).releasingUpgrade(0xc000612160, 0xc0001180e0, 0xc000949700, {0xc00042e840, 0x5, 0x8}, {0xc000c44d80, 0x5, 0x8}, 0xc0004ce100, ...)
+	helm.sh/helm/v4/pkg/action/upgrade.go:463 +0x772
+created by helm.sh/helm/v4/pkg/action.(*Upgrade).performUpgrade in goroutine 1
+	helm.sh/helm/v4/pkg/action/upgrade.go:402 +0x13be
+metadata: map[APIVersion:v2 Annotations:map[] AppVersion:1.16.38 Condition: Dependencies:[] Deprecated:false Description:Generative AI is used by fnf employee for accessing Open AI for getting their queries answered. Home: Icon:https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png Keywords:[] KubeVersion: Maintainers:[] Name:genaimktg Sources:[] Tags: Type:application Version:0.1.0]
+##[error]Flag --force has been deprecated, use --force-replace instead
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal 0xc0000005 code=0x0 addr=0x0 pc=0x2e84fd2]
+
+goroutine 1298 [running]:
+helm.sh/helm/v4/pkg/action.(*Upgrade).releasingUpgrade(0xc000612160, 0xc0001180e0, 0xc000949700, {0xc00042e840, 0x5, 0x8}, {0xc000c44d80, 0x5, 0x8}, 0xc0004ce100, ...)
+	helm.sh/helm/v4/pkg/action/upgrade.go:463 +0x772
+created by helm.sh/helm/v4/pkg/action.(*Upgrade).performUpgrade in goroutine 1
+	helm.sh/helm/v4/pkg/action/upgrade.go:402 +0x13be
+
+Finishing: HelmDeploy
