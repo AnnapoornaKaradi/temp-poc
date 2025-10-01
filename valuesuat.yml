@@ -1,0 +1,91 @@
+# Default values for webappdeployment.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 2
+#Start  custom attributes
+namespace: uat-aks-sinhuiapp
+env:
+  "ASPNETCORE_ENVIRONMENT": "Uat"
+  "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true"
+#End Custom attributes
+labels:
+    fnf_app_id1: "1944"
+    fnf_app_name: "SalesinHere"
+    fnf_businessservice_id: "1944.NONPROD"
+    fnf_costcenter: "01400.901771.160"
+    fnf_datacenter: "Azure"
+    fnf_lineofbusiness_id: "1"
+    fnf_parenthosting_id: "3.1"
+image:
+  repository: ccopaksacrnonprodapp.azurecr.io/sinh/sinhuiapp
+  pullPolicy: IfNotPresent
+  tag: "v0.1"
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "sinhuiapp"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext:
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  runAsUser: 1019
+  allowPrivilegeEscalation: false
+
+service:
+  type: ClusterIP
+  port: 8080
+ 
+ingress:
+  enabled: true
+  className: ""
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true" 
+    nginx.ingress.kubernetes.io/secure-backends: "true"    
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+ 
+    #new changes for testing
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "sinhuiapp-cookie"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
+    nginx.ingress.kubernetes.io/affinity-mode: persistent
+    nginx.ingress.kubernetes.io/session-cookie-hash: sha1
+  hosts:
+     - host: ui-uat.salesnavigator.fnf.com
+       paths:
+         - path: /
+           pathType: Prefix 
+  tls: 
+   - secretName: ui-uat.salesnavigator.fnf.com
+     hosts:
+       - ui-uat.salesnavigator.fnf.com
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: "750m"
+    memory: 750Mi
+  requests:
+    cpu: 500m
+    memory: 500Mi 
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+nodeSelector: {}
+tolerations: []
+affinity: {}
