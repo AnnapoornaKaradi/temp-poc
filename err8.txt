@@ -1,0 +1,10 @@
+Error: Invalid index
+
+  on aks_nginx_ingress.tf line 152, in resource "helm_release" "nginx_ingress":
+ 152: 		value = "${data.terraform_remote_state.common.outputs.container_registry["acrappcommoneus202"].fqdn}/nginx-plus-ingress"
+    |----------------
+    | data.terraform_remote_state.common.outputs.container_registry is object with 3 attributes
+
+The given key does not identify an element in this collection value.
+
+Terraform Plan Exit Code: 1
