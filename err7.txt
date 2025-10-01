@@ -1,0 +1,2 @@
+##[error]I1001 03:53:47.010810    2248 warnings.go:110] "Warning: annotation \"kubernetes.io/ingress.class\" is deprecated, please use 'spec.ingressClassName' instead"
+Error: admission webhook "validate.nginx.ingress.kubernetes.io" denied the request: nginx.ingress.kubernetes.io/configuration-snippet annotation cannot be used. Snippet directives are disabled by the Ingress administrator
