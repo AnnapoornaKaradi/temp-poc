@@ -1,0 +1,10 @@
+Error: Unsupported attribute
+
+  on aks_nginx_ingress.tf line 152, in resource "helm_release" "nginx_ingress":
+ 152: 		value = "${data.terraform_remote_state.common.outputs.container_registry_2.fqdn}/nginx-plus-ingress"
+    |----------------
+    | data.terraform_remote_state.common.outputs is object with 14 attributes
+
+This object does not have an attribute named "container_registry_2".
+
+Terraform Plan Exit Code: 1
