@@ -1,0 +1,423 @@
+2025-09-30T13:14:01.7361877Z ##[section]Starting: Terraform Plan
+2025-09-30T13:14:01.7371519Z ==============================================================================
+2025-09-30T13:14:01.7371793Z Task         : Azure CLI
+2025-09-30T13:14:01.7371917Z Description  : Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
+2025-09-30T13:14:01.7372301Z Version      : 2.259.1
+2025-09-30T13:14:01.7372442Z Author       : Microsoft Corporation
+2025-09-30T13:14:01.7372613Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli
+2025-09-30T13:14:01.7372904Z ==============================================================================
+2025-09-30T13:14:03.6391651Z [command]/usr/local/bin/az --version
+2025-09-30T13:14:04.4323726Z WARNING: You have 2 update(s) available. Consider updating your CLI installation with 'az upgrade'
+2025-09-30T13:14:04.4324325Z azure-cli                         2.76.0 *
+2025-09-30T13:14:04.4334282Z 
+2025-09-30T13:14:04.4335137Z core                              2.76.0 *
+2025-09-30T13:14:04.4337956Z telemetry                          1.1.0
+2025-09-30T13:14:04.4338864Z 
+2025-09-30T13:14:04.4339728Z Dependencies:
+2025-09-30T13:14:04.4340862Z msal                            1.33.0b1
+2025-09-30T13:14:04.4345604Z azure-mgmt-resource               23.3.0
+2025-09-30T13:14:04.4346029Z 
+2025-09-30T13:14:04.4346426Z Python location '/usr/bin/python3'
+2025-09-30T13:14:04.4346809Z Config directory '/home/AzDevOps/.azure'
+2025-09-30T13:14:04.4347297Z Extensions directory '/home/AzDevOps/.azure/cliextensions'
+2025-09-30T13:14:04.4347500Z 
+2025-09-30T13:14:04.4348366Z Python (Linux) 3.10.12 (main, Aug 15 2025, 14:32:43) [GCC 11.4.0]
+2025-09-30T13:14:04.4348597Z 
+2025-09-30T13:14:04.4348968Z Legal docs and information: aka.ms/AzureCliLegal
+2025-09-30T13:14:04.4349167Z 
+2025-09-30T13:14:04.4349427Z 
+2025-09-30T13:14:04.4360842Z Setting AZURE_CONFIG_DIR env variable to: /agent/_work/_temp/.azclitask
+2025-09-30T13:14:04.4362569Z Setting active cloud to: AzureCloud
+2025-09-30T13:14:04.4369088Z [command]/usr/local/bin/az cloud set -n AzureCloud
+2025-09-30T13:14:07.4927535Z [command]/usr/local/bin/az login --service-principal -u *** --password=*** --tenant 8a807b9b-02da-47f3-a903-791a42a2285c --allow-no-subscriptions
+2025-09-30T13:14:08.6121752Z [
+2025-09-30T13:14:08.6122503Z   {
+2025-09-30T13:14:08.6122814Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6123170Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6123630Z     "id": "63b7d481-6d18-4a56-bbec-0d3411477a0c",
+2025-09-30T13:14:08.6123966Z     "isDefault": true,
+2025-09-30T13:14:08.6124340Z     "managedByTenants": [],
+2025-09-30T13:14:08.6124690Z     "name": "SL-EXOS-Development-02",
+2025-09-30T13:14:08.6125013Z     "state": "Enabled",
+2025-09-30T13:14:08.6125377Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6125711Z     "user": {
+2025-09-30T13:14:08.6131614Z       "name": "***",
+2025-09-30T13:14:08.6132314Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6132608Z     }
+2025-09-30T13:14:08.6132867Z   },
+2025-09-30T13:14:08.6133112Z   {
+2025-09-30T13:14:08.6133408Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6133774Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6134181Z     "id": "a2ca26b7-774e-4207-801a-c45151ff310d",
+2025-09-30T13:14:08.6134533Z     "isDefault": false,
+2025-09-30T13:14:08.6134849Z     "managedByTenants": [],
+2025-09-30T13:14:08.6135187Z     "name": "SL-EXOS-ReleaseMGMT-01",
+2025-09-30T13:14:08.6135521Z     "state": "Enabled",
+2025-09-30T13:14:08.6135885Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6136240Z     "user": {
+2025-09-30T13:14:08.6136698Z       "name": "***",
+2025-09-30T13:14:08.6137025Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6138586Z     }
+2025-09-30T13:14:08.6138986Z   },
+2025-09-30T13:14:08.6139381Z   {
+2025-09-30T13:14:08.6139663Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6140606Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6141052Z     "id": "00d5d0e4-64fb-4d41-b953-241c4d2d8f99",
+2025-09-30T13:14:08.6141440Z     "isDefault": false,
+2025-09-30T13:14:08.6141795Z     "managedByTenants": [],
+2025-09-30T13:14:08.6142123Z     "name": "SL-EXOS-Performance-01",
+2025-09-30T13:14:08.6142467Z     "state": "Enabled",
+2025-09-30T13:14:08.6142835Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6143173Z     "user": {
+2025-09-30T13:14:08.6143613Z       "name": "***",
+2025-09-30T13:14:08.6143944Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6144214Z     }
+2025-09-30T13:14:08.6144465Z   },
+2025-09-30T13:14:08.6144702Z   {
+2025-09-30T13:14:08.6144989Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6145351Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6145770Z     "id": "8f2e2199-66ed-4b86-b236-6148a8425229",
+2025-09-30T13:14:08.6146122Z     "isDefault": false,
+2025-09-30T13:14:08.6146448Z     "managedByTenants": [],
+2025-09-30T13:14:08.6146771Z     "name": "SL-EXOS-UAT-02",
+2025-09-30T13:14:08.6147098Z     "state": "Enabled",
+2025-09-30T13:14:08.6147459Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6147808Z     "user": {
+2025-09-30T13:14:08.6148232Z       "name": "***",
+2025-09-30T13:14:08.6148544Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6148846Z     }
+2025-09-30T13:14:08.6149108Z   },
+2025-09-30T13:14:08.6149567Z   {
+2025-09-30T13:14:08.6149867Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6150243Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6151011Z     "id": "ac348851-c1e6-463a-a202-5041c8912fb8",
+2025-09-30T13:14:08.6151337Z     "isDefault": false,
+2025-09-30T13:14:08.6151630Z     "managedByTenants": [],
+2025-09-30T13:14:08.6151939Z     "name": "SL-EXOS-Production-01",
+2025-09-30T13:14:08.6152237Z     "state": "Enabled",
+2025-09-30T13:14:08.6152742Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6153079Z     "user": {
+2025-09-30T13:14:08.6153452Z       "name": "***",
+2025-09-30T13:14:08.6153749Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6154033Z     }
+2025-09-30T13:14:08.6154281Z   },
+2025-09-30T13:14:08.6154522Z   {
+2025-09-30T13:14:08.6154810Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6155187Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6155611Z     "id": "d57c9855-b4d0-4397-b3de-0fb34d24651e",
+2025-09-30T13:14:08.6155975Z     "isDefault": false,
+2025-09-30T13:14:08.6156287Z     "managedByTenants": [],
+2025-09-30T13:14:08.6156611Z     "name": "SL-EXOS-Stage-01",
+2025-09-30T13:14:08.6156934Z     "state": "Enabled",
+2025-09-30T13:14:08.6157307Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6157663Z     "user": {
+2025-09-30T13:14:08.6158064Z       "name": "***",
+2025-09-30T13:14:08.6158394Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6158702Z     }
+2025-09-30T13:14:08.6158971Z   },
+2025-09-30T13:14:08.6159412Z   {
+2025-09-30T13:14:08.6159740Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6160144Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6160585Z     "id": "ae71418a-ccf8-4445-9dcc-ab602fe53523",
+2025-09-30T13:14:08.6160960Z     "isDefault": false,
+2025-09-30T13:14:08.6161298Z     "managedByTenants": [],
+2025-09-30T13:14:08.6161653Z     "name": "SL-EXOS-Archival-01",
+2025-09-30T13:14:08.6161996Z     "state": "Enabled",
+2025-09-30T13:14:08.6162379Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6162739Z     "user": {
+2025-09-30T13:14:08.6163133Z       "name": "***",
+2025-09-30T13:14:08.6163480Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6163784Z     }
+2025-09-30T13:14:08.6164048Z   },
+2025-09-30T13:14:08.6164308Z   {
+2025-09-30T13:14:08.6164598Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6165000Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6165695Z     "id": "50f15040-5f4c-4730-889b-cabeb5339406",
+2025-09-30T13:14:08.6166070Z     "isDefault": false,
+2025-09-30T13:14:08.6166410Z     "managedByTenants": [],
+2025-09-30T13:14:08.6166761Z     "name": "SL-EXOS-DataScience-01",
+2025-09-30T13:14:08.6167107Z     "state": "Enabled",
+2025-09-30T13:14:08.6167496Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6167851Z     "user": {
+2025-09-30T13:14:08.6168238Z       "name": "***",
+2025-09-30T13:14:08.6168579Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6168889Z     }
+2025-09-30T13:14:08.6169154Z   },
+2025-09-30T13:14:08.6184880Z   {
+2025-09-30T13:14:08.6185274Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6185709Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6186160Z     "id": "8d1a8329-ea90-46a3-b900-8676c42ed761",
+2025-09-30T13:14:08.6186546Z     "isDefault": false,
+2025-09-30T13:14:08.6186881Z     "managedByTenants": [],
+2025-09-30T13:14:08.6187219Z     "name": "SL-EXOS-Sandbox-01",
+2025-09-30T13:14:08.6187561Z     "state": "Enabled",
+2025-09-30T13:14:08.6187922Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6188264Z     "user": {
+2025-09-30T13:14:08.6188687Z       "name": "***",
+2025-09-30T13:14:08.6189155Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6189643Z     }
+2025-09-30T13:14:08.6189995Z   },
+2025-09-30T13:14:08.6190275Z   {
+2025-09-30T13:14:08.6190581Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:08.6190994Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6191438Z     "id": "f1743aea-3bf1-4feb-9b59-8059836a5999",
+2025-09-30T13:14:08.6191811Z     "isDefault": false,
+2025-09-30T13:14:08.6192465Z     "managedByTenants": [],
+2025-09-30T13:14:08.6192806Z     "name": "SL-InfoSec",
+2025-09-30T13:14:08.6193139Z     "state": "Enabled",
+2025-09-30T13:14:08.6193720Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:08.6194082Z     "user": {
+2025-09-30T13:14:08.6194527Z       "name": "***",
+2025-09-30T13:14:08.6194879Z       "type": "servicePrincipal"
+2025-09-30T13:14:08.6195193Z     }
+2025-09-30T13:14:08.6195462Z   }
+2025-09-30T13:14:08.6195719Z ]
+2025-09-30T13:14:08.6196151Z [command]/usr/local/bin/az account set --subscription a2ca26b7-774e-4207-801a-c45151ff310d
+2025-09-30T13:14:09.1082683Z [command]/usr/bin/bash /agent/_work/1/BaseInfra_Build/PipelineTemplates/scripts/terraform_plan.sh
+2025-09-30T13:14:10.1653840Z Terraform v0.14.11
+2025-09-30T13:14:10.1654153Z 
+2025-09-30T13:14:10.1656807Z Your version of Terraform is out of date! The latest version
+2025-09-30T13:14:10.1657394Z is 1.13.3. You can update by downloading from https://www.terraform.io/downloads.html
+2025-09-30T13:14:10.8326145Z [
+2025-09-30T13:14:10.8327230Z   {
+2025-09-30T13:14:10.8327993Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8328763Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8329706Z     "id": "63b7d481-6d18-4a56-bbec-0d3411477a0c",
+2025-09-30T13:14:10.8330737Z     "isDefault": false,
+2025-09-30T13:14:10.8346873Z     "managedByTenants": [],
+2025-09-30T13:14:10.8347218Z     "name": "SL-EXOS-Development-02",
+2025-09-30T13:14:10.8347520Z     "state": "Enabled",
+2025-09-30T13:14:10.8347859Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8348181Z     "user": {
+2025-09-30T13:14:10.8348677Z       "name": "***",
+2025-09-30T13:14:10.8349086Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8349542Z     }
+2025-09-30T13:14:10.8349798Z   },
+2025-09-30T13:14:10.8350055Z   {
+2025-09-30T13:14:10.8350333Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8350707Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8351145Z     "id": "a2ca26b7-774e-4207-801a-c45151ff310d",
+2025-09-30T13:14:10.8351461Z     "isDefault": true,
+2025-09-30T13:14:10.8351731Z     "managedByTenants": [],
+2025-09-30T13:14:10.8352042Z     "name": "SL-EXOS-ReleaseMGMT-01",
+2025-09-30T13:14:10.8352328Z     "state": "Enabled",
+2025-09-30T13:14:10.8353097Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8353513Z     "user": {
+2025-09-30T13:14:10.8354043Z       "name": "***",
+2025-09-30T13:14:10.8354392Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8354709Z     }
+2025-09-30T13:14:10.8354984Z   },
+2025-09-30T13:14:10.8355241Z   {
+2025-09-30T13:14:10.8355562Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8355975Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8356411Z     "id": "00d5d0e4-64fb-4d41-b953-241c4d2d8f99",
+2025-09-30T13:14:10.8356792Z     "isDefault": false,
+2025-09-30T13:14:10.8357161Z     "managedByTenants": [],
+2025-09-30T13:14:10.8357546Z     "name": "SL-EXOS-Performance-01",
+2025-09-30T13:14:10.8357898Z     "state": "Enabled",
+2025-09-30T13:14:10.8358524Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8358882Z     "user": {
+2025-09-30T13:14:10.8359550Z       "name": "***",
+2025-09-30T13:14:10.8360281Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8360630Z     }
+2025-09-30T13:14:10.8360842Z   },
+2025-09-30T13:14:10.8361069Z   {
+2025-09-30T13:14:10.8361333Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8361611Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8361846Z     "id": "8f2e2199-66ed-4b86-b236-6148a8425229",
+2025-09-30T13:14:10.8362043Z     "isDefault": false,
+2025-09-30T13:14:10.8362223Z     "managedByTenants": [],
+2025-09-30T13:14:10.8362405Z     "name": "SL-EXOS-UAT-02",
+2025-09-30T13:14:10.8362582Z     "state": "Enabled",
+2025-09-30T13:14:10.8362785Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8362974Z     "user": {
+2025-09-30T13:14:10.8363516Z       "name": "***",
+2025-09-30T13:14:10.8363697Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8363863Z     }
+2025-09-30T13:14:10.8364004Z   },
+2025-09-30T13:14:10.8364145Z   {
+2025-09-30T13:14:10.8364311Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8364523Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8364760Z     "id": "ac348851-c1e6-463a-a202-5041c8912fb8",
+2025-09-30T13:14:10.8364954Z     "isDefault": false,
+2025-09-30T13:14:10.8365130Z     "managedByTenants": [],
+2025-09-30T13:14:10.8365317Z     "name": "SL-EXOS-Production-01",
+2025-09-30T13:14:10.8365499Z     "state": "Enabled",
+2025-09-30T13:14:10.8365697Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8365885Z     "user": {
+2025-09-30T13:14:10.8366088Z       "name": "***",
+2025-09-30T13:14:10.8366266Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8366429Z     }
+2025-09-30T13:14:10.8366571Z   },
+2025-09-30T13:14:10.8366717Z   {
+2025-09-30T13:14:10.8366883Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8367095Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8367323Z     "id": "d57c9855-b4d0-4397-b3de-0fb34d24651e",
+2025-09-30T13:14:10.8367519Z     "isDefault": false,
+2025-09-30T13:14:10.8367695Z     "managedByTenants": [],
+2025-09-30T13:14:10.8367879Z     "name": "SL-EXOS-Stage-01",
+2025-09-30T13:14:10.8368056Z     "state": "Enabled",
+2025-09-30T13:14:10.8368255Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8368442Z     "user": {
+2025-09-30T13:14:10.8368639Z       "name": "***",
+2025-09-30T13:14:10.8368817Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8368979Z     }
+2025-09-30T13:14:10.8369118Z   },
+2025-09-30T13:14:10.8369507Z   {
+2025-09-30T13:14:10.8369767Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8370089Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8370446Z     "id": "ae71418a-ccf8-4445-9dcc-ab602fe53523",
+2025-09-30T13:14:10.8370790Z     "isDefault": false,
+2025-09-30T13:14:10.8371087Z     "managedByTenants": [],
+2025-09-30T13:14:10.8371403Z     "name": "SL-EXOS-Archival-01",
+2025-09-30T13:14:10.8371716Z     "state": "Enabled",
+2025-09-30T13:14:10.8372068Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8372399Z     "user": {
+2025-09-30T13:14:10.8373201Z       "name": "***",
+2025-09-30T13:14:10.8373501Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8373754Z     }
+2025-09-30T13:14:10.8373989Z   },
+2025-09-30T13:14:10.8374220Z   {
+2025-09-30T13:14:10.8374456Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8374786Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8375190Z     "id": "50f15040-5f4c-4730-889b-cabeb5339406",
+2025-09-30T13:14:10.8375532Z     "isDefault": false,
+2025-09-30T13:14:10.8375826Z     "managedByTenants": [],
+2025-09-30T13:14:10.8376129Z     "name": "SL-EXOS-DataScience-01",
+2025-09-30T13:14:10.8376460Z     "state": "Enabled",
+2025-09-30T13:14:10.8376832Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8377167Z     "user": {
+2025-09-30T13:14:10.8377574Z       "name": "***",
+2025-09-30T13:14:10.8377916Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8378218Z     }
+2025-09-30T13:14:10.8378464Z   },
+2025-09-30T13:14:10.8378713Z   {
+2025-09-30T13:14:10.8379022Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8379653Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8380088Z     "id": "8d1a8329-ea90-46a3-b900-8676c42ed761",
+2025-09-30T13:14:10.8380452Z     "isDefault": false,
+2025-09-30T13:14:10.8380780Z     "managedByTenants": [],
+2025-09-30T13:14:10.8381115Z     "name": "SL-EXOS-Sandbox-01",
+2025-09-30T13:14:10.8381433Z     "state": "Enabled",
+2025-09-30T13:14:10.8381793Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8382135Z     "user": {
+2025-09-30T13:14:10.8382570Z       "name": "***",
+2025-09-30T13:14:10.8382901Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8383468Z     }
+2025-09-30T13:14:10.8383728Z   },
+2025-09-30T13:14:10.8383987Z   {
+2025-09-30T13:14:10.8384279Z     "cloudName": "AzureCloud",
+2025-09-30T13:14:10.8384723Z     "homeTenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8385133Z     "id": "f1743aea-3bf1-4feb-9b59-8059836a5999",
+2025-09-30T13:14:10.8385487Z     "isDefault": false,
+2025-09-30T13:14:10.8385808Z     "managedByTenants": [],
+2025-09-30T13:14:10.8386090Z     "name": "SL-InfoSec",
+2025-09-30T13:14:10.8386339Z     "state": "Enabled",
+2025-09-30T13:14:10.8386545Z     "tenantId": "8a807b9b-02da-47f3-a903-791a42a2285c",
+2025-09-30T13:14:10.8386735Z     "user": {
+2025-09-30T13:14:10.8387174Z       "name": "***",
+2025-09-30T13:14:10.8387470Z       "type": "servicePrincipal"
+2025-09-30T13:14:10.8387716Z     }
+2025-09-30T13:14:10.8387928Z   }
+2025-09-30T13:14:10.8388146Z ]
+2025-09-30T13:14:13.3132831Z 
+2025-09-30T13:14:13.3265730Z [0m[1mInitializing the backend...[0m
+2025-09-30T13:14:13.3266925Z [0m[32m
+2025-09-30T13:14:13.3267190Z Successfully configured the backend "azurerm"! Terraform will automatically
+2025-09-30T13:14:13.3267447Z use this backend unless the backend configuration changes.[0m
+2025-09-30T13:14:14.2223240Z 
+2025-09-30T13:14:14.2225536Z [0m[1mInitializing provider plugins...[0m
+2025-09-30T13:14:14.2226011Z - terraform.io/builtin/terraform is built in to Terraform
+2025-09-30T13:14:14.2226509Z - Finding hashicorp/random versions matching "~> 3.4.1"...
+2025-09-30T13:14:14.3078855Z - Finding hashicorp/azurerm versions matching "~> 3.117.0"...
+2025-09-30T13:14:14.3353571Z - Finding hashicorp/external versions matching "~> 2.1"...
+2025-09-30T13:14:14.3633696Z - Finding hashicorp/kubernetes versions matching "~> 2.17"...
+2025-09-30T13:14:14.3895193Z - Finding hashicorp/helm versions matching "~> 2.16.0"...
+2025-09-30T13:14:14.4160688Z - Finding azure/azapi versions matching "~> 1.12.0"...
+2025-09-30T13:14:14.4405997Z - Finding hashicorp/dns versions matching "~> 3.2"...
+2025-09-30T13:14:14.4678759Z - Finding chilicat/pkcs12 versions matching "~> 0.2.5"...
+2025-09-30T13:14:14.4917562Z - Finding hashicorp/tls versions matching "~> 3.4.0"...
+2025-09-30T13:14:14.5188076Z - Finding hashicorp/azuread versions matching "~> 2.46.0"...
+2025-09-30T13:14:14.5470663Z - Finding hashicorp/null versions matching "~> 3.1"...
+2025-09-30T13:14:14.5707440Z - Finding mastercard/restapi versions matching "1.20.0"...
+2025-09-30T13:14:14.5956281Z - Finding hashicorp/time versions matching "~> 0.5"...
+2025-09-30T13:14:14.6199454Z - Finding hashicorp/local versions matching "~> 2.1"...
+2025-09-30T13:14:14.7724136Z - Installing hashicorp/null v3.2.4...
+2025-09-30T13:14:15.0839836Z - Installed hashicorp/null v3.2.4 (signed by HashiCorp)
+2025-09-30T13:14:15.3437055Z - Installing mastercard/restapi v1.20.0...
+2025-09-30T13:14:15.7696674Z - Installed mastercard/restapi v1.20.0 (self-signed, key ID [0m[1mDCB8C431D71C30AB[0m[0m)
+2025-09-30T13:14:15.8988883Z - Installing hashicorp/kubernetes v2.38.0...
+2025-09-30T13:14:16.7416183Z - Installed hashicorp/kubernetes v2.38.0 (signed by HashiCorp)
+2025-09-30T13:14:16.8324417Z - Installing hashicorp/helm v2.16.1...
+2025-09-30T13:14:17.7021897Z - Installed hashicorp/helm v2.16.1 (signed by HashiCorp)
+2025-09-30T13:14:17.7856587Z - Installing hashicorp/dns v3.4.3...
+2025-09-30T13:14:18.1909492Z - Installed hashicorp/dns v3.4.3 (signed by HashiCorp)
+2025-09-30T13:14:18.2957336Z - Installing hashicorp/azuread v2.46.0...
+2025-09-30T13:14:18.6708151Z - Installed hashicorp/azuread v2.46.0 (signed by HashiCorp)
+2025-09-30T13:14:18.7692082Z - Installing hashicorp/tls v3.4.0...
+2025-09-30T13:14:19.0675263Z - Installed hashicorp/tls v3.4.0 (signed by HashiCorp)
+2025-09-30T13:14:19.1597371Z - Installing hashicorp/external v2.3.5...
+2025-09-30T13:14:19.4934339Z - Installed hashicorp/external v2.3.5 (signed by HashiCorp)
+2025-09-30T13:14:19.5893968Z - Installing hashicorp/local v2.5.3...
+2025-09-30T13:14:19.9249802Z - Installed hashicorp/local v2.5.3 (signed by HashiCorp)
+2025-09-30T13:14:20.0313475Z - Installing hashicorp/time v0.13.1...
+2025-09-30T13:14:20.3530597Z - Installed hashicorp/time v0.13.1 (signed by HashiCorp)
+2025-09-30T13:14:20.4484086Z - Installing hashicorp/random v3.4.3...
+2025-09-30T13:14:20.7288120Z - Installed hashicorp/random v3.4.3 (signed by HashiCorp)
+2025-09-30T13:14:20.8405695Z - Installing hashicorp/azurerm v3.117.1...
+2025-09-30T13:14:23.4797596Z - Installed hashicorp/azurerm v3.117.1 (signed by HashiCorp)
+2025-09-30T13:14:23.7539688Z - Installing azure/azapi v1.12.1...
+2025-09-30T13:14:25.1142815Z - Installed azure/azapi v1.12.1 (signed by a HashiCorp partner, key ID [0m[1m6F0B91BDE98478CF[0m[0m)
+2025-09-30T13:14:25.3663185Z - Installing chilicat/pkcs12 v0.2.5...
+2025-09-30T13:14:25.7769107Z - Installed chilicat/pkcs12 v0.2.5 (self-signed, key ID [0m[1mCD8E3D0A556B64E3[0m[0m)
+2025-09-30T13:14:25.7774230Z 
+2025-09-30T13:14:25.7774741Z Partner and community providers are signed by their developers.
+2025-09-30T13:14:25.7775138Z If you'd like to know more about provider signing, you can read about it here:
+2025-09-30T13:14:25.7775569Z https://www.terraform.io/docs/cli/plugins/signing.html
+2025-09-30T13:14:25.7775724Z 
+2025-09-30T13:14:25.7776329Z Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+2025-09-30T13:14:25.7776851Z selections it made above. Include this file in your version control repository
+2025-09-30T13:14:25.7777362Z so that Terraform can guarantee to make the same selections by default when
+2025-09-30T13:14:25.7777722Z you run "terraform init" in the future.[0m
+2025-09-30T13:14:25.7777871Z 
+2025-09-30T13:14:25.7778329Z [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+2025-09-30T13:14:25.7778761Z [0m[32m
+2025-09-30T13:14:25.7779166Z You may now begin working with Terraform. Try running "terraform plan" to see
+2025-09-30T13:14:25.7779730Z any changes that are required for your infrastructure. All Terraform commands
+2025-09-30T13:14:25.7780063Z should now work.
+2025-09-30T13:14:25.7780165Z 
+2025-09-30T13:14:25.7782616Z If you ever set or change modules or backend configuration for Terraform,
+2025-09-30T13:14:25.7783384Z rerun this command to reinitialize your working directory. If you forget, other
+2025-09-30T13:14:25.7783992Z commands will detect it and remind you to do so if necessary.[0m
+2025-09-30T13:14:36.4717150Z [31m
+2025-09-30T13:14:36.4718653Z [1m[31mError: [0m[0m[1mReference to undeclared resource[0m
+2025-09-30T13:14:36.4718914Z 
+2025-09-30T13:14:36.4719666Z [0m  on output.tf line 32, in output "container_registry_2":
+2025-09-30T13:14:36.4720296Z   32: 		id = [4mazurerm_container_registry_2.common2[0m.id
+2025-09-30T13:14:36.4720725Z [0m
+2025-09-30T13:14:36.4721166Z A managed resource "azurerm_container_registry_2" "common2" has not been
+2025-09-30T13:14:36.4721643Z declared in the root module.
+2025-09-30T13:14:36.4722062Z [0m[0m
+2025-09-30T13:14:36.4734588Z [31m
+2025-09-30T13:14:36.4736172Z [1m[31mError: [0m[0m[1mReference to undeclared resource[0m
+2025-09-30T13:14:36.4736956Z 
+2025-09-30T13:14:36.4744017Z [0m  on output.tf line 33, in output "container_registry_2":
+2025-09-30T13:14:36.4744796Z   33: 		name = [4mazurerm_container_registry_2.common2[0m.name
+2025-09-30T13:14:36.4745283Z [0m
+2025-09-30T13:14:36.4745687Z A managed resource "azurerm_container_registry_2" "common2" has not been
+2025-09-30T13:14:36.4746055Z declared in the root module.
+2025-09-30T13:14:36.4746368Z [0m[0m
+2025-09-30T13:14:36.4755506Z [31m
+2025-09-30T13:14:36.4763146Z [1m[31mError: [0m[0m[1mReference to undeclared resource[0m
+2025-09-30T13:14:36.4763409Z 
+2025-09-30T13:14:36.4764050Z [0m  on output.tf line 34, in output "container_registry_2":
+2025-09-30T13:14:36.4764680Z   34: 		fqdn = [4mazurerm_container_registry_2.common2[0m.login_server
+2025-09-30T13:14:36.4765187Z [0m
+2025-09-30T13:14:36.4765751Z A managed resource "azurerm_container_registry_2" "common2" has not been
+2025-09-30T13:14:36.4766934Z declared in the root module.
+2025-09-30T13:14:36.4767416Z [0m[0m
+2025-09-30T13:14:36.4859169Z Terraform Plan Exit Code: 1
+2025-09-30T13:14:36.4878778Z 
+2025-09-30T13:14:36.4925194Z ##[error]Script failed with exit code: 1
+2025-09-30T13:14:36.4944397Z [command]/usr/local/bin/az account clear
+2025-09-30T13:14:37.4325186Z ##[section]Finishing: Terraform Plan
