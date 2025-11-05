@@ -1,0 +1,470 @@
+2025-11-05T14:35:56.7619819Z 
+2025-11-05T14:35:56.7621904Z An execution plan has been generated and is shown below.
+2025-11-05T14:35:56.7623009Z Resource actions are indicated with the following symbols:
+2025-11-05T14:35:56.7623843Z   [33m~[0m update in-place
+2025-11-05T14:35:56.7624383Z  [36m<=[0m read (data resources)
+2025-11-05T14:35:56.7624803Z [0m
+2025-11-05T14:35:56.7625210Z Terraform will perform the following actions:
+2025-11-05T14:35:56.7625417Z 
+2025-11-05T14:35:56.7758187Z [1m  # data.azurerm_monitor_diagnostic_categories.common_acr[0m will be read during apply
+2025-11-05T14:35:56.7761072Z   # (config refers to values not yet known)[0m[0m
+2025-11-05T14:35:56.7761791Z [0m [36m<=[0m[0m data "azurerm_monitor_diagnostic_categories" "common_acr"  {
+2025-11-05T14:35:56.7766443Z       [33m~[0m [0m[1m[0mid[0m[0m                  = "/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-infra-common-eus2-01/providers/Microsoft.ContainerRegistry/registries/acrappcommoneus201" [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7768197Z       [33m~[0m [0m[1m[0mlog_category_groups[0m[0m = [
+2025-11-05T14:35:56.7769007Z           [31m-[0m [0m"allLogs",
+2025-11-05T14:35:56.7769809Z           [31m-[0m [0m"audit",
+2025-11-05T14:35:56.7771354Z         ] [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7771874Z       [33m~[0m [0m[1m[0mlog_category_types[0m[0m  = [
+2025-11-05T14:35:56.7772402Z           [31m-[0m [0m"ContainerRegistryLoginEvents",
+2025-11-05T14:35:56.7772949Z           [31m-[0m [0m"ContainerRegistryRepositoryEvents",
+2025-11-05T14:35:56.7773463Z         ] [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7773950Z       [33m~[0m [0m[1m[0mlogs[0m[0m                = [
+2025-11-05T14:35:56.7774454Z           [31m-[0m [0m"ContainerRegistryLoginEvents",
+2025-11-05T14:35:56.7774982Z           [31m-[0m [0m"ContainerRegistryRepositoryEvents",
+2025-11-05T14:35:56.7775423Z         ] [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7776047Z       [33m~[0m [0m[1m[0mmetrics[0m[0m             = [
+2025-11-05T14:35:56.7776500Z           [31m-[0m [0m"AllMetrics",
+2025-11-05T14:35:56.7777003Z         ] [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7777516Z         [90m# (1 unchanged attribute hidden)[0m[0m
+2025-11-05T14:35:56.7777685Z 
+2025-11-05T14:35:56.7778095Z       [32m+[0m [0mtimeouts {
+2025-11-05T14:35:56.7778625Z           [32m+[0m [0m[1m[0mread[0m[0m = (known after apply)
+2025-11-05T14:35:56.7778969Z         }
+2025-11-05T14:35:56.7779338Z     }
+2025-11-05T14:35:56.7779689Z 
+2025-11-05T14:35:56.7780252Z [1m  # data.azurerm_storage_account_sas.tools[0m will be read during apply
+2025-11-05T14:35:56.7780855Z   # (config refers to values not yet known)[0m[0m
+2025-11-05T14:35:56.7781425Z [0m [36m<=[0m[0m data "azurerm_storage_account_sas" "tools"  {
+2025-11-05T14:35:56.7782203Z       [33m~[0m [0m[1m[0mexpiry[0m[0m            = "2025-10-27T19:47:38Z" [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7783180Z       [33m~[0m [0m[1m[0mid[0m[0m                = "11ab840086fc473f6544e07e6bdef9ca38617017cf91eaf012ea5c6d5bd37fe4" [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7791394Z       [33m~[0m [0m[1m[0msas[0m[0m               = (sensitive value)
+2025-11-05T14:35:56.7792642Z       [31m-[0m [0m[1m[0msigned_version[0m[0m    = "2017-07-29" [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7793567Z       [33m~[0m [0m[1m[0mstart[0m[0m             = "2025-10-27T18:47:38Z" [33m->[0m [0m(known after apply)
+2025-11-05T14:35:56.7794284Z         [90m# (2 unchanged attributes hidden)[0m[0m
+2025-11-05T14:35:56.7794467Z 
+2025-11-05T14:35:56.7794578Z 
+2025-11-05T14:35:56.7794714Z 
+2025-11-05T14:35:56.7794821Z 
+2025-11-05T14:35:56.7795181Z       [32m+[0m [0mtimeouts {
+2025-11-05T14:35:56.7795609Z           [32m+[0m [0m[1m[0mread[0m[0m = (known after apply)
+2025-11-05T14:35:56.7795796Z         }
+2025-11-05T14:35:56.7796037Z         [90m# (3 unchanged blocks hidden)[0m[0m
+2025-11-05T14:35:56.7796220Z     }
+2025-11-05T14:35:56.7796273Z 
+2025-11-05T14:35:56.7820563Z [1m  # azurerm_container_registry.common[0m will be updated in-place[0m[0m
+2025-11-05T14:35:56.7822606Z [0m  [33m~[0m[0m resource "azurerm_container_registry" "common" {
+2025-11-05T14:35:56.7826174Z         [1m[0mid[0m[0m                            = "/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-infra-common-eus2-01/providers/Microsoft.ContainerRegistry/registries/acrappcommoneus201"
+2025-11-05T14:35:56.7828947Z         [1m[0mname[0m[0m                          = "acrappcommoneus201"
+2025-11-05T14:35:56.7830243Z       [33m~[0m [0m[1m[0mpublic_network_access_enabled[0m[0m = true [33m->[0m [0mfalse
+2025-11-05T14:35:56.7832013Z         [1m[0mtags[0m[0m                          = {
+2025-11-05T14:35:56.7837520Z             "environment"            = "Common"
+2025-11-05T14:35:56.7837891Z             "fnf_app_id1"            = "272"
+2025-11-05T14:35:56.7840413Z             "fnf_app_name"           = "EXOS"
+2025-11-05T14:35:56.7841435Z             "fnf_businessservice_id" = "272.PROD"
+2025-11-05T14:35:56.7841955Z             "fnf_costcenter"         = "07062.205083.300"
+2025-11-05T14:35:56.7844488Z             "fnf_datacenter"         = "Azure"
+2025-11-05T14:35:56.7848194Z             "fnf_lineofbusiness_id"  = "2"
+2025-11-05T14:35:56.7848610Z             "fnf_parenthosting_id"   = "4.1"
+2025-11-05T14:35:56.7849025Z         }
+2025-11-05T14:35:56.7852492Z         [90m# (15 unchanged attributes hidden)[0m[0m
+2025-11-05T14:35:56.7853269Z 
+2025-11-05T14:35:56.7853581Z 
+2025-11-05T14:35:56.7854270Z         [90m# (2 unchanged blocks hidden)[0m[0m
+2025-11-05T14:35:56.7854573Z     }
+2025-11-05T14:35:56.7854681Z 
+2025-11-05T14:35:56.7855286Z [1m  # azurerm_monitor_diagnostic_setting.common_acr[0m will be updated in-place[0m[0m
+2025-11-05T14:35:56.7855994Z [0m  [33m~[0m[0m resource "azurerm_monitor_diagnostic_setting" "common_acr" {
+2025-11-05T14:35:56.7860926Z         [1m[0mid[0m[0m                         = "/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-infra-common-eus2-01/providers/Microsoft.ContainerRegistry/registries/acrappcommoneus201|log_all"
+2025-11-05T14:35:56.7861743Z         [1m[0mname[0m[0m                       = "log_all"
+2025-11-05T14:35:56.7862277Z         [90m# (2 unchanged attributes hidden)[0m[0m
+2025-11-05T14:35:56.7862493Z 
+2025-11-05T14:35:56.7862887Z       [31m-[0m [0menabled_log {
+2025-11-05T14:35:56.7865980Z           [31m-[0m [0m[1m[0mcategory[0m[0m = "ContainerRegistryLoginEvents" [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7866483Z 
+2025-11-05T14:35:56.7866881Z           [31m-[0m [0mretention_policy {
+2025-11-05T14:35:56.7869688Z               [31m-[0m [0m[1m[0mdays[0m[0m    = 31 [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7870401Z               [31m-[0m [0m[1m[0menabled[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7870694Z             }
+2025-11-05T14:35:56.7870855Z         }
+2025-11-05T14:35:56.7871073Z       [31m-[0m [0menabled_log {
+2025-11-05T14:35:56.7883271Z           [31m-[0m [0m[1m[0mcategory[0m[0m = "ContainerRegistryRepositoryEvents" [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7883588Z 
+2025-11-05T14:35:56.7884039Z           [31m-[0m [0mretention_policy {
+2025-11-05T14:35:56.7887591Z               [31m-[0m [0m[1m[0mdays[0m[0m    = 31 [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7888242Z               [31m-[0m [0m[1m[0menabled[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7888598Z             }
+2025-11-05T14:35:56.7888874Z         }
+2025-11-05T14:35:56.7889390Z       [32m+[0m [0menabled_log {
+2025-11-05T14:35:56.7889979Z           [32m+[0m [0m[1m[0mcategory[0m[0m = (known after apply)
+2025-11-05T14:35:56.7890257Z         }
+2025-11-05T14:35:56.7890354Z 
+2025-11-05T14:35:56.7890479Z 
+2025-11-05T14:35:56.7890863Z       [31m-[0m [0mmetric {
+2025-11-05T14:35:56.7891693Z           [31m-[0m [0m[1m[0mcategory[0m[0m = "AllMetrics" [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7897036Z           [31m-[0m [0m[1m[0menabled[0m[0m  = true [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7897353Z 
+2025-11-05T14:35:56.7897890Z           [31m-[0m [0mretention_policy {
+2025-11-05T14:35:56.7898484Z               [31m-[0m [0m[1m[0mdays[0m[0m    = 31 [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7899119Z               [31m-[0m [0m[1m[0menabled[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
+2025-11-05T14:35:56.7899642Z             }
+2025-11-05T14:35:56.7899926Z         }
+2025-11-05T14:35:56.7900224Z       [32m+[0m [0mmetric {
+2025-11-05T14:35:56.7900507Z           [32m+[0m [0m[1m[0mcategory[0m[0m = (known after apply)
+2025-11-05T14:35:56.7900808Z           [32m+[0m [0m[1m[0menabled[0m[0m  = (known after apply)
+2025-11-05T14:35:56.7900989Z         }
+2025-11-05T14:35:56.7901232Z         [90m# (2 unchanged blocks hidden)[0m[0m
+2025-11-05T14:35:56.7901606Z     }
+2025-11-05T14:35:56.7901661Z 
+2025-11-05T14:35:56.8368175Z [1m  # azurerm_network_security_group.common["build_wus2"][0m will be updated in-place[0m[0m
+2025-11-05T14:35:56.8368948Z [0m  [33m~[0m[0m resource "azurerm_network_security_group" "common" {
+2025-11-05T14:35:56.8373177Z         [1m[0mid[0m[0m                  = "/subscriptions/a2ca26b7-774e-4207-801a-c45151ff310d/resourceGroups/rg-net-common-wus2-01/providers/Microsoft.Network/networkSecurityGroups/nsg-build-common-wus2-01"
+2025-11-05T14:35:56.8375755Z         [1m[0mname[0m[0m                = "nsg-build-common-wus2-01"
+2025-11-05T14:35:56.8376523Z       [33m~[0m [0m[1m[0msecurity_rule[0m[0m       = [
+2025-11-05T14:35:56.8377141Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8377703Z               [31m-[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8378334Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8378892Z               [31m-[0m [0mdestination_address_prefix                 = ""
+2025-11-05T14:35:56.8379707Z               [31m-[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8380235Z                   [31m-[0m [0m"10.144.24.36",
+2025-11-05T14:35:56.8380698Z                   [31m-[0m [0m"10.144.24.37",
+2025-11-05T14:35:56.8381019Z                 ]
+2025-11-05T14:35:56.8381555Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8382143Z               [31m-[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8413641Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8424081Z               [31m-[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8427780Z               [31m-[0m [0mname                                       = "outbound_ad_domains_tcp"
+2025-11-05T14:35:56.8430437Z               [31m-[0m [0mpriority                                   = 110
+2025-11-05T14:35:56.8433188Z               [31m-[0m [0mprotocol                                   = "Tcp"
+2025-11-05T14:35:56.8434488Z               [31m-[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8435534Z               [31m-[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8436123Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8436703Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8437253Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8437582Z             },
+2025-11-05T14:35:56.8437961Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8438474Z               [31m-[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8439001Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8439745Z               [31m-[0m [0mdestination_address_prefix                 = ""
+2025-11-05T14:35:56.8440308Z               [31m-[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8440808Z                   [31m-[0m [0m"10.144.24.36",
+2025-11-05T14:35:56.8441278Z                   [31m-[0m [0m"10.144.24.37",
+2025-11-05T14:35:56.8441575Z                 ]
+2025-11-05T14:35:56.8442106Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8442684Z               [31m-[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8443236Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8443789Z               [31m-[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8444383Z               [31m-[0m [0mname                                       = "outbound_ad_domains_udp"
+2025-11-05T14:35:56.8444933Z               [31m-[0m [0mpriority                                   = 111
+2025-11-05T14:35:56.8445700Z               [31m-[0m [0mprotocol                                   = "Udp"
+2025-11-05T14:35:56.8446270Z               [31m-[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8446838Z               [31m-[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8447410Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8447955Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8448479Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8448867Z             },
+2025-11-05T14:35:56.8449365Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8449876Z               [31m-[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8450394Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8450941Z               [31m-[0m [0mdestination_address_prefix                 = ""
+2025-11-05T14:35:56.8451508Z               [31m-[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8452013Z                   [31m-[0m [0m"10.172.165.211",
+2025-11-05T14:35:56.8452491Z                   [31m-[0m [0m"10.172.165.44",
+2025-11-05T14:35:56.8452806Z                 ]
+2025-11-05T14:35:56.8453332Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8454104Z               [31m-[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8454589Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8455084Z               [31m-[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8455666Z               [31m-[0m [0mname                                       = "outbound_to_mac_server_icmp"
+2025-11-05T14:35:56.8456224Z               [31m-[0m [0mpriority                                   = 201
+2025-11-05T14:35:56.8456803Z               [31m-[0m [0mprotocol                                   = "Icmp"
+2025-11-05T14:35:56.8470552Z               [31m-[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8471328Z               [31m-[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8471862Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8472405Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8472930Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8473250Z             },
+2025-11-05T14:35:56.8473591Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8473993Z               [31m-[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8474422Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8474898Z               [31m-[0m [0mdestination_address_prefix                 = ""
+2025-11-05T14:35:56.8475410Z               [31m-[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8475898Z                   [31m-[0m [0m"10.172.165.211",
+2025-11-05T14:35:56.8476340Z                   [31m-[0m [0m"10.172.165.44",
+2025-11-05T14:35:56.8476630Z                 ]
+2025-11-05T14:35:56.8477104Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8477652Z               [31m-[0m [0mdestination_port_range                     = "22"
+2025-11-05T14:35:56.8478163Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8478675Z               [31m-[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8479454Z               [31m-[0m [0mname                                       = "outbound_to_mac_server_tcp"
+2025-11-05T14:35:56.8480315Z               [31m-[0m [0mpriority                                   = 200
+2025-11-05T14:35:56.8480829Z               [31m-[0m [0mprotocol                                   = "Tcp"
+2025-11-05T14:35:56.8481359Z               [31m-[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8481937Z               [31m-[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8482488Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8482995Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8483436Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8483721Z             },
+2025-11-05T14:35:56.8484111Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8486864Z               [31m-[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8487755Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8488581Z               [31m-[0m [0mdestination_address_prefix                 = "10.163.32.0/28"
+2025-11-05T14:35:56.8496955Z               [31m-[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8502812Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8503545Z               [31m-[0m [0mdestination_port_range                     = "3389"
+2025-11-05T14:35:56.8504118Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8504984Z               [31m-[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8505596Z               [31m-[0m [0mname                                       = "rdp_from_fnf_bastion"
+2025-11-05T14:35:56.8506168Z               [31m-[0m [0mpriority                                   = 1000
+2025-11-05T14:35:56.8506654Z               [31m-[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8507052Z               [31m-[0m [0msource_address_prefix                      = ""
+2025-11-05T14:35:56.8507461Z               [31m-[0m [0msource_address_prefixes                    = [
+2025-11-05T14:35:56.8507833Z                   [31m-[0m [0m"10.164.10.10",
+2025-11-05T14:35:56.8508231Z                   [31m-[0m [0m"10.164.10.11",
+2025-11-05T14:35:56.8508604Z                   [31m-[0m [0m"10.164.10.12",
+2025-11-05T14:35:56.8509021Z                   [31m-[0m [0m"10.164.10.13",
+2025-11-05T14:35:56.8509583Z                   [31m-[0m [0m"10.164.10.24",
+2025-11-05T14:35:56.8510019Z                   [31m-[0m [0m"10.164.10.26",
+2025-11-05T14:35:56.8511141Z                   [31m-[0m [0m"10.164.10.30",
+2025-11-05T14:35:56.8511585Z                   [31m-[0m [0m"10.164.10.7",
+2025-11-05T14:35:56.8512058Z                   [31m-[0m [0m"10.164.10.8",
+2025-11-05T14:35:56.8512523Z                   [31m-[0m [0m"10.164.10.9",
+2025-11-05T14:35:56.8515299Z                   [31m-[0m [0m"10.164.136.64/26",
+2025-11-05T14:35:56.8515922Z                   [31m-[0m [0m"10.164.149.164",
+2025-11-05T14:35:56.8516401Z                   [31m-[0m [0m"10.164.149.165",
+2025-11-05T14:35:56.8516890Z                   [31m-[0m [0m"10.165.149.164",
+2025-11-05T14:35:56.8517375Z                   [31m-[0m [0m"10.165.149.165",
+2025-11-05T14:35:56.8517687Z                 ]
+2025-11-05T14:35:56.8518216Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8518788Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8519464Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8519867Z             },
+2025-11-05T14:35:56.8520250Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8520768Z               [32m+[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8521289Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8522137Z               [32m+[0m [0mdestination_address_prefix                 = "10.163.32.0/28"
+2025-11-05T14:35:56.8522725Z               [32m+[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8523319Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8523870Z               [32m+[0m [0mdestination_port_range                     = "3389"
+2025-11-05T14:35:56.8524437Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8525011Z               [32m+[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8525601Z               [32m+[0m [0mname                                       = "rdp_from_fnf_bastion"
+2025-11-05T14:35:56.8526147Z               [32m+[0m [0mpriority                                   = 140
+2025-11-05T14:35:56.8526670Z               [32m+[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8527202Z               [32m+[0m [0msource_address_prefix                      = ""
+2025-11-05T14:35:56.8527773Z               [32m+[0m [0msource_address_prefixes                    = [
+2025-11-05T14:35:56.8528281Z                   [32m+[0m [0m"10.164.10.10",
+2025-11-05T14:35:56.8528765Z                   [32m+[0m [0m"10.164.10.11",
+2025-11-05T14:35:56.8529360Z                   [32m+[0m [0m"10.164.10.12",
+2025-11-05T14:35:56.8529899Z                   [32m+[0m [0m"10.164.10.13",
+2025-11-05T14:35:56.8530486Z                   [32m+[0m [0m"10.164.10.24",
+2025-11-05T14:35:56.8530866Z                   [32m+[0m [0m"10.164.10.26",
+2025-11-05T14:35:56.8531259Z                   [32m+[0m [0m"10.164.10.30",
+2025-11-05T14:35:56.8531745Z                   [32m+[0m [0m"10.164.10.7",
+2025-11-05T14:35:56.8532179Z                   [32m+[0m [0m"10.164.10.8",
+2025-11-05T14:35:56.8532621Z                   [32m+[0m [0m"10.164.10.9",
+2025-11-05T14:35:56.8533131Z                   [32m+[0m [0m"10.164.136.64/26",
+2025-11-05T14:35:56.8533627Z                   [32m+[0m [0m"10.164.149.164",
+2025-11-05T14:35:56.8534117Z                   [32m+[0m [0m"10.164.149.165",
+2025-11-05T14:35:56.8534590Z                   [32m+[0m [0m"10.165.149.164",
+2025-11-05T14:35:56.8535073Z                   [32m+[0m [0m"10.165.149.165",
+2025-11-05T14:35:56.8535386Z                 ]
+2025-11-05T14:35:56.8535899Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8536466Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8537009Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8537330Z             },
+2025-11-05T14:35:56.8537704Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8538206Z               [31m-[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8538750Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8539452Z               [31m-[0m [0mdestination_address_prefix                 = "10.163.32.0/28"
+2025-11-05T14:35:56.8540039Z               [31m-[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8540636Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8541245Z               [31m-[0m [0mdestination_port_range                     = "3389"
+2025-11-05T14:35:56.8541994Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8542532Z               [31m-[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8545212Z               [31m-[0m [0mname                                       = "rdp_from_prod_wvd"
+2025-11-05T14:35:56.8546561Z               [31m-[0m [0mpriority                                   = 1001
+2025-11-05T14:35:56.8547569Z               [31m-[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8548776Z               [31m-[0m [0msource_address_prefix                      = ""
+2025-11-05T14:35:56.8552094Z               [31m-[0m [0msource_address_prefixes                    = [
+2025-11-05T14:35:56.8558192Z                   [31m-[0m [0m"10.143.110.192/26",
+2025-11-05T14:35:56.8558725Z                   [31m-[0m [0m"10.163.59.0/26",
+2025-11-05T14:35:56.8559070Z                 ]
+2025-11-05T14:35:56.8559772Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8560833Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8561377Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8561701Z             },
+2025-11-05T14:35:56.8562074Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8562589Z               [32m+[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8563120Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8563734Z               [32m+[0m [0mdestination_address_prefix                 = "10.163.32.0/28"
+2025-11-05T14:35:56.8564310Z               [32m+[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8564899Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8565485Z               [32m+[0m [0mdestination_port_range                     = "3389"
+2025-11-05T14:35:56.8566043Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8566828Z               [32m+[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8570566Z               [32m+[0m [0mname                                       = "rdp_from_prod_wvd"
+2025-11-05T14:35:56.8572210Z               [32m+[0m [0mpriority                                   = 150
+2025-11-05T14:35:56.8572757Z               [32m+[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8573282Z               [32m+[0m [0msource_address_prefix                      = ""
+2025-11-05T14:35:56.8573820Z               [32m+[0m [0msource_address_prefixes                    = [
+2025-11-05T14:35:56.8574324Z                   [32m+[0m [0m"10.143.110.192/26",
+2025-11-05T14:35:56.8574807Z                   [32m+[0m [0m"10.163.59.0/26",
+2025-11-05T14:35:56.8575119Z                 ]
+2025-11-05T14:35:56.8575636Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8576219Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8576744Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8577064Z             },
+2025-11-05T14:35:56.8577438Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8578286Z               [32m+[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8578799Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8579653Z               [32m+[0m [0mdestination_address_prefix                 = [90mnull[0m[0m
+2025-11-05T14:35:56.8580271Z               [32m+[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8580799Z                   [32m+[0m [0m"10.144.24.36",
+2025-11-05T14:35:56.8581421Z                   [32m+[0m [0m"10.144.24.37",
+2025-11-05T14:35:56.8581832Z                 ]
+2025-11-05T14:35:56.8582378Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8583052Z               [32m+[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8583796Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8584780Z               [32m+[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8587252Z               [32m+[0m [0mname                                       = "outbound_ad_domains_tcp"
+2025-11-05T14:35:56.8589616Z               [32m+[0m [0mpriority                                   = 110
+2025-11-05T14:35:56.8590295Z               [32m+[0m [0mprotocol                                   = "Tcp"
+2025-11-05T14:35:56.8594865Z               [32m+[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8596710Z               [32m+[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8597340Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8598068Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8599176Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8599907Z             },
+2025-11-05T14:35:56.8600471Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8600981Z               [32m+[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8601541Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8602154Z               [32m+[0m [0mdestination_address_prefix                 = [90mnull[0m[0m
+2025-11-05T14:35:56.8603362Z               [32m+[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8604166Z                   [32m+[0m [0m"10.144.24.36",
+2025-11-05T14:35:56.8604990Z                   [32m+[0m [0m"10.144.24.37",
+2025-11-05T14:35:56.8605553Z                 ]
+2025-11-05T14:35:56.8606454Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8607332Z               [32m+[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8611177Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8611796Z               [32m+[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8612309Z               [32m+[0m [0mname                                       = "outbound_ad_domains_udp"
+2025-11-05T14:35:56.8612826Z               [32m+[0m [0mpriority                                   = 111
+2025-11-05T14:35:56.8613316Z               [32m+[0m [0mprotocol                                   = "Udp"
+2025-11-05T14:35:56.8614052Z               [32m+[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8615794Z               [32m+[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8616534Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8620027Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8629649Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8633548Z             },
+2025-11-05T14:35:56.8636771Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8643349Z               [32m+[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8643931Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8644513Z               [32m+[0m [0mdestination_address_prefix                 = [90mnull[0m[0m
+2025-11-05T14:35:56.8645121Z               [32m+[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8645638Z                   [32m+[0m [0m"10.172.165.211",
+2025-11-05T14:35:56.8646118Z                   [32m+[0m [0m"10.172.165.44",
+2025-11-05T14:35:56.8646435Z                 ]
+2025-11-05T14:35:56.8653148Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8653922Z               [32m+[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8654476Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8655069Z               [32m+[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8655717Z               [32m+[0m [0mname                                       = "outbound_to_mac_server_icmp"
+2025-11-05T14:35:56.8656552Z               [32m+[0m [0mpriority                                   = 201
+2025-11-05T14:35:56.8657086Z               [32m+[0m [0mprotocol                                   = "Icmp"
+2025-11-05T14:35:56.8657683Z               [32m+[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8658259Z               [32m+[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8658843Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8665136Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8666903Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8667187Z             },
+2025-11-05T14:35:56.8672883Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8676133Z               [32m+[0m [0maccess                                     = "Allow"
+2025-11-05T14:35:56.8685514Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8689460Z               [32m+[0m [0mdestination_address_prefix                 = [90mnull[0m[0m
+2025-11-05T14:35:56.8692062Z               [32m+[0m [0mdestination_address_prefixes               = [
+2025-11-05T14:35:56.8696017Z                   [32m+[0m [0m"10.172.165.211",
+2025-11-05T14:35:56.8696469Z                   [32m+[0m [0m"10.172.165.44",
+2025-11-05T14:35:56.8696749Z                 ]
+2025-11-05T14:35:56.8697460Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8697952Z               [32m+[0m [0mdestination_port_range                     = "22"
+2025-11-05T14:35:56.8698392Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8701278Z               [32m+[0m [0mdirection                                  = "Outbound"
+2025-11-05T14:35:56.8702291Z               [32m+[0m [0mname                                       = "outbound_to_mac_server_tcp"
+2025-11-05T14:35:56.8703036Z               [32m+[0m [0mpriority                                   = 200
+2025-11-05T14:35:56.8703889Z               [32m+[0m [0mprotocol                                   = "Tcp"
+2025-11-05T14:35:56.8706575Z               [32m+[0m [0msource_address_prefix                      = "10.163.32.0/28"
+2025-11-05T14:35:56.8707096Z               [32m+[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8725411Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8727284Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8728103Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8745195Z             },
+2025-11-05T14:35:56.8745668Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8746108Z               [31m-[0m [0maccess                                     = "Deny"
+2025-11-05T14:35:56.8748462Z               [31m-[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8748985Z               [31m-[0m [0mdestination_address_prefix                 = "*"
+2025-11-05T14:35:56.8749795Z               [31m-[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8750302Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8750800Z               [31m-[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8751316Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8753248Z               [31m-[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8753718Z               [31m-[0m [0mname                                       = "block_all"
+2025-11-05T14:35:56.8754214Z               [31m-[0m [0mpriority                                   = 4095
+2025-11-05T14:35:56.8754972Z               [31m-[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8756982Z               [31m-[0m [0msource_address_prefix                      = "*"
+2025-11-05T14:35:56.8757510Z               [31m-[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8758059Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8760080Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8760590Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8760847Z             },
+2025-11-05T14:35:56.8761130Z           [32m+[0m [0m{
+2025-11-05T14:35:56.8761520Z               [32m+[0m [0maccess                                     = "Deny"
+2025-11-05T14:35:56.8761970Z               [32m+[0m [0mdescription                                = ""
+2025-11-05T14:35:56.8762506Z               [32m+[0m [0mdestination_address_prefix                 = "*"
+2025-11-05T14:35:56.8763087Z               [32m+[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8764466Z               [32m+[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8765033Z               [32m+[0m [0mdestination_port_range                     = "*"
+2025-11-05T14:35:56.8765479Z               [32m+[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8765933Z               [32m+[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8766606Z               [32m+[0m [0mname                                       = "block_all"
+2025-11-05T14:35:56.8767076Z               [32m+[0m [0mpriority                                   = 4096
+2025-11-05T14:35:56.8767513Z               [32m+[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8767966Z               [32m+[0m [0msource_address_prefix                      = "*"
+2025-11-05T14:35:56.8768446Z               [32m+[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8768996Z               [32m+[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8769649Z               [32m+[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8770161Z               [32m+[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8770453Z             },
+2025-11-05T14:35:56.8770829Z           [31m-[0m [0m{
+2025-11-05T14:35:56.8771317Z               [31m-[0m [0maccess                                     = "Deny"
+2025-11-05T14:35:56.8772002Z               [31m-[0m [0mdescription                                = "MDC JIT Network Access rule for policy 'default' of VM 'bld2commonwus21'."
+2025-11-05T14:35:56.8772572Z               [31m-[0m [0mdestination_address_prefix                 = "10.163.32.5"
+2025-11-05T14:35:56.8773053Z               [31m-[0m [0mdestination_address_prefixes               = []
+2025-11-05T14:35:56.8773634Z               [31m-[0m [0mdestination_application_security_group_ids = []
+2025-11-05T14:35:56.8774245Z               [31m-[0m [0mdestination_port_range                     = "6516"
+2025-11-05T14:35:56.8774769Z               [31m-[0m [0mdestination_port_ranges                    = []
+2025-11-05T14:35:56.8775297Z               [31m-[0m [0mdirection                                  = "Inbound"
+2025-11-05T14:35:56.8776308Z               [31m-[0m [0mname                                       = "MicrosoftDefenderForCloud-JITRule_375196293_3774688F30E04074AB33960F3C1A8A38"
+2025-11-05T14:35:56.8782336Z               [31m-[0m [0mpriority                                   = 4096
+2025-11-05T14:35:56.8782939Z               [31m-[0m [0mprotocol                                   = "*"
+2025-11-05T14:35:56.8783427Z               [31m-[0m [0msource_address_prefix                      = "*"
+2025-11-05T14:35:56.8787510Z               [31m-[0m [0msource_address_prefixes                    = []
+2025-11-05T14:35:56.8793149Z               [31m-[0m [0msource_application_security_group_ids      = []
+2025-11-05T14:35:56.8793829Z               [31m-[0m [0msource_port_range                          = "*"
+2025-11-05T14:35:56.8794378Z               [31m-[0m [0msource_port_ranges                         = []
+2025-11-05T14:35:56.8794931Z             },
+2025-11-05T14:35:56.8795675Z             [90m# (1 unchanged element hidden)[0m[0m
+2025-11-05T14:35:56.8796032Z         ]
+2025-11-05T14:35:56.8796480Z         [1m[0mtags[0m[0m                = {
+2025-11-05T14:35:56.8796815Z             "environment"            = "Common"
+2025-11-05T14:35:56.8797145Z             "fnf_app_id1"            = "272"
+2025-11-05T14:35:56.8797463Z             "fnf_app_name"           = "EXOS"
+2025-11-05T14:35:56.8797820Z             "fnf_businessservice_id" = "272.PROD"
+2025-11-05T14:35:56.8798206Z             "fnf_costcenter"         = "07062.205083.300"
+2025-11-05T14:35:56.8798540Z             "fnf_datacenter"         = "Azure"
+2025-11-05T14:35:56.8798900Z             "fnf_lineofbusiness_id"  = "2"
+2025-11-05T14:35:56.8799358Z             "fnf_parenthosting_id"   = "4.1"
+2025-11-05T14:35:56.8799665Z         }
+2025-11-05T14:35:56.8800146Z         [90m# (2 unchanged attributes hidden)[0m[0m
+2025-11-05T14:35:56.8803168Z     }
+2025-11-05T14:35:56.8803694Z 
+2025-11-05T14:35:56.8804463Z [0m[1mPlan:[0m 0 to add, 3 to change, 0 to destroy.[0m
