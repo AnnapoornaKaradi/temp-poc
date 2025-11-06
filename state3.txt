@@ -1,1 +1,12 @@
 i want to add this attribute public_network_access_enabled = false
+
+
+When acr01 fw was set to block,,
+
+Step 00 null resource that synch ingress images started to fail.
+
+We need to do some code enhancement to support smoother transition. Proposed solution is to add maintenance mode support.
+
+Currently common/container script have all variables defined locally. They need to be moved into the global_spec.
+Once is moved into global spec we can use add maintenance mode spec to control
+will provide more detail in the next synch up.
